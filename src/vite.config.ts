@@ -5,6 +5,7 @@
 
   export default defineConfig({
     plugins: [react()],
+    base: '/jsts_developer_6yrs/',
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
@@ -56,6 +57,5 @@
     server: {
       port: 3000,
       open: true,
-    },
-    base:"/jsts_developer_6yrs"
+    }
   });
