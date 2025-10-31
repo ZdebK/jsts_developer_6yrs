@@ -13,13 +13,13 @@ export function Contact() {
     {
       icon: <Mail className="w-5 h-5" />,
       label: t("contact.email"),
-      value: "twoj.email@example.com",
+      value: "kas.elzbieciak@gmail.com",
       color: "#569cd6",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: t("contact.phone"),
-      value: "+48 123 456 789",
+      value: "+48 888 435 618",
       color: "#4ec9b0",
     },
     {

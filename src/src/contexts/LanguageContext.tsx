@@ -21,34 +21,38 @@ const translations = {
     "nav.contact": "Kontakt",
     
     // Hero
-    "hero.name": "Twoje Imię",
+    "hero.name": "Katarzyna Elżbieciak",
     "hero.title": "Full Stack Developer",
-    "hero.location": "Warszawa, Polska",
+    "hero.location": "Kraków, Polska",
     "hero.description": "Pasjonat programowania z doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w React, TypeScript i Node.js.",
     "hero.contact": "Kontakt",
     
-    // Experience
-    "exp.title": "Doświadczenie",
-    "exp.senior": "Senior Full Stack Developer",
-    "exp.full": "Full Stack Developer",
-    "exp.frontend": "Frontend Developer",
-    "exp.company1": "Tech Company Sp. z o.o.",
-    "exp.company2": "Startup XYZ",
-    "exp.company3": "Digital Agency",
-    "exp.period1": "2022 - obecnie",
-    "exp.period2": "2020 - 2022",
-    "exp.period3": "2018 - 2020",
-    "exp.desc1.1": "Projektowanie i implementacja skalowalnych aplikacji webowych",
-    "exp.desc1.2": "Współpraca z zespołem w metodologii Agile/Scrum",
-    "exp.desc1.3": "Mentoring juniorskich programistów",
-    "exp.desc1.4": "Optymalizacja wydajności aplikacji",
-    "exp.desc2.1": "Rozwój i utrzymanie aplikacji SaaS",
-    "exp.desc2.2": "Implementacja RESTful API",
-    "exp.desc2.3": "Integracja z zewnętrznymi serwisami",
-    "exp.desc2.4": "Pisanie testów jednostkowych i E2E",
-    "exp.desc3.1": "Tworzenie responsywnych stron internetowych",
-    "exp.desc3.2": "Implementacja designów z Figma/Adobe XD",
-    "exp.desc3.3": "Optymalizacja SEO i wydajności",
+  // Experience
+  "exp.title": "Doświadczenie",
+  "exp.senior": "Software Developer - Specialist",
+  "exp.full": "Software Developer",
+  "exp.frontend": "Frontend Developer",
+  "exp.company1": "Calix Technology Poland | Software Developer - Specialist",
+  "exp.company2": "Delphi Technologies | Software Developer - Intern",
+  "exp.company3": "Digital Agency",
+  "exp.period1": "Jan 2019 - Aug 2025",
+  "exp.period2": "Sep 2017 - Oct 2018",
+  "exp.period3": "2018 - 2020",
+  // Calix Technology Poland (main role)
+  "exp.desc1.1": "JavaScript, TypeScript, PlanckJS (Angular-like framework), SQL",
+  "exp.desc1.2": "Delivered full-stack features across frontend and backend, ensuring high-quality and maintainable code.",
+  "exp.desc1.3": "Participated in Agile methodology: sprint planning, daily stand-ups, retrospectives.",
+  "exp.desc1.4": "Implementing clean code based on design patterns and coding standards; experience with GIT and CI/CD.",
+  "exp.desc1.5": "Designed and implemented end-to-end automated tests using Puppeteer; created load and performance testing scripts with JMeter and k6.",
+  "exp.desc1.6": "Provided client-facing support, resolving production issues and offering technical guidance under time pressure.",
+  // Delphi Technologies (internship)
+  "exp.desc2.1": "Java, Angular; Microsoft Cognitive Services API",
+  "exp.desc2.2": "Developed a PoC Angular web app for Face Recognition login using Microsoft Cognitive Services API.",
+  "exp.desc2.3": "Built a Skype/Slack chatbot for business use cases.",
+  // fallback/other
+  "exp.desc3.1": "Tworzenie responsywnych stron internetowych",
+  "exp.desc3.2": "Implementacja designów z Figma/Adobe XD",
+  "exp.desc3.3": "Optymalizacja SEO i wydajności",
     
     // Education
     "edu.title": "Edukacja",
@@ -92,8 +96,8 @@ const translations = {
     "contact.name": "Imię",
     "contact.message": "Wiadomość",
     "contact.send": "Wyślij wiadomość",
-    "contact.placeholder.name": "Twoje imię",
-    "contact.placeholder.email": "twoj.email@example.com",
+    "contact.placeholder.name": "Katarzyna Elżbieciak",
+    "contact.placeholder.email": "kas.elzbieciak@gmail.com",
     "contact.placeholder.message": "Twoja wiadomość...",
     
     // Footer
