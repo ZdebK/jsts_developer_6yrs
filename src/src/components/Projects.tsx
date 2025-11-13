@@ -14,7 +14,7 @@ interface ProjectProps {
 
 function ProjectCard({ title, description, technologies, github, demo }: ProjectProps) {
   return (
-    <Card className="card--interactive flex flex-col">
+    <Card className="card--interactive flex flex-col h-full">
       <div className="flex items-start justify-between mb-4">
         <div className="icon-container--warning">
           <Folder className="w-6 h-6" />
@@ -63,44 +63,44 @@ export function Projects() {
   
   const projects: ProjectProps[] = [
     {
-      title: t("projects.ecommerce.title"),
-      description: t("projects.ecommerce.desc"),
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker"],
+      title: t("projects.mes.title"),
+      description: t("projects.mes.desc"),
+      technologies: ["Node.js", "PostgreSQL", "HTML", "CSS"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.task.title"),
-      description: t("projects.task.desc"),
-      technologies: ["Next.js", "TypeScript", "MongoDB", "Socket.io", "AWS"],
+      title: t("projects.puppeteer.title"),
+      description: t("projects.puppeteer.desc"),
+      technologies: ["Node.js", "Puppeteer", "Cucumber"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.social.title"),
-      description: t("projects.social.desc"),
-      technologies: ["React", "D3.js", "Express", "Redis", "Chart.js"],
+      title: t("projects.aws.title"),
+      description: t("projects.aws.desc"),
+      technologies: ["Node.js", "AWS SDK", "JavaScript"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.weather.title"),
-      description: t("projects.weather.desc"),
-      technologies: ["Vue.js", "OpenWeather API", "Leaflet", "PWA"],
+      title: t("projects.zus.title"),
+      description: t("projects.zus.desc"),
+      technologies: ["React", "HTML", "CSS"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.blog.title"),
-      description: t("projects.blog.desc"),
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
+      title: t("projects.ai.title"),
+      description: t("projects.ai.desc"),
+      technologies: ["React", "Node.js", "AI", "Figma API"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.fitness.title"),
-      description: t("projects.fitness.desc"),
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
+      title: t("projects.shop.title"),
+      description: t("projects.shop.desc"),
+      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker", "WordPress"],
       github: "#",
     },
   ];
