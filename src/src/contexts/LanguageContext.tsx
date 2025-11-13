@@ -10,8 +10,18 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations = {
+// shared/static values that shouldn't be duplicated across languages
+const shared: Record<string, string> = {
+  "hero.name": "Katarzyna Elżbieciak",
+  "person.email": "kas.elzbieciak@gmail.com",
+  "person.phone": "+48 888 435 618",
+  "person.location": "Kraków, Domgały 41a",
+};
+
+const translations: Record<Language, Record<string, string>> = {
   pl: {
+    // spread shared values first so language-specific keys can override when needed
+    ...shared,
     // Navigation
     "nav.about": "O mnie",
     "nav.experience": "Doświadczenie",
@@ -21,7 +31,7 @@ const translations = {
     "nav.contact": "Kontakt",
     
     // Hero
-    "hero.name": "Katarzyna Elżbieciak",
+  // hero.name comes from shared
     "hero.title": "Full Stack Developer",
     "hero.location": "Kraków, Polska",
     "hero.description": "Pasjonat programowania z doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w React, TypeScript i Node.js.",
@@ -87,18 +97,19 @@ const translations = {
     "projects.fitness.title": "Fitness Tracker",
     "projects.fitness.desc": "Aplikacja do śledzenia aktywności fizycznej, diet i postępów treningowych.",
     
-    // Contact
-    "contact.title": "Kontakt",
-    "contact.subtitle": "Masz projekt lub propozycję współpracy? Skontaktuj się ze mną!",
-    "contact.email": "Email",
-    "contact.phone": "Telefon",
-    "contact.location": "Lokalizacja",
-    "contact.name": "Imię",
-    "contact.message": "Wiadomość",
-    "contact.send": "Wyślij wiadomość",
-    "contact.placeholder.name": "Katarzyna Elżbieciak",
-    "contact.placeholder.email": "kas.elzbieciak@gmail.com",
-    "contact.placeholder.message": "Twoja wiadomość...",
+  // Contact
+  "contact.title": "Kontakt",
+  "contact.subtitle": "Masz projekt lub propozycję współpracy? Skontaktuj się ze mną!",
+  "contact.email": "Email",
+  "contact.phone": "Telefon",
+  "contact.location": "Lokalizacja",
+  "contact.name": "Imię",
+  "contact.message": "Wiadomość",
+  "contact.send": "Wyślij wiadomość",
+  // placeholders - keep language-appropriate placeholders but reuse shared data when relevant
+  "contact.placeholder.name": shared["hero.name"],
+  "contact.placeholder.email": shared["person.email"],
+  "contact.placeholder.message": "Twoja wiadomość...",
     
     // Footer
     "footer.made": "Stworzone z",
@@ -122,7 +133,7 @@ const translations = {
     "nav.contact": "Contact",
     
     // Hero
-    "hero.name": "Your Name",
+  // hero.name comes from shared (real name)
     "hero.title": "Full Stack Developer",
     "hero.location": "Warsaw, Poland",
     "hero.description": "Programming enthusiast with experience in creating modern web applications. I specialize in React, TypeScript, and Node.js.",
@@ -184,18 +195,19 @@ const translations = {
     "projects.fitness.title": "Fitness Tracker",
     "projects.fitness.desc": "Application for tracking physical activity, diet, and training progress.",
     
-    // Contact
-    "contact.title": "Contact",
-    "contact.subtitle": "Have a project or collaboration proposal? Get in touch!",
-    "contact.email": "Email",
-    "contact.phone": "Phone",
-    "contact.location": "Location",
-    "contact.name": "Name",
-    "contact.message": "Message",
-    "contact.send": "Send message",
-    "contact.placeholder.name": "Your name",
-    "contact.placeholder.email": "your.email@example.com",
-    "contact.placeholder.message": "Your message...",
+  // Contact
+  "contact.title": "Contact",
+  "contact.subtitle": "Have a project or collaboration proposal? Get in touch!",
+  "contact.email": "Email",
+  "contact.phone": "Phone",
+  "contact.location": "Location",
+  "contact.name": "Name",
+  "contact.message": "Message",
+  "contact.send": "Send message",
+  // placeholders where appropriate; reuse shared personal data as defaults
+  "contact.placeholder.name": shared["hero.name"],
+  "contact.placeholder.email": shared["person.email"],
+  "contact.placeholder.message": "Your message...",
     
     // Footer
     "footer.made": "Made with",
@@ -215,7 +227,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("pl");
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations.pl] || key;
+    const langMap = translations[language] || {};
+    if (Object.prototype.hasOwnProperty.call(langMap, key)) {
+      return langMap[key];
+    }
+    // fallback to English if available
+    const fallback = translations.en || {};
+    if (Object.prototype.hasOwnProperty.call(fallback, key)) {
+      return fallback[key];
+    }
+    return key;
   };
 
   return (
