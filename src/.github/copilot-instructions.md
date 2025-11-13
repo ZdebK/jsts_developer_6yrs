@@ -27,7 +27,7 @@ npm run dev
 
 2. Styling:
    - Uses Tailwind CSS for styling
-   - Dark theme with colors: bg-[#1e1e1e], text-[#d4d4d4]
+   - Dark theme with colors: `bg-[1e1e1e]`, `text-[d4d4d4]`
    - Components use Radix UI primitives for accessibility
 
 3. Internationalization:
