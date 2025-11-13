@@ -1,0 +1,281 @@
+// ============================================================================
+// REUSABLE COMPONENT STYLES
+// ============================================================================
+
+@use './variables.scss' as *;
+
+// ============================================================================
+// CARD STYLING
+// ============================================================================
+
+%card-base {
+  padding: $spacing-md * 1.5;
+  background-color: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: 0.375rem;
+}
+
+%card-hover {
+  @extend %card-base;
+  transition: $transition-default;
+  
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+%card-interactive {
+  @extend %card-hover;
+  
+  &:hover {
+    border-color: $color-primary;
+    transform: scale(1.05);
+  }
+}
+
+// ============================================================================
+// TEXT & TYPOGRAPHY
+// ============================================================================
+
+%text-primary {
+  color: $color-light;
+  font-size: $font-size-base;
+  line-height: 1.5;
+}
+
+%text-muted {
+  color: $color-muted;
+  font-size: $font-size-sm;
+}
+
+%text-accent {
+  color: $color-accent;
+}
+
+%text-secondary {
+  color: $color-secondary;
+}
+
+%text-tertiary {
+  color: $color-tertiary;
+}
+
+%section-title {
+  font-size: clamp($font-size-2xl, 5vw, $font-size-4xl);
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+}
+
+// ============================================================================
+// SECTION LAYOUTS
+// ============================================================================
+
+%section-base {
+  padding: $spacing-2xl $spacing-md;
+  width: 100%;
+}
+
+%section-full-height {
+  @extend %section-base;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%section-with-background {
+  @extend %section-base;
+  background-color: $color-bg-section;
+}
+
+%container {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+%container-large {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+// ============================================================================
+// ICON CONTAINERS
+// ============================================================================
+
+%icon-container-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm;
+  background-color: rgba($color-primary, 0.1);
+  border-radius: 0.5rem;
+  
+  svg {
+    width: $spacing-xl;
+    height: $spacing-xl;
+    color: $color-primary;
+  }
+}
+
+%icon-container-accent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm;
+  background-color: rgba($color-accent, 0.1);
+  border-radius: 0.5rem;
+  
+  svg {
+    width: $spacing-xl;
+    height: $spacing-xl;
+    color: $color-accent;
+  }
+}
+
+%icon-container-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm;
+  background-color: rgba($color-warning, 0.1);
+  border-radius: 0.5rem;
+  
+  svg {
+    width: $spacing-xl;
+    height: $spacing-xl;
+    color: $color-warning;
+  }
+}
+
+// ============================================================================
+// FLEX & LAYOUT UTILITIES
+// ============================================================================
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-center-col {
+  @extend %flex-center;
+  flex-direction: column;
+}
+
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%gap-md {
+  gap: $spacing-md * 1.5;
+}
+
+%gap-lg {
+  gap: $spacing-lg * 2;
+}
+
+// ============================================================================
+// BORDERS & DIVIDERS
+// ============================================================================
+
+%border-light {
+  border: 1px solid $color-border;
+}
+
+%border-top-light {
+  border-top: 1px solid $color-border;
+}
+
+%divider {
+  width: 5rem;
+  height: 0.25rem;
+  background-color: $color-primary;
+  border-radius: 0.25rem;
+}
+
+// ============================================================================
+// HOVER & INTERACTIVE STATES
+// ============================================================================
+
+%button-hover-primary {
+  background-color: $color-primary;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+%button-outline {
+  border: 1px solid $color-border;
+  background-color: transparent;
+  transition: $transition-default;
+  
+  &:hover {
+    background-color: color-mix(in srgb, $color-bg-dark 95%, white);
+  }
+}
+
+%link-hover {
+  cursor: pointer;
+  transition: $transition-colors;
+  
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+// ============================================================================
+// MIXINS
+// ============================================================================
+
+@mixin responsive-padding($mobile: $spacing-md, $tablet: $spacing-xl, $desktop: $spacing-2xl) {
+  padding: $mobile;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: $tablet;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    padding: $desktop;
+  }
+}
+
+@mixin responsive-font-size($mobile: $font-size-base, $tablet: $font-size-lg, $desktop: $font-size-xl) {
+  font-size: $mobile;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $tablet;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: $desktop;
+  }
+}
+
+@mixin truncate-lines($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin gradient-text($color-start: $color-tertiary, $color-end: $color-secondary) {
+  background: linear-gradient(135deg, $color-start, $color-end);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin shadow-soft {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+@mixin shadow-medium {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+}

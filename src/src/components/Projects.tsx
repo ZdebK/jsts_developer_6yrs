@@ -14,10 +14,10 @@ interface ProjectProps {
 
 function ProjectCard({ title, description, technologies, github, demo }: ProjectProps) {
   return (
-    <Card className="p-6 bg-[#252526] border-[#3e3e42] hover:border-[#007acc] transition-all hover:scale-105 flex flex-col">
+    <Card className="card--interactive flex flex-col">
       <div className="flex items-start justify-between mb-4">
-        <div className="p-3 bg-[#c586c0]/10 rounded-lg">
-          <Folder className="w-6 h-6 text-[#c586c0]" />
+        <div className="icon-container--warning">
+          <Folder className="w-6 h-6" />
         </div>
         <div className="flex gap-2">
           {github && (
@@ -41,14 +41,14 @@ function ProjectCard({ title, description, technologies, github, demo }: Project
         </div>
       </div>
       
-      <h3 className="text-[#dcdcaa] mb-3">{title}</h3>
-      <p className="text-[#d4d4d4] mb-4 flex-1">{description}</p>
+      <h3 className="text--tertiary mb-3">{title}</h3>
+      <p className="text mb-4 flex-1">{description}</p>
       
       <div className="flex flex-wrap gap-2">
         {technologies.map((tech, index) => (
           <span
             key={index}
-            className="text-[#858585]"
+            className="text--muted"
           >
             {tech}
           </span>
@@ -106,16 +106,16 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-[#1a1a1a]">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="section section--with-bg">
+      <div className="container--large">
         <AnimatedSection>
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text-[#858585]">{"<"}</span>
-              <span className="text-[#569cd6]">{t("projects.title")}</span>
-              <span className="text-[#858585]">{" />"}</span>
+              <span className="text--muted">{"<"}</span>
+              <span className="text--secondary">{t("projects.title")}</span>
+              <span className="text--muted">{" />"}</span>
             </h2>
-            <div className="h-1 w-20 bg-[#007acc] rounded"></div>
+            <div className="divider"></div>
           </div>
         </AnimatedSection>
 

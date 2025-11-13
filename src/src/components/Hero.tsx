@@ -7,17 +7,17 @@ export function Hero() {
   const { t } = useLanguage();
   
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center px-4 pt-16">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="about" className="section section--full-height">
+      <div className="container text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="text-[#858585]">const</span>{" "}
-          <span className="text-[#4ec9b0]">developer</span>{" "}
-          <span className="text-[#858585]">=</span>{" "}
+          <span className="text--muted">const</span>{" "}
+          <span className="text--accent">developer</span>{" "}
+          <span className="text--muted">=</span>{" "}
           <span className="text-[#ce9178]">{"{"}</span>
         </motion.div>
         
@@ -27,15 +27,15 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl mb-4"
         >
-          <span className="text-[#dcdcaa]">{t("hero.name").split(" ")[0]}</span>{" "}
-          <span className="text-[#569cd6]">{t("hero.name").split(" ")[1]}</span>
+          <span className="text--tertiary">{t("hero.name").split(" ")[0]}</span>{" "}
+          <span className="text--secondary">{t("hero.name").split(" ")[1]}</span>
         </motion.h1>
         
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-2xl md:text-3xl mb-6 text-[#4ec9b0]"
+          className="text-2xl md:text-3xl mb-6 text--accent"
         >
           {t("hero.title")}
         </motion.h2>
@@ -44,7 +44,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-2 mb-8 text-[#858585]"
+          className="flex items-center justify-center gap-2 mb-8 text--muted"
         >
           <MapPin className="w-4 h-4" />
           <span>{t("hero.location")}</span>
@@ -54,7 +54,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg mb-8 max-w-2xl mx-auto text-[#d4d4d4]"
+          className="text-lg mb-8 max-w-2xl mx-auto text"
         >
           {t("hero.description")}
         </motion.p>
@@ -66,7 +66,7 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-4"
         >
           <Button 
-            className="bg-[#007acc] hover:bg-[#005a9e] text-white"
+            className="btn--primary"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             <Mail className="w-4 h-4 mr-2" />
@@ -75,7 +75,7 @@ export function Hero() {
           <Button 
             asChild
             variant="outline" 
-            className="border-[#3e3e42] hover:bg-[#2d2d30]"
+            className="btn--outline"
           >
             <a href="https://github.com/ZdebK" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4 mr-2" />
@@ -85,7 +85,7 @@ export function Hero() {
           <Button 
             asChild
             variant="outline" 
-            className="border-[#3e3e42] hover:bg-[#2d2d30]"
+            className="btn--outline"
           >
             <a href="https://www.linkedin.com/in/kas-elzbieciak/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4 mr-2" />

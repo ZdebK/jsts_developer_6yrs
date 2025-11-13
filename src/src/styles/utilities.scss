@@ -1,0 +1,252 @@
+// ============================================================================
+// GLOBAL REUSABLE CLASSES
+// ============================================================================
+
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+
+// ============================================================================
+// LAYOUT CLASSES
+// ============================================================================
+
+.section {
+  @extend %section-base;
+}
+
+.section--full-height {
+  @extend %section-full-height;
+}
+
+.section--with-bg {
+  @extend %section-with-background;
+}
+
+.container {
+  @extend %container;
+}
+
+.container--large {
+  @extend %container-large;
+}
+
+// ============================================================================
+// TYPOGRAPHY CLASSES
+// ============================================================================
+
+.text {
+  @extend %text-primary;
+}
+
+.text--muted {
+  @extend %text-muted;
+}
+
+.text--accent {
+  @extend %text-accent;
+}
+
+.text--secondary {
+  @extend %text-secondary;
+}
+
+.text--tertiary {
+  @extend %text-tertiary;
+}
+
+// ============================================================================
+// CARD CLASSES
+// ============================================================================
+
+.card {
+  @extend %card-base;
+}
+
+.card--hover {
+  @extend %card-hover;
+}
+
+.card--interactive {
+  @extend %card-interactive;
+}
+
+// ============================================================================
+// FLEXBOX UTILITIES
+// ============================================================================
+
+.flex-center {
+  @extend %flex-center;
+}
+
+.flex-center-col {
+  @extend %flex-center-col;
+}
+
+.flex-between {
+  @extend %flex-between;
+}
+
+.gap-md {
+  @extend %gap-md;
+}
+
+.gap-lg {
+  @extend %gap-lg;
+}
+
+// ============================================================================
+// ICON CONTAINER CLASSES
+// ============================================================================
+
+.icon-container--primary {
+  @extend %icon-container-primary;
+}
+
+.icon-container--accent {
+  @extend %icon-container-accent;
+}
+
+.icon-container--warning {
+  @extend %icon-container-warning;
+}
+
+// ============================================================================
+// BUTTON CLASSES
+// ============================================================================
+
+.btn--primary {
+  @extend %button-hover-primary;
+  padding: $spacing-md $spacing-lg;
+  border-radius: 0.375rem;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: $transition-default;
+  color: white;
+  border: none;
+}
+
+.btn--outline {
+  @extend %button-outline;
+  padding: $spacing-md $spacing-lg;
+  border-radius: 0.375rem;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  color: $color-light;
+}
+
+// ============================================================================
+// DIVIDERS & BORDERS
+// ============================================================================
+
+.divider {
+  @extend %divider;
+}
+
+.border--light {
+  @extend %border-light;
+}
+
+.border--top-light {
+  @extend %border-top-light;
+}
+
+// ============================================================================
+// INTERACTIVE UTILITIES
+// ============================================================================
+
+.link--hover {
+  @extend %link-hover;
+}
+
+// ============================================================================
+// SPACING UTILITIES
+// ============================================================================
+
+.mb-2 {
+  margin-bottom: $spacing-md * 0.5;
+}
+
+.mb-4 {
+  margin-bottom: $spacing-md;
+}
+
+.mb-6 {
+  margin-bottom: $spacing-lg;
+}
+
+.mb-8 {
+  margin-bottom: $spacing-xl;
+}
+
+.mb-12 {
+  margin-bottom: $spacing-xl * 1.5;
+}
+
+.mt-2 {
+  margin-top: $spacing-md * 0.5;
+}
+
+.mt-4 {
+  margin-top: $spacing-md;
+}
+
+.mt-6 {
+  margin-top: $spacing-lg;
+}
+
+.p-3 {
+  padding: $spacing-lg * 0.75;
+}
+
+.p-6 {
+  padding: $spacing-xl * 1.5;
+}
+
+// ============================================================================
+// RESPONSIVE UTILITIES
+// ============================================================================
+
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .hide-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+// ============================================================================
+// TEXT & CONTENT UTILITIES
+// ============================================================================
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.truncate-1 {
+  @include truncate-lines(1);
+}
+
+.truncate-2 {
+  @include truncate-lines(2);
+}
+
+.truncate-3 {
+  @include truncate-lines(3);
+}

@@ -15,23 +15,23 @@ interface ExperienceItemProps {
 function ExperienceItem({ position, company, period, description, technologies, delay = 0 }: ExperienceItemProps) {
   return (
     <AnimatedSection delay={delay}>
-      <Card className="p-6 bg-[#252526] border-[#3e3e42] hover:border-[#007acc] transition-colors">
+      <Card className="card card--hover">
         <div className="flex items-start gap-4">
-          <div className="p-3 bg-[#007acc]/10 rounded-lg">
-            <Briefcase className="w-6 h-6 text-[#007acc]" />
+          <div className="icon-container--primary">
+            <Briefcase className="w-6 h-6" />
           </div>
           <div className="flex-1">
             <h3 className="mb-1">
-              <span className="text-[#dcdcaa]">{position}</span>
+              <span className="text--tertiary">{position}</span>
             </h3>
-            <p className="text-[#4ec9b0] mb-2">{company}</p>
-            <div className="flex items-center gap-2 text-[#858585] mb-4">
+            <p className="text--accent mb-2">{company}</p>
+            <div className="flex items-center gap-2 text--muted mb-4">
               <Calendar className="w-4 h-4" />
               <span>{period}</span>
             </div>
             <ul className="space-y-2 mb-4">
               {description.map((item, index) => (
-                <li key={index} className="text-[#d4d4d4] flex gap-2">
+                <li key={index} className="text mb-2 flex gap-2">
                   <span className="text-[#007acc]">▹</span>
                   <span>{item}</span>
                 </li>
@@ -96,16 +96,16 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="section">
+      <div className="container">
         <AnimatedSection>
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text-[#858585]">{"<"}</span>
-              <span className="text-[#569cd6]">{t("exp.title")}</span>
-              <span className="text-[#858585]">{" />"}</span>
+              <span className="text--muted">{"<"}</span>
+              <span className="text--secondary">{t("exp.title")}</span>
+              <span className="text--muted">{" />"}</span>
             </h2>
-            <div className="h-1 w-20 bg-[#007acc] rounded"></div>
+            <div className="divider"></div>
           </div>
         </AnimatedSection>
         
