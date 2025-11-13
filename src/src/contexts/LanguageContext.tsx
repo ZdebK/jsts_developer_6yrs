@@ -64,16 +64,16 @@ const translations: Record<Language, Record<string, string>> = {
   "exp.desc3.2": "Implementacja designów z Figma/Adobe XD",
   "exp.desc3.3": "Optymalizacja SEO i wydajności",
     
-    // Education
-    "edu.title": "Edukacja",
-    "edu.master": "Magister Informatyki",
-    "edu.bachelor": "Inżynier Informatyki",
-    "edu.school": "Politechnika Warszawska",
-    "edu.master.spec": "Specjalizacja: Inżynieria Oprogramowania",
-    "edu.bachelor.spec": "Kierunek: Informatyka",
-    "edu.period1": "2016 - 2018",
-    "edu.period2": "2012 - 2016",
-    "edu.certs": "Certyfikaty",
+  // Education
+  "edu.title": "Edukacja",
+  "edu.master": "Magister (Mgr), Informatyka Stosowana — Systemy Inteligentne",
+  "edu.bachelor": "Licencjat (Lic.), Informatyka stosowana",
+  "edu.school": "Uniwersytet Ekonomiczny w Krakowie",
+  "edu.master.spec": "Systemy Inteligentne",
+  "edu.bachelor.spec": "Inżynieria Oprogramowania",
+  "edu.period1": "paź 2018 – wrz 2020",
+  "edu.period2": "2015 – 2018",
+  "edu.certs": "Certyfikaty",
     
     // Skills
     "skills.title": "Umiejętności",
@@ -162,16 +162,16 @@ const translations: Record<Language, Record<string, string>> = {
     "exp.desc3.2": "Implementing designs from Figma/Adobe XD",
     "exp.desc3.3": "SEO and performance optimization",
     
-    // Education
-    "edu.title": "Education",
-    "edu.master": "Master of Computer Science",
-    "edu.bachelor": "Bachelor of Computer Science",
-    "edu.school": "Warsaw University of Technology",
-    "edu.master.spec": "Specialization: Software Engineering",
-    "edu.bachelor.spec": "Major: Computer Science",
-    "edu.period1": "2016 - 2018",
-    "edu.period2": "2012 - 2016",
-    "edu.certs": "Certifications",
+  // Education
+  "edu.title": "Education",
+  "edu.master": "Master (MSc), Applied Computer Science — Intelligent Systems",
+  "edu.bachelor": "Bachelor (BSc), Applied Computer Science",
+  "edu.school": "Cracow University of Economics",
+  "edu.master.spec": "Intelligent Systems",
+  "edu.bachelor.spec": "Software Engineering",
+  "edu.period1": "Oct 2018 – Sep 2020",
+  "edu.period2": "2015 – 2018",
+  "edu.certs": "Certifications",
     
     // Skills
     "skills.title": "Skills",
