@@ -69,29 +69,6 @@ export function Contact() {
                 </Card>
               </AnimatedSection>
             ))}
-
-            <AnimatedSection delay={0.3}>
-              <Card className="p-6 bg-[#252526] border-[#3e3e42]">
-                <div className="text-[#858585]">
-                  <span className="text-[#569cd6]">const</span>{" "}
-                  <span className="text-[#4ec9b0]">availability</span>{" "}
-                  <span className="text-[#858585]">=</span>{" "}
-                  <span className="text-[#ce9178]">{"{"}</span>
-                  <br />
-                  <span className="ml-4">
-                    <span className="text-[#9cdcfe]">status</span>:{" "}
-                    <span className="text-[#ce9178]">"Otwarty na oferty"</span>,
-                  </span>
-                  <br />
-                  <span className="ml-4">
-                    <span className="text-[#9cdcfe]">type</span>:{" "}
-                    <span className="text-[#ce9178]">"Remote/Hybrid"</span>
-                  </span>
-                  <br />
-                  <span className="text-[#ce9178]">{"}"}</span>
-                </div>
-              </Card>
-            </AnimatedSection>
           </div>
 
           <AnimatedSection delay={0.2}>

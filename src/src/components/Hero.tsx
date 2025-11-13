@@ -73,18 +73,24 @@ export function Hero() {
             {t("hero.contact")}
           </Button>
           <Button 
+            asChild
             variant="outline" 
             className="border-[#3e3e42] hover:bg-[#2d2d30]"
           >
-            <Github className="w-4 h-4 mr-2" />
-            GitHub
+            <a href="https://github.com/ZdebK" target="_blank" rel="noopener noreferrer">
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </a>
           </Button>
           <Button 
+            asChild
             variant="outline" 
             className="border-[#3e3e42] hover:bg-[#2d2d30]"
           >
-            <Linkedin className="w-4 h-4 mr-2" />
-            LinkedIn
+            <a href="https://www.linkedin.com/in/kas-elzbieciak/" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
+            </a>
           </Button>
         </motion.div>
         
