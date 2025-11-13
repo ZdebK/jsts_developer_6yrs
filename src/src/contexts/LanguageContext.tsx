@@ -29,7 +29,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero
     "hero.title": "Full Stack Developer",
     "hero.location": "Kraków, Polska",
-    "hero.description": "Pasjonat programowania z doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w React, TypeScript i Node.js.",
+    "hero.description": "Pasjonat programowania z doświadczeniem w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w TypeScript i Node.js.",
     "hero.contact": "Kontakt",
 
     // Experience
@@ -131,8 +131,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Hero
     "hero.title": "Full Stack Developer",
-    "hero.location": "Warsaw, Poland",
-    "hero.description": "Programming enthusiast with experience in creating modern web applications. I specialize in React, TypeScript, and Node.js.",
+    "hero.location": "Cracow, Poland",
+    "hero.description": "Programming enthusiast with experience in creating modern web applications. I specialize in TypeScript and Node.js.",
     "hero.contact": "Contact",
 
     // Experience

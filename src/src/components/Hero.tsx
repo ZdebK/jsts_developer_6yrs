@@ -15,10 +15,6 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="text--muted">const</span>{" "}
-          <span className="text--accent">developer</span>{" "}
-          <span className="text--muted">=</span>{" "}
-          <span className="text-[#ce9178]">{"{"}</span>
         </motion.div>
         
         <motion.h1
@@ -100,7 +96,6 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-6 text-[#ce9178]"
         >
-          {"}"}
         </motion.div>
       </div>
     </section>
