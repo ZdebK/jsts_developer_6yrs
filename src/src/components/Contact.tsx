@@ -5,9 +5,46 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
+import { useState, FormEvent } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export function Contact() {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/mgvroqjo", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast.success(
+          t("contact.success") || "Wiadomość wysłana! Odezwę się wkrótce 🚀"
+        );
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form send error:", error);
+      toast.error(
+        t("contact.error") || "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   const contactInfo = [
     {
@@ -32,6 +69,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="section section--full-height">
+      <Toaster position="top-right" />
       <div className="container w-full">
         <AnimatedSection>
           <div className="mb-12 text-center">
@@ -73,10 +111,12 @@ export function Contact() {
 
           <AnimatedSection delay={0.2}>
             <Card className="card">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text">{t("contact.name")}</label>
                   <Input
+                    name="name"
+                    required
                     placeholder={t("contact.placeholder.name")}
                     className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4]"
                   />
@@ -84,7 +124,9 @@ export function Contact() {
                 <div>
                   <label className="block mb-2 text">{t("contact.email")}</label>
                   <Input
+                    name="email"
                     type="email"
+                    required
                     placeholder={t("contact.placeholder.email")}
                     className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4]"
                   />
@@ -92,14 +134,20 @@ export function Contact() {
                 <div>
                   <label className="block mb-2 text">{t("contact.message")}</label>
                   <Textarea
+                    name="message"
+                    required
                     placeholder={t("contact.placeholder.message")}
                     rows={5}
                     className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4] resize-none"
                   />
                 </div>
-                <Button className="btn--primary w-full">
+                <Button 
+                  type="submit" 
+                  className="btn--primary w-full" 
+                  disabled={isSubmitting}
+                >
                   <Send className="w-4 h-4 mr-2" />
-                  {t("contact.send")}
+                  {isSubmitting ? "Wysyłanie..." : t("contact.send")}
                 </Button>
               </form>
             </Card>

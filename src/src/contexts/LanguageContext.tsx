@@ -98,9 +98,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.name": "Imię",
     "contact.message": "Wiadomość",
     "contact.send": "Wyślij wiadomość",
-    "contact.placeholder.name": "Katarzyna Elżbieciak",
-    "contact.placeholder.email": "kas.elzbieciak@gmail.com",
+    "contact.placeholder.name": "Json Rekruter",
+    "contact.placeholder.email": "jan.kowalski@example.com",
     "contact.placeholder.message": "Twoja wiadomość...",
+    "contact.success": "Wiadomość wysłana! Odezwę się wkrótce 🚀",
+    "contact.error": "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com",
 
     // Footer
     "footer.made": "Stworzone z",
@@ -200,9 +202,11 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.name": "Name",
     "contact.message": "Message",
     "contact.send": "Send message",
-    "contact.placeholder.name": "Katarzyna Elżbieciak",
-    "contact.placeholder.email": "kas.elzbieciak@gmail.com",
+    "contact.placeholder.name": "Json Recruiter",
+    "contact.placeholder.email": "john.smith@example.com",
     "contact.placeholder.message": "Your message...",
+    "contact.success": "Message sent! I'll get back to you soon 🚀",
+    "contact.error": "Send error. Try again or email me directly at kas.elzbieciak@gmail.com",
 
     // Footer
     "footer.made": "Made with",
