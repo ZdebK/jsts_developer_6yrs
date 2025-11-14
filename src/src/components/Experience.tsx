@@ -67,6 +67,11 @@ export function Experience() {
         t("exp.desc1.2"),
         t("exp.desc1.3"),
         t("exp.desc1.4"),
+        t("exp.desc1.5"),
+        t("exp.desc1.6"),
+        t("exp.desc1.7"),
+        t("exp.desc1.8"),
+        t("exp.desc1.9"),
       ],
       technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
     },
@@ -79,11 +84,13 @@ export function Experience() {
         t("exp.desc2.2"),
         t("exp.desc2.3"),
         t("exp.desc2.4"),
+        t("exp.desc2.5"),
+        t("exp.desc2.6"),
       ],
-      technologies: ["React", "JavaScript", "Express.js", "MongoDB", "Docker"],
+      technologies: ["Angular", "Java", "Microsoft Cognitive Services", "REST API", "Skype/Slack API"],
     },
     {
-      position: t("exp.frontend"),
+      position: t("exp.intern"),
       company: t("exp.company3"),
       period: t("exp.period3"),
       description: [
@@ -91,7 +98,7 @@ export function Experience() {
         t("exp.desc3.2"),
         t("exp.desc3.3"),
       ],
-      technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "Sass"],
+      technologies: ["HTML", "CSS", "Drupal"],
     },
   ];
 
