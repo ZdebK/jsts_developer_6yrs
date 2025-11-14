@@ -21,11 +21,11 @@ export function Education() {
     },
   ];
 
-  const certifications = [
-    "AWS Certified t",
-    "Google Cloud Professional Developer",
-    "MongoDB Certified Developer",
-    "Scrum Master Certification",
+  const certifications: string[] = [
+    // "AWS Certified Developer",
+    // "Google Cloud Professional Developer",
+    // "MongoDB Certified Developer",
+    // "Scrum Master Certification",
   ];
 
   return (
@@ -62,6 +62,7 @@ export function Education() {
           ))}
         </div>
 
+        {/* Certifications section commented out - not real certifications
         <AnimatedSection delay={0.2}>
           <Card className="card">
             <div className="flex items-center gap-3 mb-4">
@@ -81,6 +82,7 @@ export function Education() {
             </div>
           </Card>
         </AnimatedSection>
+        */}
       </div>
     </section>
   );
