@@ -24,6 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.education": "Edukacja",
     "nav.skills": "Umiejętności",
     "nav.projects": "Projekty",
+  "nav.blog": "Blog",
     "nav.contact": "Kontakt",
 
     // Hero
@@ -96,6 +97,22 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.shop.title": "👟 Sklep obuwniczy",
     "projects.shop.desc": "Nowoczesna strona internetowa dla sklepu obuwniczego z możliwością przeglądania kolekcji, filtrowania produktów oraz realizacji zamówień online. System posiada panel administracyjny do zarządzania ofertą i integrację z płatnościami online (Stripe). Projekt zbudowany na platformie WordPress.",
 
+  // Blog
+  "blog.title": "Blog",
+  "blog.subtitle": "Aktualności i nowe inicjatywy",
+  "blog.readMore": "Czytaj dalej",
+  "blog.back": "Powrót do bloga",
+  "blog.notFound": "Nie znaleziono wpisu.",
+  "blog.post1.title": "Rozpoczynam aktywną rekrutację i otwieram się na nowe wyzwania",
+  "blog.post1.date": "Listopad 2025",
+  "blog.post1.p1": "Wchodzę w kolejny etap zawodowy i rozpoczynam aktywną rekrutację. Szukam projektów, w których mogę realnie wpłynąć na produkt, usprawniać procesy, proponować rozwiązania i uczestniczyć w tworzeniu wartościowych narzędzi. Jestem otwarty zarówno na pełnoetatową współpracę, jak i na krótsze kontrakty, konsultacje czy udział w inicjatywach komercyjnych.",
+  "blog.post1.p2": "Od kilku lat pracuję jako developer, skupiając się na technologiach front-endowych i backendowych. Dobrze czuję się tam, gdzie można połączyć solidną architekturę, przemyślane rozwiązania i nowoczesne podejście do developmentu.",
+  "blog.post1.p3": "W jakich rolach widzę się obecnie? Najbardziej interesują mnie projekty oparte na TypeScript oraz nowoczesnych frameworkach frontendowych — w szczególności React i Angular — a po stronie serwera Node.js.",
+  "blog.post1.p4": "Szukam miejsc, w których praca nie ogranicza się do realizacji backlogu, lecz daje możliwość wpływania na kierunek rozwoju aplikacji. Jestem również otwarty na projekty związane z automatyzacją procesów oraz na inicjatywy wykorzystujące AI w rozwoju oprogramowania i prototypowaniu interfejsów.",
+  "blog.post1.p5": "Co mogę wnieść do zespołu? Umiejętność tworzenia czytelnego i przemyślanego kodu, doświadczenie w budowaniu aplikacji zarówno od strony frontendu, jak i backendu, znajomość narzędzi wspierających CI/CD i automatyzację pracy, sprawne prototypowanie oraz szybkie dostosowywanie rozwiązań do potrzeb projektu, a także proaktywne podejście i gotowość do podejmowania decyzji technicznych.",
+  "blog.post1.p6": "Z kim chętnie nawiążę współpracę? Z zespołami, które cenią jakość, eksperymenty, rozwój produktu i nowoczesne podejście do technologii. Miejsca, w których liczy się odpowiedzialność, komunikacja i przywiązanie do detali.",
+  "blog.post1.p7": "Jestem dostępny na kontrakty, współpracę projektową, role stałe, konsultacje oraz budowę prototypów i POC.",
+
     // Contact
     "contact.title": "Kontakt",
     "contact.subtitle": "Masz projekt lub propozycję współpracy? Skontaktuj się ze mną!",
@@ -136,6 +153,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.education": "Education",
     "nav.skills": "Skills",
     "nav.projects": "Projects",
+  "nav.blog": "Blog",
     "nav.contact": "Contact",
 
     // Hero
@@ -207,6 +225,22 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.ai.desc": "Website that generates UI projects and components based on Figma sketches, supported by AI tools. Backend based on Node.js, frontend in React, with emphasis on automation and responsiveness.",
     "projects.shop.title": "👟 Shoe Shop",
     "projects.shop.desc": "Modern website for a shoe store with the ability to browse collections, filter products, and place online orders. System has an admin panel for managing offers and integration with online payments (Stripe). Project built on the WordPress platform.",
+
+  // Blog
+  "blog.title": "Blog",
+  "blog.subtitle": "Updates and new initiatives",
+  "blog.readMore": "Read more",
+  "blog.back": "Back to blog",
+  "blog.notFound": "Post not found.",
+  "blog.post1.title": "Starting active job search and opening up to new challenges",
+  "blog.post1.date": "November 2025",
+  "blog.post1.p1": "I'm entering the next stage of my career and starting an active job search. I'm looking for projects where I can truly influence the product, improve processes, propose solutions, and help build valuable tools. I'm open to full-time roles as well as short-term contracts, consulting, and commercial initiatives.",
+  "blog.post1.p2": "For the past years, I've worked as a developer focused on both frontend and backend technologies. I feel best where solid architecture, thoughtful solutions, and a modern approach to development come together.",
+  "blog.post1.p3": "What roles do I see myself in now? I'm most interested in projects based on TypeScript and modern frontend frameworks — especially React and Angular — and Node.js on the server side.",
+  "blog.post1.p4": "I'm looking for places where work goes beyond just delivering backlog, giving space to influence the direction of the application. I'm also open to projects around process automation and initiatives that leverage AI in software development and UI prototyping.",
+  "blog.post1.p5": "What can I bring to a team? The ability to write clean, well-thought-out code; experience building applications on both frontend and backend; familiarity with CI/CD and automation tooling; rapid prototyping and quick adaptation to project needs; and a proactive mindset with readiness to make technical decisions.",
+  "blog.post1.p6": "Who would I like to work with? Teams that value quality, experimentation, product growth, and a modern approach to technology — places where responsibility, communication, and attention to detail matter.",
+  "blog.post1.p7": "I'm available for contracts, project-based cooperation, permanent roles, consulting, as well as prototyping and POCs.",
 
     // Contact
     "contact.title": "Contact",

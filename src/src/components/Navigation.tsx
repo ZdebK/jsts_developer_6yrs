@@ -1,11 +1,14 @@
-import { Code2, Menu, X } from "lucide-react";
+import { Code2, Menu, X, Newspaper } from "lucide-react";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Button } from "./ui/button";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -24,6 +27,21 @@ export function Navigation() {
     { id: "contact", label: t("nav.contact") },
   ];
 
+  const handleNavigate = (id: string) => {
+    if (id === "blog") {
+      navigate("/blog");
+      setMobileMenuOpen(false);
+      return;
+    }
+    const onHome = location.pathname === "/" || location.pathname === import.meta.env.BASE_URL;
+    if (onHome) {
+      scrollToSection(id);
+    } else {
+      // Navigate to home with hash to trigger browser scroll
+      window.location.href = `${import.meta.env.BASE_URL}#${id}`;
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#252526] border-b border-[#3e3e42]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,12 +56,22 @@ export function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigate(item.id)}
                 className="px-4 py-2 hover:bg-[#2d2d30] rounded transition-colors"
               >
                 {item.label}
               </button>
             ))}
+
+            {/* Distinct Blog CTA placed after Contact */}
+            <button
+              onClick={() => handleNavigate("blog")}
+              className="ml-2 px-4 py-2 border border-[#007acc] text-[#007acc] hover:bg-[#1f2937]/40 rounded inline-flex items-center gap-2 transition-colors"
+              aria-label="Blog"
+            >
+              <Newspaper className="w-4 h-4" />
+              {t("nav.blog")}
+            </button>
             
             {/* Language Toggle */}
             <div className="ml-2 flex items-center gap-1 border-l border-[#3e3e42] pl-2">
@@ -95,12 +123,21 @@ export function Navigation() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavigate(item.id)}
                 className="block w-full text-left px-3 py-2 hover:bg-[#2d2d30] rounded transition-colors"
               >
                 {item.label}
               </button>
             ))}
+
+            {/* Mobile distinct Blog CTA after Contact */}
+            <button
+              onClick={() => handleNavigate("blog")}
+              className="mt-1 w-full px-3 py-2 bg-[#007acc] text-white rounded inline-flex items-center justify-center gap-2 hover:opacity-90 transition"
+            >
+              <Newspaper className="w-4 h-4" />
+              {t("nav.blog")}
+            </button>
             
             {/* Mobile Language Toggle */}
             <div className="flex items-center gap-2 px-3 py-2 border-t border-[#3e3e42] mt-2 pt-3">

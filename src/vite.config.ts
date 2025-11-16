@@ -3,8 +3,12 @@
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
 
-  export default defineConfig({
-    plugins: [react()],
+  export default defineConfig(async () => {
+    const { default: mdx } = await import('@mdx-js/rollup');
+    const { default: remarkGfm } = await import('remark-gfm');
+    return {
+    // MDX must run before react-swc so MDX gets transformed first
+    plugins: [mdx({ remarkPlugins: [remarkGfm] }), react()],
     base: '/jsts_developer_6yrs/',
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -58,4 +62,5 @@
       port: 3000,
       open: true,
     },
+  };
   });
