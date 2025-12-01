@@ -1,7 +1,7 @@
-import { GraduationCap, Award } from "lucide-react";
-import { Card } from "./ui/card";
+import { GraduationCap, Calendar, Award } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
-import { AnimatedSection } from "./AnimatedSection";
+import { SectionHeader } from "./SectionHeader";
+import { AnimatedCard } from "./AnimatedCard";
 
 export function Education() {
   const { t } = useLanguage();
@@ -31,22 +31,12 @@ export function Education() {
   return (
     <section id="education" className="section section--with-bg">
       <div className="container">
-        <AnimatedSection>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text--muted">{"<"}</span>
-              <span className="text--secondary">{t("edu.title")}</span>
-              <span className="text--muted">{" />"}</span>
-            </h2>
-            <div className="divider"></div>
-          </div>
-        </AnimatedSection>
+        <SectionHeader title={t("edu.title")} />
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {education.map((edu, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <Card className="card card--hover h-full">
-                <div className="flex items-start gap-4">
+            <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+              <div className="flex items-start gap-4">
                   <div className="icon-container--accent">
                     <GraduationCap className="w-6 h-6" />
                   </div>
@@ -55,10 +45,9 @@ export function Education() {
                     <p className="text--accent mb-2">{edu.school}</p>
                     <p className="text--muted mb-2">{edu.period}</p>
                     <p className="text">{edu.description}</p>
-                  </div>
                 </div>
-              </Card>
-            </AnimatedSection>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
 

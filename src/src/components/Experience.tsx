@@ -1,7 +1,7 @@
 import { Briefcase, Calendar } from "lucide-react";
-import { Card } from "./ui/card";
 import { useLanguage } from "../contexts/LanguageContext";
-import { AnimatedSection } from "./AnimatedSection";
+import { SectionHeader } from "./SectionHeader";
+import { AnimatedCard } from "./AnimatedCard";
 
 interface ExperienceItemProps {
   position: string;
@@ -14,12 +14,11 @@ interface ExperienceItemProps {
 
 function ExperienceItem({ position, company, period, description, technologies, delay = 0 }: ExperienceItemProps) {
   return (
-    <AnimatedSection delay={delay}>
-      <Card className="card card--hover">
-        <div className="flex items-start gap-4">
-          <div className="icon-container--primary">
-            <Briefcase className="w-6 h-6" />
-          </div>
+    <AnimatedCard delay={delay}>
+      <div className="flex items-start gap-4">
+        <div className="icon-container--primary">
+          <Briefcase className="w-6 h-6" />
+        </div>
           <div className="flex-1">
             <h3 className="mb-1">
               <span className="text--tertiary">{position}</span>
@@ -49,8 +48,7 @@ function ExperienceItem({ position, company, period, description, technologies, 
             </div>
           </div>
         </div>
-      </Card>
-    </AnimatedSection>
+      </AnimatedCard>
   );
 }
 
@@ -105,16 +103,7 @@ export function Experience() {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <AnimatedSection>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text--muted">{"<"}</span>
-              <span className="text--secondary">{t("exp.title")}</span>
-              <span className="text--muted">{" />"}</span>
-            </h2>
-            <div className="divider"></div>
-          </div>
-        </AnimatedSection>
+        <SectionHeader title={t("exp.title")} />
         
         <div className="space-y-6">
           {experiences.map((exp, index) => (

@@ -1,10 +1,10 @@
 import { CalendarDays, ArrowRight } from "lucide-react";
-import { Card } from "../ui/card";
 import { Button } from "../ui/button";
-import { AnimatedSection } from "../AnimatedSection";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { Link } from "react-router-dom";
 import { meta as meta1 } from "../../content/blog/start-rekrutacji-nowe-projekty.mdx";
+import { SectionHeader } from "../SectionHeader";
+import { AnimatedCard } from "../AnimatedCard";
 
 export function BlogIndex() {
   const { t } = useLanguage();
@@ -21,23 +21,15 @@ export function BlogIndex() {
   return (
     <section className="section section--with-bg">
       <div className="container--large">
-        <AnimatedSection>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text--muted">{"<"}</span>
-              <span className="text--secondary">{t("blog.title")}</span>
-              <span className="text--muted">{" />"}</span>
-            </h2>
-            <p className="text--muted">{t("blog.subtitle")}</p>
-            <div className="divider"></div>
-          </div>
-        </AnimatedSection>
+        <SectionHeader title={t("blog.title")} />
+        <div className="mb-8">
+          <p className="text--muted">{t("blog.subtitle")}</p>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, idx) => (
-            <AnimatedSection key={post.slug} delay={idx * 0.1}>
-              <Card className="card card--hover h-full flex flex-col">
-                <div className="flex items-center gap-2 text--muted mb-3">
+            <AnimatedCard key={post.slug} delay={idx * 0.1} className="h-full flex flex-col">
+              <div className="flex items-center gap-2 text--muted mb-3">
                   <CalendarDays className="w-4 h-4" />
                   <span>{post.date}</span>
                 </div>
@@ -51,8 +43,7 @@ export function BlogIndex() {
                     </Link>
                   </Button>
                 </div>
-              </Card>
-            </AnimatedSection>
+              </AnimatedCard>
           ))}
         </div>
       </div>

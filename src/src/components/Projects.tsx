@@ -3,6 +3,7 @@ import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
+import { SectionHeader } from "./SectionHeader";
 
 interface ProjectProps {
   title: string;
@@ -115,16 +116,7 @@ export function Projects() {
   return (
     <section id="projects" className="section section--with-bg">
       <div className="container--large">
-        <AnimatedSection>
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text--muted">{"<"}</span>
-              <span className="text--secondary">{t("projects.title")}</span>
-              <span className="text--muted">{" />"}</span>
-            </h2>
-            <div className="divider"></div>
-          </div>
-        </AnimatedSection>
+        <SectionHeader title={t("projects.title")} />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
