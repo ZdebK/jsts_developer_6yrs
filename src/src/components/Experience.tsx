@@ -2,6 +2,7 @@ import { Briefcase, Calendar } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
+import { getStaggerDelay } from "../utils/constants";
 
 interface ExperienceItemProps {
   position: string;
@@ -107,7 +108,7 @@ export function Experience() {
         
         <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <ExperienceItem key={index} {...exp} delay={index * 0.1} />
+            <ExperienceItem key={index} {...exp} delay={getStaggerDelay(index)} />
           ))}
         </div>
       </div>

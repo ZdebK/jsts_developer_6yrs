@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ChatBot } from "./components/ChatBot";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BlogIndex } from "./components/blog/BlogIndex";
 import { BlogPost } from "./components/blog/BlogPost";
@@ -27,9 +28,10 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <LanguageProvider>
-        <div className="min-h-screen bg--dark text--light">
+    <ErrorBoundary>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <LanguageProvider>
+          <div className="min-h-screen bg--dark text--light">
           <Navigation />
           <main>
             <Routes>
@@ -43,5 +45,6 @@ export default function App() {
         </div>
       </LanguageProvider>
     </BrowserRouter>
+    </ErrorBoundary>
   );
 }

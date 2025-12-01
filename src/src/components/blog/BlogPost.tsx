@@ -5,6 +5,7 @@ import { AnimatedSection } from "../AnimatedSection";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { Link, useParams } from "react-router-dom";
 import Post1, { meta as meta1 } from "../../content/blog/start-rekrutacji-nowe-projekty.mdx";
+import { ANIMATION_DELAYS } from "../../utils/constants";
 
 export function BlogPost() {
   const { slug } = useParams();
@@ -105,7 +106,7 @@ export function BlogPost() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1}>
+        <AnimatedSection delay={ANIMATION_DELAYS.FAST}>
           <Card className="card">
             {/* Share bar */}
             <div className="flex flex-wrap items-center gap-2 mb-4">

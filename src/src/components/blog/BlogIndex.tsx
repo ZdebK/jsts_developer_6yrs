@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { meta as meta1 } from "../../content/blog/start-rekrutacji-nowe-projekty.mdx";
 import { SectionHeader } from "../SectionHeader";
 import { AnimatedCard } from "../AnimatedCard";
+import { getStaggerDelay } from "../../utils/constants";
 
 export function BlogIndex() {
   const { t } = useLanguage();
@@ -28,7 +29,7 @@ export function BlogIndex() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post, idx) => (
-            <AnimatedCard key={post.slug} delay={idx * 0.1} className="h-full flex flex-col">
+            <AnimatedCard key={post.slug} delay={getStaggerDelay(idx)} className="h-full flex flex-col">
               <div className="flex items-center gap-2 text--muted mb-3">
                   <CalendarDays className="w-4 h-4" />
                   <span>{post.date}</span>

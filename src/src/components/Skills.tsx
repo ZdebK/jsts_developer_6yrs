@@ -4,6 +4,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
+import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
 
 interface SkillCategory {
   title: string;
@@ -86,7 +87,7 @@ export function Skills() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
+            <AnimatedSection key={index} delay={getStaggerDelay(index)}>
               <Card
                 className="p-6 bg--card-dark border--default hover:border--hover transition-all hover:scale-105 h-full"
               >
@@ -113,7 +114,7 @@ export function Skills() {
           ))}
         </div>
 
-        <AnimatedSection delay={0.4}>
+        <AnimatedSection delay={ANIMATION_DELAYS.SLOW}>
           <div className="mt-12 p-6 bg--card-dark border border--default rounded-lg">
             <p className="text-center text--vs-muted">
               <span className="text--vs-blue">const</span>{" "}

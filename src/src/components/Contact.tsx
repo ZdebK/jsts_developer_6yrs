@@ -7,6 +7,7 @@ import { useState, FormEvent } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
+import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
 
 export function Contact() {
   const { t } = useLanguage();
@@ -20,7 +21,8 @@ export function Contact() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/mgvroqjo", {
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "mgvroqjo";
+      const response = await fetch(`https://formspree.io/${formspreeId}`, {
         method: "POST",
         body: formData,
         headers: {
@@ -37,7 +39,9 @@ export function Contact() {
         throw new Error("Form submission failed");
       }
     } catch (error) {
-      console.error("Form send error:", error);
+      if (process.env.NODE_ENV === 'development') {
+        console.error("Form send error:", error);
+      }
       toast.error(
         t("contact.error") || "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com"
       );
@@ -51,19 +55,22 @@ export function Contact() {
       icon: <Mail className="w-5 h-5" />,
       label: t("contact.email"),
       value: "kas.elzbieciak@gmail.com",
-      color: "#569cd6",
+      colorClass: "text--vs-blue",
+      bgClass: "bg--primary-light",
     },
     {
       icon: <Phone className="w-5 h-5" />,
       label: t("contact.phone"),
       value: "+48 888 435 618",
-      color: "#4ec9b0",
+      colorClass: "text--vs-cyan",
+      bgClass: "bg--primary-light",
     },
     {
       icon: <MapPin className="w-5 h-5" />,
       label: t("contact.location"),
       value: t("hero.location"),
-      color: "#ce9178",
+      colorClass: "text--vs-orange",
+      bgClass: "bg--primary-light",
     },
   ];
 
@@ -81,13 +88,10 @@ export function Contact() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             {contactInfo.map((info, index) => (
-              <AnimatedCard key={index} delay={index * 0.1}>
+              <AnimatedCard key={index} delay={getStaggerDelay(index)}>
                 <div className="flex items-center gap-4">
-                    <div
-                      className="p-3 rounded-lg"
-                      style={{ backgroundColor: `${info.color}20` }}
-                    >
-                      <div style={{ color: info.color }}>{info.icon}</div>
+                    <div className={`p-3 rounded-lg ${info.bgClass}`}>
+                      <div className={info.colorClass}>{info.icon}</div>
                     </div>
                     <div>
                       <p className="text--muted mb-1">{info.label}</p>
@@ -98,7 +102,7 @@ export function Contact() {
             ))}
           </div>
 
-          <AnimatedCard delay={0.2} hover={false}>
+          <AnimatedCard delay={ANIMATION_DELAYS.NORMAL} hover={false}>
             <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label className="block mb-2 text">{t("contact.name")}</label>

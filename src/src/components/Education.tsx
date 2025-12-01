@@ -2,6 +2,7 @@ import { GraduationCap, Calendar, Award } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
+import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
 
 export function Education() {
   const { t } = useLanguage();
@@ -35,7 +36,7 @@ export function Education() {
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {education.map((edu, index) => (
-            <AnimatedCard key={index} delay={index * 0.1} className="h-full">
+            <AnimatedCard key={index} delay={getStaggerDelay(index)} className="h-full">
               <div className="flex items-start gap-4">
                   <div className="icon-container--accent">
                     <GraduationCap className="w-6 h-6" />
@@ -52,7 +53,7 @@ export function Education() {
         </div>
 
         {/* Certifications section commented out - not real certifications
-        <AnimatedSection delay={0.2}>
+        <AnimatedSection delay={ANIMATION_DELAYS.NORMAL}>
           <Card className="card">
             <div className="flex items-center gap-3 mb-4">
               <Award className="w-6 h-6 text--vs-orange" />

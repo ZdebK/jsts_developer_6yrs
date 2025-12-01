@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
+import { getStaggerDelay } from "../utils/constants";
 
 interface ProjectProps {
   title: string;
@@ -120,7 +121,7 @@ export function Projects() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
+            <AnimatedSection key={index} delay={getStaggerDelay(index)}>
               <ProjectCard {...project} />
             </AnimatedSection>
           ))}
