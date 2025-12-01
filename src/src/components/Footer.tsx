@@ -9,16 +9,16 @@ export function Footer() {
       <div className="max-w-4xl mx-auto text-center">
         <div className="flex items-center justify-center gap-2 mb-4 text--vs-muted">
           <Code className="w-4 h-4" />
-          <span>{t("footer.made")}</span>
+          <span>{t("common:footer.made")}</span>
           <Heart className="w-4 h-4 text--error fill--error" />
-          <span>{t("footer.and")}</span>
+          <span>{t("common:footer.and")}</span>
         </div>
         <p className="text--vs-muted">
-          © {new Date().getFullYear()} {t("hero.name")}. {t("footer.rights")}
+          © {new Date().getFullYear()} {t("hero.name")}. {t("common:footer.rights")}
         </p>
         <div className="mt-4 text--vs-muted">
           <span className="text--vs-blue">{"// "}</span>
-          {t("footer.designed")}
+          {t("common:footer.designed")}
         </div>
       </div>
     </footer>

@@ -18,7 +18,7 @@ export function Skills() {
   
   const skillCategories: SkillCategory[] = [
     {
-      title: t("skills.frontend"),
+      title: t("skills:frontend"),
       icon: <Code className="w-6 h-6" />,
       color: "#569cd6",
       skills: [
@@ -33,7 +33,7 @@ export function Skills() {
       ],
     },
     {
-      title: t("skills.backend"),
+      title: t("skills:backend"),
       icon: <Database className="w-6 h-6" />,
       color: "#4ec9b0",
       skills: [
@@ -49,7 +49,7 @@ export function Skills() {
       ],
     },
     {
-      title: t("skills.devops"),
+      title: t("skills:devops"),
       icon: <Cloud className="w-6 h-6" />,
       color: "#ce9178",
       skills: [
@@ -64,7 +64,7 @@ export function Skills() {
       ],
     },
     {
-      title: t("skills.other"),
+      title: t("skills:other"),
       icon: <Wrench className="w-6 h-6" />,
       color: "#dcdcaa",
       skills: [
@@ -83,7 +83,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader title={t("skills.title")} />
+        <SectionHeader title={t("skills:title")} />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (

@@ -1,0 +1,37 @@
+{
+  "title": "Doświadczenie",
+  "senior": "Software Developer - Specjalista",
+  "full": "Software Developer - Praktykant",
+  "frontend": "Frontend Developer",
+  "intern": "Praktykant",
+  "company1": "Calix Technology Poland",
+  "company2": "Delphi Technologies",
+  "company3": "Abventor",
+  "period1": "Sty 2019 - Sie 2025",
+  "period2": "Wrz 2017 - Paź 2018",
+  "period3": "Sie 2017 - Wrz 2017",
+  "desc1": {
+    "1": "Realizacja funkcjonalności full-stack (frontend i backend) z naciskiem na czysty, łatwy w utrzymaniu i skalowalny kod, poprawiający stabilność systemu i doświadczenie użytkownika.",
+    "2": "Projektowanie i wdrażanie optymalizacji wydajności, skracających czas ładowania i poprawiających responsywność kluczowych modułów.",
+    "3": "Budowa automatycznych testów end-to-end (Puppeteer) oraz zestawów testów wydajnościowych (k6, JMeter), przyczyniających się do większej pewności przy wydaniach i mniejszej liczby regresji.",
+    "4": "Aktywna współpraca z klientami i zespołami międzyfunkcyjnymi, tłumaczenie potrzeb biznesowych na rozwiązania techniczne z empatią dla przepływów pracy i UX użytkowników.",
+    "5": "Udział w ceremoniach Agile (planowanie, daily stand-up, retrospektywy), wspierających płynną komunikację i przewidywalne dostarczanie funkcjonalności.",
+    "6": "Tworzenie i optymalizacja procesów CI/CD oraz stosowanie dobrych praktyk kontroli wersji, co przyspieszyło wdrożenia i zwiększyło produktywność zespołu.",
+    "7": "Wsparcie faz go-live systemów MES dla międzynarodowych klientów, rozwiązywanie krytycznych problemów pod presją czasu i zapewnienie pomyślnego uruchomienia produkcyjnego.",
+    "8": "Wykorzystanie narzędzi AI (GitHub Copilot, Cloud Code, ChatGPT) do eksploracji nowych konceptów, debugowania złożonych problemów i prototypowania funkcjonalności frontend — w tym pełnych stron React.",
+    "9": "Mentoring młodszych developerów i usprawnienie procesu onboardingu."
+  },
+  "desc2": {
+    "1": "Rozwój proof-of-concept aplikacji webowej Angular do logowania opartego na rozpoznawaniu twarzy z użyciem Microsoft Cognitive Services, eksploracja wczesnych zastosowań AI w przepływach uwierzytelniania.",
+    "2": "Budowa wewnętrznego chatbota dla Skype/Slack, poprawiającego efektywność komunikacji i demonstrującego inicjatywę w automatyzacji powtarzalnych zadań.",
+    "3": "Projektowanie przyjaznych dla użytkownika przepływów UI i współpraca z interesariuszami w celu zapewnienia intuicyjnej interakcji i dobrego UX w aplikacjach PoC.",
+    "4": "Zdobycie praktycznego doświadczenia z integracją REST API, komunikacją frontend–backend, debugowaniem i architekturą aplikacji.",
+    "5": "Praca w małym zespole deweloperskim, nauka najlepszych praktyk czystego kodu, kontroli wersji i współpracy Agile.",
+    "6": "Szybka adaptacja do nowych technologii i wnoszenie pomysłów poza przydzielone zadania, pokazujące silną ciekawość i chęć nauki."
+  },
+  "desc3": {
+    "1": "Zdobycie praktycznego doświadczenia w rozwoju stron internetowych i administracji witrynami, praca z HTML, CSS i Drupal w celu tworzenia, aktualizowania i efektywnego utrzymywania treści witryny.",
+    "2": "Bliska współpraca z zespołem, rozwijanie umiejętności pracy zespołowej i komunikacji podczas udziału w dyskusjach projektowych i adaptacji do profesjonalnych przepływów pracy.",
+    "3": "Połączenie wiedzy technicznej z praktycznym zarządzaniem witryną, budując solidne fundamenty kariery w rozwoju stron internetowych i rozwiązaniach cyfrowych."
+  }
+}

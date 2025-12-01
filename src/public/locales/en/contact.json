@@ -1,0 +1,27 @@
+{
+  "title": "Contact",
+  "subtitle": "Have a project or collaboration proposal? Get in touch!",
+  "email": "Email",
+  "phone": "Phone",
+  "location": "Location",
+  "name": "Name",
+  "message": "Message",
+  "send": "Send message",
+  "placeholder": {
+    "name": "Json Recruiter",
+    "email": "john.smith@supercompany.com",
+    "message": "Your message..."
+  },
+  "success": "Message sent! I'll get back to you soon 🚀",
+  "error": "Send error. Try again or email me directly at kas.elzbieciak@gmail.com",
+  "validation": {
+    "nameRequired": "Name is required",
+    "nameTooShort": "Name must be at least 2 characters",
+    "nameTooLong": "Name must be at most 50 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email format",
+    "messageRequired": "Message is required",
+    "messageTooShort": "Message must be at least 10 characters",
+    "messageTooLong": "Message must be at most 500 characters"
+  }
+}

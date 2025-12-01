@@ -58,44 +58,44 @@ export function Experience() {
   
   const experiences: ExperienceItemProps[] = [
     {
-      position: t("exp.senior"),
-      company: t("exp.company1"),
-      period: t("exp.period1"),
+      position: t("experience:senior"),
+      company: t("experience:company1"),
+      period: t("experience:period1"),
       description: [
-        t("exp.desc1.1"),
-        t("exp.desc1.2"),
-        t("exp.desc1.3"),
-        t("exp.desc1.4"),
-        t("exp.desc1.5"),
-        t("exp.desc1.6"),
-        t("exp.desc1.7"),
-        t("exp.desc1.8"),
-        t("exp.desc1.9"),
+        t("experience:desc1.1"),
+        t("experience:desc1.2"),
+        t("experience:desc1.3"),
+        t("experience:desc1.4"),
+        t("experience:desc1.5"),
+        t("experience:desc1.6"),
+        t("experience:desc1.7"),
+        t("experience:desc1.8"),
+        t("experience:desc1.9"),
       ],
       technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
     },
     {
-      position: t("exp.full"),
-      company: t("exp.company2"),
-      period: t("exp.period2"),
+      position: t("experience:full"),
+      company: t("experience:company2"),
+      period: t("experience:period2"),
       description: [
-        t("exp.desc2.1"),
-        t("exp.desc2.2"),
-        t("exp.desc2.3"),
-        t("exp.desc2.4"),
-        t("exp.desc2.5"),
-        t("exp.desc2.6"),
+        t("experience:desc2.1"),
+        t("experience:desc2.2"),
+        t("experience:desc2.3"),
+        t("experience:desc2.4"),
+        t("experience:desc2.5"),
+        t("experience:desc2.6"),
       ],
       technologies: ["Angular", "Java", "Microsoft Cognitive Services", "REST API", "Skype/Slack API"],
     },
     {
-      position: t("exp.intern"),
-      company: t("exp.company3"),
-      period: t("exp.period3"),
+      position: t("experience:intern"),
+      company: t("experience:company3"),
+      period: t("experience:period3"),
       description: [
-        t("exp.desc3.1"),
-        t("exp.desc3.2"),
-        t("exp.desc3.3"),
+        t("experience:desc3.1"),
+        t("experience:desc3.2"),
+        t("experience:desc3.3"),
       ],
       technologies: ["HTML", "CSS", "Drupal"],
     },
@@ -104,7 +104,7 @@ export function Experience() {
   return (
     <section id="experience" className="section">
       <div className="container">
-        <SectionHeader title={t("exp.title")} />
+        <SectionHeader title={t("experience:title")} />
         
         <div className="space-y-6">
           {experiences.map((exp, index) => (

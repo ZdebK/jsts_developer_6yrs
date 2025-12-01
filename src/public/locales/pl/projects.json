@@ -1,0 +1,31 @@
+{
+  "title": "Projekty",
+  "mes": {
+    "title": "🏭 Platforma MES",
+    "desc": "Rozwój aplikacji typu MES (Manufacturing Execution System) służącej do monitorowania procesów produkcyjnych i zarządzania zasobami w czasie rzeczywistym. System zbudowany z użyciem Node.js i PostgreSQL, z frontendem opartym o HTML i CSS."
+  },
+  "puppeteer": {
+    "title": "🤖 Framework do automatycznych testów",
+    "desc": "Rozwój frameworka do automatycznych testów aplikacji Node.js przy użyciu Puppeteer oraz Cucumber. Projekt umożliwia automatyczne testowanie UI, generowanie raportów i integrację z pipeline'ami CI/CD."
+  },
+  "aws": {
+    "title": "☁️ AWS SiteScan Plugin",
+    "desc": "Projekt hackathonowy — plugin analizujący i weryfikujący poprawność konfiguracji stron internetowych hostowanych w środowisku AWS. Narzędzie automatycznie sprawdza status usług, dostępność oraz bezpieczeństwo."
+  },
+  "zus": {
+    "title": "🧓 Aplikacja Emerytalna ZUS",
+    "desc": "Hackathonowa aplikacja webowa umożliwiająca szybkie sprawdzenie przewidywanej emerytury na podstawie danych użytkownika. Interfejs zbudowany w React, a logika oparta na prostym backendzie z HTML i CSS."
+  },
+  "ai": {
+    "title": "🎨 Aplikacja autorska AI",
+    "desc": "Strona internetowa generująca projekty i komponenty UI na podstawie szkiców z Figma, wspomagana przez narzędzia AI. Backend oparty o Node.js, frontend w React, z naciskiem na automatyzację i responsywność."
+  },
+  "shop": {
+    "title": "👟 Sklep obuwniczy",
+    "desc": "Nowoczesna strona internetowa dla sklepu obuwniczego z możliwością przeglądania kolekcji, filtrowania produktów oraz realizacji zamówień online. System posiada panel administracyjny do zarządzania ofertą i integrację z płatnościami online (Stripe). Projekt zbudowany na platformie WordPress."
+  },
+  "weather": {
+    "title": "🌤️ Aplikacja pogodowa",
+    "desc": "Aplikacja pogodowa oparta na GraphQL i PostgreSQL, wykorzystująca Weatherstack API do pobierania aktualnych danych meteorologicznych. Backend zbudowany w Node.js z GraphQL API, frontend w React, z cachowaniem zapytań i przechowywaniem historycznych danych pogodowych w bazie PostgreSQL."
+  }
+}

@@ -21,7 +21,7 @@ export function BlogPost() {
       <section className="section">
         <div className="container">
           <AnimatedSection>
-            <p className="text--muted">{t("blog.notFound")}</p>
+            <p className="text--muted">{t("blog:notFound")}</p>
           </AnimatedSection>
         </div>
       </section>
@@ -93,7 +93,7 @@ export function BlogPost() {
           <div className="mb-8">
             <Link to="/blog" className="inline-flex items-center text--primary hover:underline mb-4">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              <span>{t("blog.back")}</span>
+              <span>{t("blog:back")}</span>
             </Link>
 
             <h1 className="text-3xl md:text-4xl text--secondary mb-2">{meta.title}</h1>

@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": {
+    "made": "Made with",
+    "and": "and React",
+    "rights": "All rights reserved.",
+    "designed": "Designed in VS Code style"
+  },
+  "chat": {
+    "greeting": "Dear Recruiter! 👋",
+    "message": "This is probably the best candidate you can find. Don't miss this opportunity and invite them for an interview!",
+    "question": "Where would you like to go?",
+    "close": "Close"
+  }
+}

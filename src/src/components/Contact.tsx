@@ -3,38 +3,42 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
 import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactSchema, type ContactFormData } from "../schemas/contactSchema";
 
 export function Contact() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
 
     try {
       const formspreeId = import.meta.env.VITE_FORMSPREE_ID || "mgvroqjo";
       const response = await fetch(`https://formspree.io/${formspreeId}`, {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
       });
 
       if (response.ok) {
         toast.success(
-          t("contact.success") || "Wiadomość wysłana! Odezwę się wkrótce 🚀"
+          t("contact:success") || "Wiadomość wysłana! Odezwę się wkrótce 🚀"
         );
-        form.reset();
+        reset();
       } else {
         throw new Error("Form submission failed");
       }
@@ -43,7 +47,7 @@ export function Contact() {
         console.error("Form send error:", error);
       }
       toast.error(
-        t("contact.error") || "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com"
+        t("contact:error") || "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com"
       );
     } finally {
       setIsSubmitting(false);
@@ -53,21 +57,21 @@ export function Contact() {
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
-      label: t("contact.email"),
+      label: t("contact:email"),
       value: "kas.elzbieciak@gmail.com",
       colorClass: "text--vs-blue",
       bgClass: "bg--primary-light",
     },
     {
       icon: <Phone className="w-5 h-5" />,
-      label: t("contact.phone"),
+      label: t("contact:phone"),
       value: "+48 888 435 618",
       colorClass: "text--vs-cyan",
       bgClass: "bg--primary-light",
     },
     {
       icon: <MapPin className="w-5 h-5" />,
-      label: t("contact.location"),
+      label: t("contact:location"),
       value: t("hero.location"),
       colorClass: "text--vs-orange",
       bgClass: "bg--primary-light",
@@ -78,10 +82,10 @@ export function Contact() {
     <section id="contact" className="section section--full-height">
       <Toaster position="top-right" />
       <div className="container w-full">
-        <SectionHeader title={t("contact.title")} />
+        <SectionHeader title={t("contact:title")} />
         <div className="mb-8 text-center">
           <p className="text--muted">
-            {t("contact.subtitle")}
+            {t("contact:subtitle")}
           </p>
         </div>
 
@@ -103,35 +107,44 @@ export function Contact() {
           </div>
 
           <AnimatedCard delay={ANIMATION_DELAYS.NORMAL} hover={false}>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                  <label className="block mb-2 text">{t("contact.name")}</label>
+                  <label className="block mb-2 text">{t("contact:name")}</label>
                   <Input
-                    name="name"
-                    required
-                    placeholder={t("contact.placeholder.name")}
+                    {...register("name")}
+                    placeholder={t("contact:placeholder.name")}
                     className="bg--input border--default focus:border--focus text--vs-light"
+                    aria-invalid={!!errors.name}
                   />
+                  {errors.name && (
+                    <span className="text--error text-sm mt-1 block">{t(errors.name.message || "")}</span>
+                  )}
                 </div>
                 <div>
-                  <label className="block mb-2 text">{t("contact.email")}</label>
+                  <label className="block mb-2 text">{t("contact:email")}</label>
                   <Input
-                    name="email"
+                    {...register("email")}
                     type="email"
-                    required
-                    placeholder={t("contact.placeholder.email")}
+                    placeholder={t("contact:placeholder.email")}
                     className="bg--input border--default focus:border--focus text--vs-light"
+                    aria-invalid={!!errors.email}
                   />
+                  {errors.email && (
+                    <span className="text--error text-sm mt-1 block">{t(errors.email.message || "")}</span>
+                  )}
                 </div>
                 <div>
-                  <label className="block mb-2 text">{t("contact.message")}</label>
+                  <label className="block mb-2 text">{t("contact:message")}</label>
                   <Textarea
-                    name="message"
-                    required
-                    placeholder={t("contact.placeholder.message")}
+                    {...register("message")}
+                    placeholder={t("contact:placeholder.message")}
                     rows={5}
                     className="bg--input border--default focus:border--focus text--vs-light resize-none"
+                    aria-invalid={!!errors.message}
                   />
+                  {errors.message && (
+                    <span className="text--error text-sm mt-1 block">{t(errors.message.message || "")}</span>
+                  )}
                 </div>
                 <Button 
                   type="submit" 
@@ -139,7 +152,7 @@ export function Contact() {
                   disabled={isSubmitting}
                 >
                   <Send className="w-4 h-4 mr-2" />
-                  {isSubmitting ? "Wysyłanie..." : t("contact.send")}
+                  {isSubmitting ? "Wysyłanie..." : t("contact:send")}
                 </Button>
               </form>
             </AnimatedCard>

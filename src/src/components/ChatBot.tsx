@@ -135,11 +135,11 @@ export function ChatBot() {
                   transition={{ delay: 0.1 }}
                 >
                   <div className="bg--primary-light border border--primary-medium rounded-lg p-4">
-                    <p className="text--tertiary mb-2">{t("chat.greeting")}</p>
-                    <p className="text--vs-light mb-3">{t("chat.message")}</p>
+                    <p className="text--tertiary mb-2">{t("common:chat.greeting")}</p>
+                    <p className="text--vs-light mb-3">{t("common:chat.message")}</p>
                     <div className="flex items-center gap-2 text--vs-cyan">
                       <span className="animate-pulse">●</span>
-                      <span>{t("chat.question")}</span>
+                      <span>{t("common:chat.question")}</span>
                     </div>
                   </div>
                 </motion.div>

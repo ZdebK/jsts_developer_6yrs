@@ -65,49 +65,49 @@ export function Projects() {
   
   const projects: ProjectProps[] = [
     {
-      title: t("projects.mes.title"),
-      description: t("projects.mes.desc"),
+      title: t("projects:mes.title"),
+      description: t("projects:mes.desc"),
       technologies: ["Node.js", "PostgreSQL", "HTML", "CSS"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.puppeteer.title"),
-      description: t("projects.puppeteer.desc"),
+      title: t("projects:puppeteer.title"),
+      description: t("projects:puppeteer.desc"),
       technologies: ["Node.js", "Puppeteer", "Cucumber"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.aws.title"),
-      description: t("projects.aws.desc"),
+      title: t("projects:aws.title"),
+      description: t("projects:aws.desc"),
       technologies: ["Node.js", "AWS SDK", "JavaScript"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.zus.title"),
-      description: t("projects.zus.desc"),
+      title: t("projects:zus.title"),
+      description: t("projects:zus.desc"),
       technologies: ["React", "HTML", "CSS"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.ai.title"),
-      description: t("projects.ai.desc"),
+      title: t("projects:ai.title"),
+      description: t("projects:ai.desc"),
       technologies: ["React", "Node.js", "AI", "Figma API"],
       github: "#",
       demo: "#",
     },
     {
-      title: t("projects.shop.title"),
-      description: t("projects.shop.desc"),
+      title: t("projects:shop.title"),
+      description: t("projects:shop.desc"),
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker", "WordPress"],
       github: "#",
     },
     {
-      title: t("projects.weather.title"),
-      description: t("projects.weather.desc"),
+      title: t("projects:weather.title"),
+      description: t("projects:weather.desc"),
       technologies: ["Node.js", "GraphQL", "PostgreSQL", "React", "Weatherstack API"],
       github: "#",
       demo: "#",
@@ -117,7 +117,7 @@ export function Projects() {
   return (
     <section id="projects" className="section section--with-bg">
       <div className="container--large">
-        <SectionHeader title={t("projects.title")} />
+        <SectionHeader title={t("projects:title")} />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (

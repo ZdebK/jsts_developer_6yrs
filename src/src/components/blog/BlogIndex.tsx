@@ -22,9 +22,9 @@ export function BlogIndex() {
   return (
     <section className="section section--with-bg">
       <div className="container--large">
-        <SectionHeader title={t("blog.title")} />
+        <SectionHeader title={t("blog:title")} />
         <div className="mb-8">
-          <p className="text--muted">{t("blog.subtitle")}</p>
+          <p className="text--muted">{t("blog:subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -39,7 +39,7 @@ export function BlogIndex() {
                 <div className="mt-4">
                   <Button asChild variant="ghost" className="link--hover">
                     <Link to={`/blog/${post.slug}`}>
-                      <span>{t("blog.readMore")}</span>
+                      <span>{t("blog:readMore")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>

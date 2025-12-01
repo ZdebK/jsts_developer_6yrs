@@ -9,16 +9,16 @@ export function Education() {
   
   const education = [
     {
-      degree: t("edu.master"),
-      school: t("edu.school"),
-      period: t("edu.period1"),
-      description: t("edu.master.spec"),
+      degree: t("education:master"),
+      school: t("education:school"),
+      period: t("education:period1"),
+      description: t("education:master.spec"),
     },
     {
-      degree: t("edu.bachelor"),
-      school: t("edu.school"),
-      period: t("edu.period2"),
-      description: t("edu.bachelor.spec"),
+      degree: t("education:bachelor"),
+      school: t("education:school"),
+      period: t("education:period2"),
+      description: t("education:bachelor.spec"),
     },
   ];
 
@@ -32,7 +32,7 @@ export function Education() {
   return (
     <section id="education" className="section section--with-bg">
       <div className="container">
-        <SectionHeader title={t("edu.title")} />
+        <SectionHeader title={t("education:title")} />
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {education.map((edu, index) => (
@@ -57,7 +57,7 @@ export function Education() {
           <Card className="card">
             <div className="flex items-center gap-3 mb-4">
               <Award className="w-6 h-6 text--vs-orange" />
-              <h3 className="text--tertiary">{t("edu.certs")}</h3>
+              <h3 className="text--tertiary">{t("education:certs")}</h3>
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
               {certifications.map((cert, index) => (

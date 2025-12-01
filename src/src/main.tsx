@@ -4,5 +4,6 @@ import App from "./App.tsx";
 import "./index.css";
 import "./styles/utilities.scss";
 import "./styles/globals.css";
+import "./i18n";
 
 createRoot(document.getElementById("root")!).render(<App />);  

@@ -1,0 +1,27 @@
+{
+  "title": "Kontakt",
+  "subtitle": "Masz projekt lub propozycję współpracy? Skontaktuj się ze mną!",
+  "email": "Email",
+  "phone": "Telefon",
+  "location": "Lokalizacja",
+  "name": "Imię",
+  "message": "Wiadomość",
+  "send": "Wyślij wiadomość",
+  "placeholder": {
+    "name": "Json Rekruter",
+    "email": "jan.kowalski@supercompany.com",
+    "message": "Twoja wiadomość..."
+  },
+  "success": "Wiadomość wysłana! Odezwę się wkrótce 🚀",
+  "error": "Błąd wysyłki. Spróbuj ponownie lub napisz bezpośrednio na kas.elzbieciak@gmail.com",
+  "validation": {
+    "nameRequired": "Imię jest wymagane",
+    "nameTooShort": "Imię musi mieć min. 2 znaki",
+    "nameTooLong": "Imię może mieć max. 50 znaków",
+    "emailRequired": "Email jest wymagany",
+    "emailInvalid": "Nieprawidłowy format email",
+    "messageRequired": "Wiadomość jest wymagana",
+    "messageTooShort": "Wiadomość musi mieć min. 10 znaków",
+    "messageTooLong": "Wiadomość może mieć max. 500 znaków"
+  }
+}
