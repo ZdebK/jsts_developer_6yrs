@@ -13,11 +13,23 @@ interface LearnModeProps {
 export function LearnMode({ flashcards, onClose }: LearnModeProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [dragX, setDragX] = useState(0);
+  const [isSwipeAnimating, setIsSwipeAnimating] = useState(false);
   // Swipe handling refs
   const startXRef = useRef<number | null>(null);
   const startYRef = useRef<number | null>(null);
   const draggingRef = useRef(false);
   const suppressClickRef = useRef(false);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const animatingRef = useRef(false);
+
+  const SUPPRESS_CLICK_MS = 120;
+  const suppressClickBriefly = () => {
+    suppressClickRef.current = true;
+    setTimeout(() => {
+      suppressClickRef.current = false;
+    }, SUPPRESS_CLICK_MS);
+  };
 
   const currentCard = flashcards[currentIndex];
   const progress = ((currentIndex + 1) / flashcards.length) * 100;
@@ -77,20 +89,19 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
     const ay = Math.abs(wheelAccumYRef.current);
     if (ax > 120 && ax > ay * 1.2) {
       // Significant horizontal gesture
-      suppressClickRef.current = true;
+      suppressClickBriefly();
       wheelCooldownRef.current = true;
-      if (wheelAccumXRef.current > 0) {
-        // swipe left -> next
-        if (!isLastCard) {
+      const dirLeft = wheelAccumXRef.current > 0; // positive deltaX -> content moves left
+      if (dirLeft && !isLastCard) {
+        triggerSwipeAnimation('left', () => {
           setCurrentIndex((i) => Math.min(i + 1, flashcards.length - 1));
           setIsFlipped(false);
-        }
-      } else {
-        // swipe right -> previous
-        if (currentIndex > 0) {
+        });
+      } else if (!dirLeft && currentIndex > 0) {
+        triggerSwipeAnimation('right', () => {
           setCurrentIndex((i) => Math.max(i - 1, 0));
           setIsFlipped(false);
-        }
+        });
       }
       // reset accumulators and cooldown after a short delay
       wheelAccumXRef.current = 0;
@@ -108,11 +119,19 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
     startXRef.current = e.clientX;
     startYRef.current = e.clientY;
     draggingRef.current = true;
+    if (!isSwipeAnimating) {
+      setDragX(0);
+    }
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!draggingRef.current || startXRef.current === null || startYRef.current === null) return;
-    // We could add visual feedback here (translateX), but keep it simple for now
+    const dx = e.clientX - startXRef.current;
+    const dy = e.clientY - startYRef.current;
+    if (Math.abs(dx) > Math.abs(dy) * 1.2) {
+      // follow finger horizontally
+      setDragX(dx);
+    }
   };
 
   const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -124,6 +143,8 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
       draggingRef.current = false;
       startXRef.current = null;
       startYRef.current = null;
+      // snap back if needed
+      if (!isSwipeAnimating) setDragX(0);
       return;
     }
     const dx = e.clientX - startXRef.current;
@@ -135,22 +156,92 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
     const horizontal = Math.abs(dx) > 60; // swipe threshold
     const mostlyHorizontal = Math.abs(dx) > Math.abs(dy) * 1.2; // avoid vertical pans
     if (horizontal && mostlyHorizontal) {
-      suppressClickRef.current = true; // prevent flip click
-      if (dx < 0) {
-        // swipe left -> next
-        if (!isLastCard) {
+      suppressClickBriefly(); // prevent immediate synthetic click, allow quick follow-up
+      if (dx < 0 && !isLastCard) {
+        triggerSwipeAnimation('left', () => {
           setCurrentIndex((i) => Math.min(i + 1, flashcards.length - 1));
           setIsFlipped(false);
-        }
-      } else {
-        // swipe right -> previous
-        if (currentIndex > 0) {
+        });
+      } else if (dx > 0 && currentIndex > 0) {
+        triggerSwipeAnimation('right', () => {
           setCurrentIndex((i) => Math.max(i - 1, 0));
           setIsFlipped(false);
-        }
+        });
+      } else {
+        // not allowed move: snap back
+        animateBackToCenter();
       }
     }
+    else {
+      animateBackToCenter();
+    }
   };
+
+  function getOffscreenDistance() {
+    const w = trackRef.current?.offsetWidth || 800;
+    return Math.max(400, Math.min(1000, Math.floor(w * 1.1)));
+  }
+
+  function animateBackToCenter() {
+    if (animatingRef.current) return;
+    setIsSwipeAnimating(true);
+    // animate to 0
+    const start = performance.now();
+    const duration = 200;
+    const from = dragX;
+    const animate = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDragX(Math.round(from * (1 - eased)));
+      if (t < 1) requestAnimationFrame(animate);
+      else setIsSwipeAnimating(false);
+    };
+    requestAnimationFrame(animate);
+  }
+
+  function triggerSwipeAnimation(direction: 'left' | 'right', onMidpoint: () => void) {
+    if (animatingRef.current) return;
+    animatingRef.current = true;
+    setIsSwipeAnimating(true);
+    const distance = getOffscreenDistance();
+    const exitTo = direction === 'left' ? -distance : distance;
+    // Exit animation
+    const exitStart = performance.now();
+    const exitDuration = 220;
+    const from = dragX;
+    const exitAnim = (now: number) => {
+      const t = Math.min(1, (now - exitStart) / exitDuration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDragX(Math.round(from + (exitTo - from) * eased));
+      if (t < 1) requestAnimationFrame(exitAnim);
+      else {
+        // midpoint: change index
+        onMidpoint();
+        // jump to opposite side without transition
+        const enterFrom = direction === 'left' ? distance : -distance;
+        setDragX(enterFrom);
+        // small delay then animate to center
+        const enterStart = performance.now() + 20;
+        const enterDuration = 220;
+        const enterAnim = (now2: number) => {
+          const t2 = Math.min(1, (now2 - enterStart) / enterDuration);
+          if (t2 < 0) {
+            requestAnimationFrame(enterAnim);
+            return;
+          }
+          const eased2 = 1 - Math.pow(1 - t2, 3);
+          setDragX(Math.round(enterFrom + (0 - enterFrom) * eased2));
+          if (t2 < 1) requestAnimationFrame(enterAnim);
+          else {
+            setIsSwipeAnimating(false);
+            animatingRef.current = false;
+          }
+        };
+        requestAnimationFrame(enterAnim);
+      }
+    };
+    requestAnimationFrame(exitAnim);
+  }
 
   return (
     <div className="learn-mode-overlay fixed inset-0 z-50 bg-black bg-opacity-95 flex flex-col" style={{ width: '60%', margin: '0 auto' }}>
@@ -202,16 +293,20 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
             onWheel={onWheel}
           >
             <div
-              className={`flashcard-learn ${isFlipped ? 'flipped' : ''}`}
-              onClick={handleFlip}
-              onPointerDown={onPointerDown}
-              onPointerMove={onPointerMove}
-              onPointerUp={onPointerUp}
-              style={{
-                transform: isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
-                touchAction: 'pan-y',
-              }}
+              ref={trackRef}
+              style={{ transform: `translateX(${dragX}px)` }}
             >
+              <div
+                className={`flashcard-learn ${isFlipped ? 'flipped' : ''}`}
+                onClick={handleFlip}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={onPointerUp}
+                style={{
+                  transform: isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
+                  touchAction: 'pan-y',
+                }}
+              >
               {/* Front */}
               <div className="flashcard-face-learn">
                 <div className="absolute top-6 left-0 right-0">
@@ -237,6 +332,7 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
                     {currentCard.answer}
                   </p>
                 </div>
+              </div>
               </div>
             </div>
           </div>
