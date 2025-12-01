@@ -19,6 +19,8 @@ export function Contact() {
   const { register, handleSubmit, formState: { errors, touchedFields }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     mode: 'onBlur',
+    reValidateMode: 'onChange',
+    shouldUnregister: false,
     defaultValues: {
       name: '',
       email: '',

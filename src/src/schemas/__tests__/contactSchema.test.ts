@@ -39,6 +39,18 @@ describe('Contact Schema Validation', () => {
       });
       expect(result.success).toBe(false);
     });
+
+    it('handles undefined name (React Hook Form case)', () => {
+      const result = contactSchema.safeParse({
+        name: undefined,
+        email: 'john@example.com',
+        message: 'Test message',
+      });
+      expect(result.success).toBe(false);
+      if (!result.success) {
+        expect(result.error.issues[0].message).toBe('validation.nameRequired');
+      }
+    });
   });
 
   describe('email field', () => {
@@ -67,6 +79,18 @@ describe('Contact Schema Validation', () => {
         message: 'Test message',
       });
       expect(result.success).toBe(false);
+    });
+
+    it('handles undefined email (React Hook Form case)', () => {
+      const result = contactSchema.safeParse({
+        name: 'John Doe',
+        email: undefined,
+        message: 'Test message',
+      });
+      expect(result.success).toBe(false);
+      if (!result.success) {
+        expect(result.error.issues[0].message).toBe('validation.emailRequired');
+      }
     });
   });
 
@@ -116,6 +140,18 @@ describe('Contact Schema Validation', () => {
         message: maxMessage,
       });
       expect(result.success).toBe(true);
+    });
+
+    it('handles undefined message (React Hook Form case)', () => {
+      const result = contactSchema.safeParse({
+        name: 'John Doe',
+        email: 'john@example.com',
+        message: undefined,
+      });
+      expect(result.success).toBe(false);
+      if (!result.success) {
+        expect(result.error.issues[0].message).toBe('validation.messageRequired');
+      }
     });
   });
 
