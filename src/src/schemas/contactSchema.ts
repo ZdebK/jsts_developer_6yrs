@@ -3,18 +3,18 @@ import { z } from 'zod';
 export const contactSchema = z.object({
   name: z
     .string()
-    .min(1, 'contact:validation.nameRequired')
-    .min(2, 'contact:validation.nameTooShort')
-    .max(50, 'contact:validation.nameTooLong'),
+    .min(1, 'validation.nameRequired')
+    .min(2, 'validation.nameTooShort')
+    .max(50, 'validation.nameTooLong'),
   email: z
     .string()
-    .min(1, 'contact:validation.emailRequired')
-    .email('contact:validation.emailInvalid'),
+    .min(1, 'validation.emailRequired')
+    .email('validation.emailInvalid'),
   message: z
     .string()
-    .min(1, 'contact:validation.messageRequired')
-    .min(10, 'contact:validation.messageTooShort')
-    .max(500, 'contact:validation.messageTooLong'),
+    .min(1, 'validation.messageRequired')
+    .min(10, 'validation.messageTooShort')
+    .max(500, 'validation.messageTooLong'),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;

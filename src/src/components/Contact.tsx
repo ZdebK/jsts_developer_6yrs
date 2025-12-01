@@ -16,8 +16,14 @@ export function Contact() {
   const { t } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormData>({
+  const { register, handleSubmit, formState: { errors, touchedFields }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -72,7 +78,7 @@ export function Contact() {
     {
       icon: <MapPin className="w-5 h-5" />,
       label: t("contact:location"),
-      value: t("hero.location"),
+      value: t("hero:location"),
       colorClass: "text--vs-orange",
       bgClass: "bg--primary-light",
     },
@@ -107,17 +113,19 @@ export function Contact() {
           </div>
 
           <AnimatedCard delay={ANIMATION_DELAYS.NORMAL} hover={false}>
-            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div>
                   <label className="block mb-2 text">{t("contact:name")}</label>
                   <Input
                     {...register("name")}
                     placeholder={t("contact:placeholder.name")}
                     className="bg--input border--default focus:border--focus text--vs-light"
-                    aria-invalid={!!errors.name}
+                    aria-invalid={touchedFields.name && !!errors.name}
                   />
                   {errors.name && (
-                    <span className="text--error text-sm mt-1 block">{t(errors.name.message || "")}</span>
+                    <span className="text--error text-sm mt-1 block">
+                      {errors.name.message ? t(`contact:${errors.name.message}`) : t('contact:validation.nameRequired')}
+                    </span>
                   )}
                 </div>
                 <div>
@@ -127,10 +135,12 @@ export function Contact() {
                     type="email"
                     placeholder={t("contact:placeholder.email")}
                     className="bg--input border--default focus:border--focus text--vs-light"
-                    aria-invalid={!!errors.email}
+                    aria-invalid={touchedFields.email && !!errors.email}
                   />
                   {errors.email && (
-                    <span className="text--error text-sm mt-1 block">{t(errors.email.message || "")}</span>
+                    <span className="text--error text-sm mt-1 block">
+                      {errors.email.message ? t(`contact:${errors.email.message}`) : t('contact:validation.emailRequired')}
+                    </span>
                   )}
                 </div>
                 <div>
@@ -140,10 +150,12 @@ export function Contact() {
                     placeholder={t("contact:placeholder.message")}
                     rows={5}
                     className="bg--input border--default focus:border--focus text--vs-light resize-none"
-                    aria-invalid={!!errors.message}
+                    aria-invalid={touchedFields.message && !!errors.message}
                   />
                   {errors.message && (
-                    <span className="text--error text-sm mt-1 block">{t(errors.message.message || "")}</span>
+                    <span className="text--error text-sm mt-1 block">
+                      {errors.message.message ? t(`contact:${errors.message.message}`) : t('contact:validation.messageRequired')}
+                    </span>
                   )}
                 </div>
                 <Button 

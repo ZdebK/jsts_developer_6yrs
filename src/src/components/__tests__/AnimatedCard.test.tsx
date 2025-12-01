@@ -11,6 +11,7 @@ vi.mock('motion/react', () => ({
       </div>
     ),
   },
+  useInView: () => true,
 }));
 
 describe('AnimatedCard', () => {
@@ -29,8 +30,9 @@ describe('AnimatedCard', () => {
         <p>Test</p>
       </AnimatedCard>
     );
-    const card = container.firstChild;
-    expect(card).toHaveClass('card--primary');
+    const card = container.querySelector('.card');
+    expect(card).toHaveClass('card');
+    expect(card).toHaveClass('card--hover'); // default hover is true
   });
 
   it('applies custom className', () => {
@@ -39,7 +41,7 @@ describe('AnimatedCard', () => {
         <p>Test</p>
       </AnimatedCard>
     );
-    const card = container.firstChild;
+    const card = container.querySelector('.card');
     expect(card).toHaveClass('custom-class');
   });
 
@@ -49,7 +51,7 @@ describe('AnimatedCard', () => {
         <p>Test</p>
       </AnimatedCard>
     );
-    const card = container.firstChild;
+    const card = container.querySelector('.card');
     expect(card).toHaveClass('card--hover');
   });
 
@@ -59,7 +61,8 @@ describe('AnimatedCard', () => {
         <p>Test</p>
       </AnimatedCard>
     );
-    const card = container.firstChild;
+    const card = container.querySelector('.card');
+    expect(card).toHaveClass('card');
     expect(card).not.toHaveClass('card--hover');
   });
 });

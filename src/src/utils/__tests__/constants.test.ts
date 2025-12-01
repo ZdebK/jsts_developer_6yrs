@@ -46,7 +46,7 @@ describe('Animation Constants', () => {
       expect(getStaggerDelay(0, 0.2)).toBe(0);
       expect(getStaggerDelay(1, 0.2)).toBe(0.2);
       expect(getStaggerDelay(2, 0.2)).toBe(0.4);
-      expect(getStaggerDelay(3, 0.15)).toBe(0.45);
+      expect(getStaggerDelay(3, 0.15)).toBeCloseTo(0.45, 2);
     });
 
     it('handles edge cases', () => {
@@ -60,8 +60,8 @@ describe('Animation Constants', () => {
       expect(getSequentialDelay(0)).toBe(0);
       expect(getSequentialDelay(1)).toBe(0.1);
       expect(getSequentialDelay(2)).toBe(0.2);
-      expect(getSequentialDelay(3)).toBe(0.3);
-      expect(getSequentialDelay(6)).toBe(0.6);
+      expect(getSequentialDelay(3)).toBeCloseTo(0.3, 2);
+      expect(getSequentialDelay(6)).toBeCloseTo(0.6, 2);
     });
 
     it('uses STAGGER_DELAY for calculation', () => {

@@ -21,6 +21,7 @@ vi.mock('motion/react', () => ({
       </p>
     ),
   },
+  useInView: () => true,
 }));
 
 describe('AnimatedElement', () => {
