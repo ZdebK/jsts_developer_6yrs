@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/button';
 import type { Flashcard } from '../../data/flashcards';
 
@@ -56,10 +56,10 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
   return (
     <div className="learn-mode-overlay fixed inset-0 z-50 bg-black bg-opacity-95 flex flex-col" style={{ width: '60%', margin: '0 auto' }}>
       {/* Header */}
-      <div className="learn-mode-header p-4 mb-8 flex items-center">
+      <div className="learn-mode-header p-4 mb-8 flex flex-col items-center">
         <div className="max-w-4xl mx-auto flex justify-center items-center w-full">
           <div className="text--vs-light">
-            <span className="text--vs-blue font-bold text-xl">{currentIndex + 1}</span>
+            <span className="font-bold text-xl" style={{color: '#3399ff'}}>{currentIndex + 1}</span>
             <span className="text--muted"> / {flashcards.length}</span>
           </div>
         </div>
@@ -102,7 +102,7 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
                   </p>
                 </div>
                 <div className="absolute bottom-6 left-0 right-0">
-                  <p className="text--muted text-xs text-center opacity-50">Click or press Space to reveal answer</p>
+                  <p className="text--muted text-xs text-center opacity-70">Click or press Space to reveal answer</p>
                 </div>
               </div>
 
