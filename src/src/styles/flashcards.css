@@ -93,20 +93,21 @@
 .flashcard-face-learn.back {
   border: 1px solid rgba(86, 156, 214, 0.5);
   box-shadow: 0 20px 60px rgba(86, 156, 214, 0.2);
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
 }
 
 .flashcard-learn {
   width: 100%;
   max-width: 100%;
   min-height: 400px;
+  position: relative;
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flashcard-learn.flipped {
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
 }
 
 /* Category Button Hover Effects */
