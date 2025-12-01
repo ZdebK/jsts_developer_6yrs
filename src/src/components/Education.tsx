@@ -1,8 +1,8 @@
-import { GraduationCap, Calendar, Award } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
-import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
+import { getStaggerDelay } from "../utils/constants";
 
 export function Education() {
   const { t } = useLanguage();
@@ -20,13 +20,6 @@ export function Education() {
       period: t("education:period2"),
       description: t("education:bachelor.spec"),
     },
-  ];
-
-  const certifications: string[] = [
-    // "AWS Certified Developer",
-    // "Google Cloud Professional Developer",
-    // "MongoDB Certified Developer",
-    // "Scrum Master Certification",
   ];
 
   return (
@@ -51,28 +44,6 @@ export function Education() {
             </AnimatedCard>
           ))}
         </div>
-
-        {/* Certifications section commented out - not real certifications
-        <AnimatedSection delay={ANIMATION_DELAYS.NORMAL}>
-          <Card className="card">
-            <div className="flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text--vs-orange" />
-              <h3 className="text--tertiary">{t("education:certs")}</h3>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-3">
-              {certifications.map((cert, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text"
-                >
-                  <span className="text--primary">▹</span>
-                  <span>{cert}</span>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </AnimatedSection>
-        */}
       </div>
     </section>
   );

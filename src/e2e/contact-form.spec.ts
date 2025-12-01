@@ -59,7 +59,6 @@ test.describe('Contact Form', () => {
     const nonEmptyErrors = errorTexts.filter(text => text.trim().length > 0);
     
     if (nonEmptyErrors.length > 0) {
-      console.log('Remaining non-empty errors:', nonEmptyErrors);
       expect(nonEmptyErrors.length).toBe(0);
     }
   });

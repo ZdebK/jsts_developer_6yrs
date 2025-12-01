@@ -95,7 +95,8 @@ export function Projects() {
     {
       title: t("projects:ai.title"),
       description: t("projects:ai.desc"),
-      technologies: ["React", "Node.js", "AI", "Figma API"],
+      technologies: ["React", "Node.js", "AI", "Figma API", "Vitest", "Playwright"
+      ],
       github: "#",
       demo: "#",
     },

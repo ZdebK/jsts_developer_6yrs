@@ -37,8 +37,8 @@ export function Navigation() {
     if (onHome) {
       scrollToSection(id);
     } else {
-      // Navigate to home with hash to trigger browser scroll
-      window.location.href = `${import.meta.env.BASE_URL}#${id}`;
+      navigate("/");
+      setTimeout(() => scrollToSection(id), 100);
     }
   };
 

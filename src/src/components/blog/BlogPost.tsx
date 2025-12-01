@@ -48,7 +48,7 @@ export function BlogPost() {
   })();
 
   useEffect(() => {
-    if (!meta) return;
+    if (!meta) {return;}
     const prevTitle = document.title;
     document.title = `${meta.title} | Blog`;
 
@@ -65,7 +65,7 @@ export function BlogPost() {
     upsertMeta('meta[property="og:title"]', { property: 'og:title', content: meta.title });
     upsertMeta('meta[property="og:description"]', { property: 'og:description', content: meta.excerpt || meta.title });
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'article' });
-    if (shareUrl) upsertMeta('meta[property="og:url"]', { property: 'og:url', content: shareUrl });
+    if (shareUrl) {upsertMeta('meta[property="og:url"]', { property: 'og:url', content: shareUrl });}
 
     return () => {
       document.title = prevTitle;

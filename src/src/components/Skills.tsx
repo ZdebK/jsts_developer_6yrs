@@ -3,7 +3,7 @@ import { Card } from "./ui/card";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
-import { AnimatedCard } from "./AnimatedCard";
+
 import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
 
 interface SkillCategory {
@@ -70,10 +70,12 @@ export function Skills() {
       skills: [
         "Agile/Scrum",
         "TDD",
-        "Microservices",
+        "Vitest",
+        "Playwright",
         "Puppeteer",
         "Mocha/Chai",
         "JMeter",
+        "ESLint",
         "Figma",
         "Jira",
       ],
@@ -121,11 +123,11 @@ export function Skills() {
               <span className="text--vs-cyan">skills</span>{" "}
               <span className="text--vs-muted">=</span>{" "}
               <span className="text--vs-orange">[</span>
-              <span className="text--vs-light">"ciągłe uczenie się"</span>
+              <span className="text--vs-light">&quot;ciągłe uczenie się&quot;</span>
               <span className="text--vs-muted">,</span>{" "}
-              <span className="text--vs-light">"rozwiązywanie problemów"</span>
+              <span className="text--vs-light">&quot;rozwiązywanie problemów&quot;</span>
               <span className="text--vs-muted">,</span>{" "}
-              <span className="text--vs-light">"praca zespołowa"</span>
+              <span className="text--vs-light">&quot;praca zespołowa&quot;</span>
               <span className="text--vs-orange">]</span>
             </p>
           </div>

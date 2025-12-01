@@ -7,20 +7,19 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasSeenGreeting, setHasSeenGreeting] = useState(false);
+  const [hasSeenGreeting, setHasSeenGreeting] = useState(() => {
+    return localStorage.getItem("chatGreetingSeen") === "true";
+  });
   const { t } = useLanguage();
 
   useEffect(() => {
-    const seen = localStorage.getItem("chatGreetingSeen");
-    if (!seen) {
+    if (!hasSeenGreeting) {
       const timer = setTimeout(() => {
         setIsOpen(true);
       }, 2000);
       return () => clearTimeout(timer);
-    } else {
-      setHasSeenGreeting(true);
     }
-  }, []);
+  }, [hasSeenGreeting]);
 
   const handleClose = () => {
     setIsOpen(false);
