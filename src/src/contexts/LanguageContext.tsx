@@ -16,7 +16,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.name": "Katarzyna Elżbieciak",
     "person.email": "kas.elzbieciak@gmail.com",
     "person.phone": "+48 888 435 618",
-    "person.location": "Kraków, Domgały 41a",
+    "person.location": "Kraków, Domgały",
 
     // Navigation
     "nav.about": "O mnie",
@@ -147,7 +147,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.name": "Katarzyna Elżbieciak",
     "person.email": "kas.elzbieciak@gmail.com",
     "person.phone": "+48 888 435 618",
-    "person.location": "Kraków, Domgały 41a",
+    "person.location": "Kraków, Domgały",
 
     // Navigation
     "nav.about": "About",

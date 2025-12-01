@@ -118,7 +118,7 @@ export function Contact() {
                     name="name"
                     required
                     placeholder={t("contact.placeholder.name")}
-                    className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4]"
+                    className="bg--input border--default focus:border--focus text--vs-light"
                   />
                 </div>
                 <div>
@@ -128,7 +128,7 @@ export function Contact() {
                     type="email"
                     required
                     placeholder={t("contact.placeholder.email")}
-                    className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4]"
+                    className="bg--input border--default focus:border--focus text--vs-light"
                   />
                 </div>
                 <div>
@@ -138,7 +138,7 @@ export function Contact() {
                     required
                     placeholder={t("contact.placeholder.message")}
                     rows={5}
-                    className="bg-[#3c3c3c] border-[#3e3e42] focus:border-[#007acc] text-[#d4d4d4] resize-none"
+                    className="bg--input border--default focus:border--focus text--vs-light resize-none"
                   />
                 </div>
                 <Button 

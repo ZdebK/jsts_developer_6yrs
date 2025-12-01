@@ -66,7 +66,7 @@ export function Education() {
         <AnimatedSection delay={0.2}>
           <Card className="card">
             <div className="flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text-[#ce9178]" />
+              <Award className="w-6 h-6 text--vs-orange" />
               <h3 className="text--tertiary">{t("edu.certs")}</h3>
             </div>
             <div className="grid sm:grid-cols-2 gap-3">
@@ -75,7 +75,7 @@ export function Education() {
                   key={index}
                   className="flex items-center gap-2 text"
                 >
-                  <span className="text-[#007acc]">▹</span>
+                  <span className="text--primary">▹</span>
                   <span>{cert}</span>
                 </div>
               ))}

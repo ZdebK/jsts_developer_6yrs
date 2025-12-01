@@ -157,6 +157,117 @@
   @extend %link-hover;
 }
 
+.button--icon-hover {
+  @extend %button-icon-hover;
+}
+
+// ============================================================================
+// COLOR UTILITIES
+// ============================================================================
+
+// Text Colors
+.text--vs-blue {
+  @extend %text-vs-blue;
+}
+
+.text--vs-cyan {
+  @extend %text-vs-cyan;
+}
+
+.text--vs-orange {
+  @extend %text-vs-orange;
+}
+
+.text--vs-light {
+  @extend %text-vs-light;
+}
+
+.text--vs-muted {
+  @extend %text-vs-muted;
+}
+
+.text--primary {
+  @extend %text-primary-color;
+}
+
+.text--light {
+  @extend %text-light-color;
+}
+
+// Background Colors
+.bg--input {
+  @extend %bg-input;
+}
+
+.bg--card-dark {
+  @extend %bg-card-dark;
+}
+
+.bg--dark-alt {
+  @extend %bg-dark-alt;
+}
+
+.bg--primary {
+  @extend %bg-primary;
+}
+
+.bg--dark {
+  background-color: $color-bg-dark;
+}
+
+.bg--hover-alt {
+  @extend %bg-hover-alt;
+}
+
+.bg--primary-dark {
+  @extend %bg-primary-dark;
+}
+
+// Border Styles
+.border--default {
+  @extend %border-default;
+}
+
+.border--primary {
+  @extend %border-primary;
+}
+
+.border--focus {
+  @extend %border-focus;
+}
+
+.border--hover {
+  @extend %border-hover;
+}
+
+.border--primary-color {
+  @extend %border-primary-color;
+}
+
+.bg--primary-light {
+  @extend %bg-primary-light;
+}
+
+.border--primary-light {
+  @extend %border-primary-light;
+}
+
+.border--primary-medium {
+  @extend %border-primary-medium;
+}
+
+.text--error {
+  @extend %text-error;
+}
+
+.bg--error {
+  @extend %bg-error;
+}
+
+.fill--error {
+  @extend %fill-error;
+}
+
 // ============================================================================
 // SPACING UTILITIES
 // ============================================================================

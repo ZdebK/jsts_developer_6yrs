@@ -83,11 +83,11 @@ export function Skills() {
         <AnimatedSection>
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl mb-2">
-              <span className="text-[#858585]">{"<"}</span>
-              <span className="text-[#569cd6]">{t("skills.title")}</span>
-              <span className="text-[#858585]">{" />"}</span>
+              <span className="text--vs-muted">{"{<}"}</span>
+              <span className="text--vs-blue">{t("skills.title")}</span>
+              <span className="text--vs-muted">{" />"}</span>
             </h2>
-            <div className="h-1 w-20 bg-[#007acc] rounded"></div>
+            <div className="h-1 w-20 bg--primary rounded"></div>
           </div>
         </AnimatedSection>
 
@@ -95,7 +95,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <Card
-                className="p-6 bg-[#252526] border-[#3e3e42] hover:border-[#007acc] transition-all hover:scale-105 h-full"
+                className="p-6 bg--card-dark border--default hover:border--hover transition-all hover:scale-105 h-full"
               >
                 <div
                   className="flex items-center gap-3 mb-4"
@@ -108,9 +108,9 @@ export function Skills() {
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="flex items-center gap-2 text-[#d4d4d4]"
+                      className="flex items-center gap-2 text--vs-light"
                     >
-                      <span className="text-[#007acc]">•</span>
+                      <span className="text--primary">•</span>
                       <span>{skill}</span>
                     </div>
                   ))}
@@ -121,18 +121,18 @@ export function Skills() {
         </div>
 
         <AnimatedSection delay={0.4}>
-          <div className="mt-12 p-6 bg-[#252526] border border-[#3e3e42] rounded-lg">
-            <p className="text-center text-[#858585]">
-              <span className="text-[#569cd6]">const</span>{" "}
-              <span className="text-[#4ec9b0]">skills</span>{" "}
-              <span className="text-[#858585]">=</span>{" "}
-              <span className="text-[#ce9178]">[</span>
-              <span className="text-[#d4d4d4]">"ciągłe uczenie się"</span>
-              <span className="text-[#858585]">,</span>{" "}
-              <span className="text-[#d4d4d4]">"rozwiązywanie problemów"</span>
-              <span className="text-[#858585]">,</span>{" "}
-              <span className="text-[#d4d4d4]">"praca zespołowa"</span>
-              <span className="text-[#ce9178]">]</span>
+          <div className="mt-12 p-6 bg--card-dark border border--default rounded-lg">
+            <p className="text-center text--vs-muted">
+              <span className="text--vs-blue">const</span>{" "}
+              <span className="text--vs-cyan">skills</span>{" "}
+              <span className="text--vs-muted">=</span>{" "}
+              <span className="text--vs-orange">[</span>
+              <span className="text--vs-light">"ciągłe uczenie się"</span>
+              <span className="text--vs-muted">,</span>{" "}
+              <span className="text--vs-light">"rozwiązywanie problemów"</span>
+              <span className="text--vs-muted">,</span>{" "}
+              <span className="text--vs-light">"praca zespołowa"</span>
+              <span className="text--vs-orange">]</span>
             </p>
           </div>
         </AnimatedSection>

@@ -24,7 +24,7 @@ function ProjectCard({ title, description, technologies, github, demo }: Project
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-[#2d2d30] hover:text-[#007acc]"
+              className="button--icon-hover"
             >
               <Github className="w-5 h-5" />
             </Button>
@@ -33,7 +33,7 @@ function ProjectCard({ title, description, technologies, github, demo }: Project
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-[#2d2d30] hover:text-[#007acc]"
+              className="button--icon-hover"
             >
               <ExternalLink className="w-5 h-5" />
             </Button>

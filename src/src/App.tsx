@@ -29,7 +29,7 @@ export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <LanguageProvider>
-        <div className="min-h-screen bg-[#1e1e1e] text-[#d4d4d4]">
+        <div className="min-h-screen bg--dark text--light">
           <Navigation />
           <main>
             <Routes>

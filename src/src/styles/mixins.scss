@@ -230,6 +230,123 @@
   }
 }
 
+%button-icon-hover {
+  transition: $transition-default;
+  
+  &:hover {
+    background-color: $color-bg-card-hover;
+    color: $color-primary;
+  }
+}
+
+// ============================================================================
+// TEXT COLORS
+// ============================================================================
+
+%text-vs-blue {
+  color: $color-secondary;
+}
+
+%text-vs-cyan {
+  color: $color-accent;
+}
+
+%text-vs-orange {
+  color: $color-quaternary;
+}
+
+%text-vs-light {
+  color: $color-light;
+}
+
+%text-vs-muted {
+  color: $color-muted;
+}
+
+%text-primary-color {
+  color: $color-primary;
+}
+
+%text-light-color {
+  color: $color-text-light;
+}
+
+// ============================================================================
+// BACKGROUND COLORS
+// ============================================================================
+
+%bg-input {
+  background-color: $color-bg-input;
+}
+
+%bg-card-dark {
+  background-color: $color-bg-card;
+}
+
+%bg-dark-alt {
+  background-color: $color-bg-dark-alt;
+}
+
+%bg-primary {
+  background-color: $color-primary;
+}
+
+%bg-hover-alt {
+  background-color: $color-bg-hover-alt;
+}
+
+%bg-primary-dark {
+  background-color: $color-primary-dark;
+}
+
+%border-primary {
+  border-color: $color-primary;
+}
+
+// ============================================================================
+// BORDER STYLES
+// ============================================================================
+
+%border-default {
+  border: 1px solid $color-border;
+}
+
+%border-focus {
+  border: 1px solid $color-primary;
+}
+
+%border-hover {
+  border: 1px solid $color-primary;
+}
+
+%border-primary-color {
+  border-color: $color-primary;
+}
+
+%bg-primary-light {
+  background-color: rgba($color-primary, 0.1);
+}
+
+%border-primary-light {
+  border-color: rgba($color-primary, 0.2);
+}
+
+%border-primary-medium {
+  border-color: rgba($color-primary, 0.3);
+}
+
+%text-error {
+  color: $color-error;
+}
+
+%bg-error {
+  background-color: $color-error;
+}
+
+%fill-error {
+  fill: $color-error;
+}
+
 // ============================================================================
 // MIXINS
 // ============================================================================

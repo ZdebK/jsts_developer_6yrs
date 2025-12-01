@@ -44,7 +44,7 @@ export function BlogIndex() {
                 <h3 className="text--tertiary mb-2">{post.title}</h3>
                 <p className="text flex-1">{post.intro}</p>
                 <div className="mt-4">
-                  <Button asChild variant="ghost" className="hover:text-[#007acc]">
+                  <Button asChild variant="ghost" className="link--hover">
                     <Link to={`/blog/${post.slug}`}>
                       <span>{t("blog.readMore")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />

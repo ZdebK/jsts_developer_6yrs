@@ -90,7 +90,7 @@ export function BlogPost() {
       <div className="container">
         <AnimatedSection>
           <div className="mb-8">
-            <Link to="/blog" className="inline-flex items-center text-[#007acc] hover:underline mb-4">
+            <Link to="/blog" className="inline-flex items-center text--primary hover:underline mb-4">
               <ArrowLeft className="w-4 h-4 mr-2" />
               <span>{t("blog.back")}</span>
             </Link>
@@ -111,13 +111,13 @@ export function BlogPost() {
             <div className="flex flex-wrap items-center gap-2 mb-4">
               <button
                 onClick={handleNativeShare}
-                className="px-3 py-1.5 rounded border border-[#3e3e42] hover:bg-[#2d2d30] inline-flex items-center gap-2"
+                className="px-3 py-1.5 rounded border border--default button--icon-hover inline-flex items-center gap-2"
               >
                 <Share2 className="w-4 h-4" />
                 <span>Udostępnij</span>
               </button>
               <a
-                className="px-3 py-1.5 rounded border border-[#3e3e42] hover:bg-[#2d2d30] inline-flex items-center gap-2"
+                className="px-3 py-1.5 rounded border border--default button--icon-hover inline-flex items-center gap-2"
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
                 target="_blank" rel="noreferrer"
               >
@@ -125,7 +125,7 @@ export function BlogPost() {
                 <span>LinkedIn</span>
               </a>
               <a
-                className="px-3 py-1.5 rounded border border-[#3e3e42] hover:bg-[#2d2d30] inline-flex items-center gap-2"
+                className="px-3 py-1.5 rounded border border--default button--icon-hover inline-flex items-center gap-2"
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`}
                 target="_blank" rel="noreferrer"
               >
@@ -133,7 +133,7 @@ export function BlogPost() {
                 <span>X</span>
               </a>
               <a
-                className="px-3 py-1.5 rounded border border-[#3e3e42] hover:bg-[#2d2d30] inline-flex items-center gap-2"
+                className="px-3 py-1.5 rounded border border--default button--icon-hover inline-flex items-center gap-2"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
                 target="_blank" rel="noreferrer"
               >
@@ -148,10 +148,10 @@ export function BlogPost() {
                     setTimeout(() => setCopied(false), 1500);
                   } catch {}
                 }}
-                className="px-3 py-1.5 rounded border border-[#3e3e42] hover:bg-[#2d2d30] inline-flex items-center gap-2"
+                className="px-3 py-1.5 rounded border border--default button--icon-hover inline-flex items-center gap-2"
                 title={shareUrl}
               >
-                {copied ? <Check className="w-4 h-4 text-[#4ec9b0]" /> : <Copy className="w-4 h-4" />}
+                {copied ? <Check className="w-4 h-4 text--vs-cyan" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? "Skopiowano" : "Kopiuj link"}</span>
               </button>
             </div>

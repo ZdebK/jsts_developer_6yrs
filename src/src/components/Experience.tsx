@@ -32,7 +32,7 @@ function ExperienceItem({ position, company, period, description, technologies, 
             <ul className="space-y-2 mb-4">
               {description.map((item, index) => (
                 <li key={index} className="text mb-2 flex gap-2">
-                  <span className="text-[#007acc]">▹</span>
+                  <span className="text--primary">▹</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -41,7 +41,7 @@ function ExperienceItem({ position, company, period, description, technologies, 
               {technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-[#007acc]/10 text-[#569cd6] rounded border border-[#007acc]/20"
+                  className="px-3 py-1 bg--primary-light text--vs-blue rounded border border--primary-light"
                 >
                   {tech}
                 </span>

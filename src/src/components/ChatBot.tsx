@@ -57,7 +57,7 @@ export function ChatBot() {
       >
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-14 h-14 rounded-full bg-[#007acc] hover:bg-[#005a9e] shadow-lg hover:shadow-xl transition-all"
+          className="w-14 h-14 rounded-full bg--primary hover:bg--primary-dark shadow-lg hover:shadow-xl transition-all"
           size="icon"
         >
           <AnimatePresence mode="wait">
@@ -88,7 +88,7 @@ export function ChatBot() {
         {/* Notification Badge */}
         {!hasSeenGreeting && !isOpen && (
           <motion.div
-            className="absolute -top-1 -right-1 w-4 h-4 bg-[#f48771] rounded-full"
+            className="absolute -top-1 -right-1 w-4 h-4 bg--error rounded-full"
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ repeat: Infinity, duration: 2 }}
           />
@@ -105,9 +105,9 @@ export function ChatBot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            <Card className="bg-[#252526] border-[#007acc] shadow-2xl overflow-hidden">
+            <Card className="bg--card-dark border--primary shadow-2xl overflow-hidden">
               {/* Header */}
-              <div className="bg-[#007acc] p-4 flex items-center justify-between">
+              <div className="bg--primary p-4 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                     <MessageCircle className="w-5 h-5" />
@@ -134,10 +134,10 @@ export function ChatBot() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
                 >
-                  <div className="bg-[#007acc]/10 border border-[#007acc]/30 rounded-lg p-4">
-                    <p className="text-[#dcdcaa] mb-2">{t("chat.greeting")}</p>
-                    <p className="text-[#d4d4d4] mb-3">{t("chat.message")}</p>
-                    <div className="flex items-center gap-2 text-[#4ec9b0]">
+                  <div className="bg--primary-light border border--primary-medium rounded-lg p-4">
+                    <p className="text--tertiary mb-2">{t("chat.greeting")}</p>
+                    <p className="text--vs-light mb-3">{t("chat.message")}</p>
+                    <div className="flex items-center gap-2 text--vs-cyan">
                       <span className="animate-pulse">●</span>
                       <span>{t("chat.question")}</span>
                     </div>
@@ -153,13 +153,13 @@ export function ChatBot() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + index * 0.05 }}
                       onClick={() => scrollToSection(link.id)}
-                      className="w-full flex items-center justify-between p-3 bg-[#2d2d30] hover:bg-[#3e3e42] rounded-lg transition-colors group"
+                      className="w-full flex items-center justify-between p-3 bg--dark-alt hover:bg--hover-alt rounded-lg transition-colors group"
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-xl">{link.icon}</span>
-                        <span className="text-[#d4d4d4]">{link.label}</span>
+                        <span className="text--vs-light">{link.label}</span>
                       </div>
-                      <ChevronRight className="w-4 h-4 text-[#858585] group-hover:text-[#007acc] group-hover:translate-x-1 transition-all" />
+                      <ChevronRight className="w-4 h-4 text--vs-muted group-hover:text--primary group-hover:translate-x-1 transition-all" />
                     </motion.button>
                   ))}
                 </div>
@@ -169,10 +169,10 @@ export function ChatBot() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="text-center text-[#858585] pt-2"
+                  className="text-center text--vs-muted pt-2"
                 >
                   <p>
-                    <span className="text-[#569cd6]">{"// "}</span>
+                    <span className="text--vs-blue">{"// "}</span>
                     Click to navigate
                   </p>
                 </motion.div>
