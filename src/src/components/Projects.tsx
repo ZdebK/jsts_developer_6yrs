@@ -103,6 +103,13 @@ export function Projects() {
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker", "WordPress"],
       github: "#",
     },
+    {
+      title: t("projects.weather.title"),
+      description: t("projects.weather.desc"),
+      technologies: ["Node.js", "GraphQL", "PostgreSQL", "React", "Weatherstack API"],
+      github: "#",
+      demo: "#",
+    },
   ];
 
   return (

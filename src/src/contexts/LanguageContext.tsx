@@ -96,6 +96,8 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.ai.desc": "Strona internetowa generująca projekty i komponenty UI na podstawie szkiców z Figma, wspomagana przez narzędzia AI. Backend oparty o Node.js, frontend w React, z naciskiem na automatyzację i responsywność.",
     "projects.shop.title": "👟 Sklep obuwniczy",
     "projects.shop.desc": "Nowoczesna strona internetowa dla sklepu obuwniczego z możliwością przeglądania kolekcji, filtrowania produktów oraz realizacji zamówień online. System posiada panel administracyjny do zarządzania ofertą i integrację z płatnościami online (Stripe). Projekt zbudowany na platformie WordPress.",
+    "projects.weather.title": "🌤️ Aplikacja pogodowa",
+    "projects.weather.desc": "Aplikacja pogodowa oparta na GraphQL i PostgreSQL, wykorzystująca Weatherstack API do pobierania aktualnych danych meteorologicznych. Backend zbudowany w Node.js z GraphQL API, frontend w React, z cachowaniem zapytań i przechowywaniem historycznych danych pogodowych w bazie PostgreSQL.",
 
   // Blog
   "blog.title": "Blog",
@@ -225,6 +227,8 @@ const translations: Record<Language, Record<string, string>> = {
     "projects.ai.desc": "Website that generates UI projects and components based on Figma sketches, supported by AI tools. Backend based on Node.js, frontend in React, with emphasis on automation and responsiveness.",
     "projects.shop.title": "👟 Shoe Shop",
     "projects.shop.desc": "Modern website for a shoe store with the ability to browse collections, filter products, and place online orders. System has an admin panel for managing offers and integration with online payments (Stripe). Project built on the WordPress platform.",
+    "projects.weather.title": "🌤️ Weather App",
+    "projects.weather.desc": "Weather application based on GraphQL and PostgreSQL, using Weatherstack API to fetch current meteorological data. Backend built with Node.js and GraphQL API, frontend in React, with query caching and storage of historical weather data in PostgreSQL database.",
 
   // Blog
   "blog.title": "Blog",

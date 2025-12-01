@@ -38,6 +38,7 @@ export function Skills() {
         "PostgreSQL",
         "MongoDB",
         "REST API",
+        "GraphQL",
         "Microservices",
         "npm/yarn",
         "JWT",
