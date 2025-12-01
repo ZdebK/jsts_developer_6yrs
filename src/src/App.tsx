@@ -10,8 +10,7 @@ import { ChatBot } from "./components/ChatBot";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BlogIndex } from "./components/blog/BlogIndex";
-import { BlogPost } from "./components/blog/BlogPost";
+import { FlashcardsIndex } from "./components/flashcards/FlashcardsIndex";
 
 function HomePage() {
   return (
@@ -36,8 +35,7 @@ export default function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/blog" element={<BlogIndex />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/learn" element={<FlashcardsIndex />} />
             </Routes>
           </main>
           <Footer />

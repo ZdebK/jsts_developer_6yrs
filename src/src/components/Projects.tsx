@@ -68,50 +68,44 @@ export function Projects() {
       title: t("projects:mes.title"),
       description: t("projects:mes.desc"),
       technologies: ["Node.js", "PostgreSQL", "HTML", "CSS"],
-      github: "#",
-      demo: "#",
     },
     {
       title: t("projects:puppeteer.title"),
       description: t("projects:puppeteer.desc"),
       technologies: ["Node.js", "Puppeteer", "Cucumber"],
-      github: "#",
-      demo: "#",
     },
     {
       title: t("projects:aws.title"),
       description: t("projects:aws.desc"),
       technologies: ["Node.js", "AWS SDK", "JavaScript"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/ZdebK/projektopol",
+      demo: "https://github.com/ZdebK/projektopol/blob/master/media/demo.mp4",
     },
     {
       title: t("projects:zus.title"),
       description: t("projects:zus.desc"),
       technologies: ["React", "HTML", "CSS"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/ZdebK/projectPOLX2",
+      demo: "https://github.com/ZdebK/projectPOLX2/tree/main/demo",
     },
     {
       title: t("projects:ai.title"),
       description: t("projects:ai.desc"),
       technologies: ["React", "Node.js", "AI", "Figma API", "Vitest", "Playwright"
       ],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/ZdebK/jsts_developer_6yrs",
+      demo: "https://zdebk.github.io/jsts_developer_6yrs",
     },
     {
       title: t("projects:shop.title"),
       description: t("projects:shop.desc"),
       technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker", "WordPress"],
-      github: "#",
     },
     {
       title: t("projects:weather.title"),
       description: t("projects:weather.desc"),
       technologies: ["Node.js", "GraphQL", "PostgreSQL", "React", "Weatherstack API"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/ZdebK/wheather_app"
     },
   ];
 

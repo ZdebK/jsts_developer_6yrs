@@ -1,4 +1,4 @@
-import { Code2, Menu, X, Newspaper } from "lucide-react";
+import { Code2, Menu, X, BookOpen } from "lucide-react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -28,8 +28,8 @@ export function Navigation() {
   ];
 
   const handleNavigate = (id: string) => {
-    if (id === "blog") {
-      navigate("/blog");
+    if (id === "learn") {
+      navigate("/learn");
       setMobileMenuOpen(false);
       return;
     }
@@ -63,14 +63,14 @@ export function Navigation() {
               </button>
             ))}
 
-            {/* Distinct Blog CTA placed after Contact */}
+            {/* Distinct Learn CTA placed after Contact */}
             <button
-              onClick={() => handleNavigate("blog")}
+              onClick={() => handleNavigate("learn")}
               className="ml-2 px-4 py-2 border border--primary-color text--primary button--icon-hover rounded inline-flex items-center gap-2 transition-colors"
-              aria-label="Blog"
+              aria-label="Learn"
             >
-              <Newspaper className="w-4 h-4" />
-              {t("nav.blog")}
+              <BookOpen className="w-4 h-4" />
+              {t("common:nav.learn")}
             </button>
             
             {/* Language Toggle */}
@@ -130,13 +130,13 @@ export function Navigation() {
               </button>
             ))}
 
-            {/* Mobile distinct Blog CTA after Contact */}
+            {/* Mobile distinct Learn CTA after Contact */}
             <button
-              onClick={() => handleNavigate("blog")}
+              onClick={() => handleNavigate("learn")}
               className="mt-1 w-full px-3 py-2 bg--primary text-white rounded inline-flex items-center justify-center gap-2 hover:opacity-90 transition"
             >
-              <Newspaper className="w-4 h-4" />
-              {t("nav.blog")}
+              <BookOpen className="w-4 h-4" />
+              {t("common:nav.learn")}
             </button>
             
             {/* Mobile Language Toggle */}
