@@ -1,0 +1,31 @@
+{
+  "title": "Projects",
+  "mes": {
+    "title": "🏭 MES Application",
+    "desc": "Development of MES (Manufacturing Execution System) application for monitoring production processes and managing resources in real-time. System built with Node.js and PostgreSQL, with a frontend based on HTML and CSS."
+  },
+  "puppeteer": {
+    "title": "🤖 Puppeteer Test Framework",
+    "desc": "Development of a framework for automated testing of Node.js applications using Puppeteer and Cucumber. The project enables automatic UI testing, report generation, and CI/CD pipeline integration."
+  },
+  "aws": {
+    "title": "☁️ AWS SiteScan Plugin",
+    "desc": "Hackathon project — a plugin that analyzes and verifies the correctness of website configurations hosted in AWS environment. The tool automatically checks service status, availability, and security."
+  },
+  "zus": {
+    "title": "🧓 ZUS Retirement App",
+    "desc": "Hackathon web application that enables quick checking of predicted retirement based on user data. Interface built in React, with logic based on a simple backend with HTML and CSS."
+  },
+  "ai": {
+    "title": "🎨 AI Website Builder",
+    "desc": "Website that generates UI projects and components based on Figma sketches, supported by AI tools. Backend based on Node.js, frontend in React, with emphasis on automation and responsiveness."
+  },
+  "shop": {
+    "title": "👟 Shoe Shop",
+    "desc": "Modern website for a shoe store with the ability to browse collections, filter products, and place online orders. System has an admin panel for managing offers and integration with online payments (Stripe). Project built on the WordPress platform."
+  },
+  "weather": {
+    "title": "🌤️ Weather App",
+    "desc": "Weather application based on GraphQL and PostgreSQL, using Weatherstack API to fetch current meteorological data. Backend built with Node.js and GraphQL API, frontend in React, with query caching and storage of historical weather data in PostgreSQL database."
+  }
+}

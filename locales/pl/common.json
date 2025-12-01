@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "about": "O mnie",
+    "experience": "Doświadczenie",
+    "education": "Edukacja",
+    "skills": "Umiejętności",
+    "projects": "Projekty",
+    "blog": "Blog",
+    "learn": "Nauka",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "made": "Stworzone z",
+    "and": "i React",
+    "rights": "Wszystkie prawa zastrzeżone.",
+    "designed": "Zaprojektowane w stylu VS Code"
+  },
+  "chat": {
+    "greeting": "Drogi Rekruterze! 👋",
+    "message": "To prawdopodobnie najlepszy kandydat, jakiego możesz znaleźć. Nie przegap tej okazji i zaproś na rozmowę!",
+    "question": "Gdzie chcesz się przenieść?",
+    "close": "Zamknij"
+  }
+}

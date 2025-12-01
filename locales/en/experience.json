@@ -1,0 +1,37 @@
+{
+  "title": "Experience",
+  "senior": "Software Developer - Specialist",
+  "full": "Software Developer - Intern",
+  "frontend": "Frontend Developer",
+  "intern": "Intern",
+  "company1": "Calix Technology Poland",
+  "company2": "Delphi Technologies",
+  "company3": "Abventor",
+  "period1": "Jan 2019 - Aug 2025",
+  "period2": "Sep 2017 - Oct 2018",
+  "period3": "Aug 2017 - Sep 2017",
+  "desc1": {
+    "1": "Delivered full-stack features across frontend and backend, focusing on clean, maintainable and scalable code that improved system stability and user experience.",
+    "2": "Designed and implemented performance optimizations, reducing load times and improving responsiveness across key modules.",
+    "3": "Built automated end-to-end tests (Puppeteer) and performance test suites (k6, JMeter), contributing to higher release confidence and fewer regressions.",
+    "4": "Actively collaborated with clients and cross-functional teams, translating business needs into technical solutions with empathy for user workflows and UX.",
+    "5": "Participated in Agile ceremonies (planning, daily stand-ups, retrospectives), supporting smooth communication and predictable delivery.",
+    "6": "Contributed to CI/CD pipelines and version control best practices, improving deployment speed and team productivity.",
+    "7": "Supported go-live phases for MES systems for international clients, resolving critical issues under time pressure and ensuring successful production rollout.",
+    "8": "Leveraged AI tools (GitHub Copilot, Cloud Code, ChatGPT) to explore new concepts, debug complex problems, and prototype frontend features — including full React pages.",
+    "9": "Mentored junior developers and improved onboarding process."
+  },
+  "desc2": {
+    "1": "Developed a proof-of-concept Angular web application for face-recognition-based login using Microsoft Cognitive Services, exploring early applications of AI in authentication flows.",
+    "2": "Built an internal chatbot for Skype/Slack, improving communication efficiency and demonstrating initiative in automating repetitive tasks.",
+    "3": "Designed user-friendly UI flows and collaborated with stakeholders to ensure intuitive interaction and good UX in PoC applications.",
+    "4": "Gained hands-on experience with REST API integration, frontend–backend communication, debugging, and application architecture.",
+    "5": "Worked in a small development team, learning best practices in clean code, version control, and Agile collaboration.",
+    "6": "Quickly adapted to new technologies and contributed ideas beyond assigned tasks, showing strong curiosity and willingness to learn."
+  },
+  "desc3": {
+    "1": "Gained hands-on experience in web development and website administration, working with HTML, CSS, and Drupal to create, update, and maintain website content effectively.",
+    "2": "Collaborated closely with the team, developing strong teamwork and communication skills while participating in project discussions and adapting to professional workflows.",
+    "3": "Combined technical knowledge with practical site management, building a solid foundation for career in web development and digital solutions."
+  }
+}

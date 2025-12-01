@@ -1,0 +1,18 @@
+{
+  "title": "Blog",
+  "subtitle": "Updates and new initiatives",
+  "readMore": "Read more",
+  "back": "Back to blog",
+  "notFound": "Post not found.",
+  "post1": {
+    "title": "Starting active job search and opening up to new challenges",
+    "date": "November 2025",
+    "p1": "I'm entering the next stage of my career and starting an active job search. I'm looking for projects where I can truly influence the product, improve processes, propose solutions, and help build valuable tools. I'm open to full-time roles as well as short-term contracts, consulting, and commercial initiatives.",
+    "p2": "For the past years, I've worked as a developer focused on both frontend and backend technologies. I feel best where solid architecture, thoughtful solutions, and a modern approach to development come together.",
+    "p3": "What roles do I see myself in now? I'm most interested in projects based on TypeScript and modern frontend frameworks — especially React and Angular — and Node.js on the server side.",
+    "p4": "I'm looking for places where work goes beyond just delivering backlog, giving space to influence the direction of the application. I'm also open to projects around process automation and initiatives that leverage AI in software development and UI prototyping.",
+    "p5": "What can I bring to a team? The ability to write clean, well-thought-out code; experience building applications on both frontend and backend; familiarity with CI/CD and automation tooling; rapid prototyping and quick adaptation to project needs; and a proactive mindset with readiness to make technical decisions.",
+    "p6": "Who would I like to work with? Teams that value quality, experimentation, product growth, and a modern approach to technology — places where responsibility, communication, and attention to detail matter.",
+    "p7": "I'm available for contracts, project-based cooperation, permanent roles, consulting, as well as prototyping and POCs."
+  }
+}
