@@ -6,6 +6,12 @@ import { Button } from '../ui/button';
 import type { Flashcard, FlashcardCategory } from '../../data/flashcards';
 import { categories } from '../../data/flashcards';
 
+function getLessonUrl(card: Flashcard): string {
+  if (card.lessonUrl) return card.lessonUrl;
+  const q = encodeURIComponent(`${card.question} site:geeksforgeeks.org`);
+  return `https://www.google.com/search?q=${q}`;
+}
+
 interface LearnModeProps {
   flashcards: Flashcard[];
   onClose: () => void;
@@ -295,20 +301,18 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
         {/* Category selector */}
         <div className="max-w-4xl mx-auto mt-4 w-full">
           <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => onCategoryChange(category.id)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
-                  currentCategory === category.id
-                    ? 'bg--primary-light text--vs-blue border border--focus'
-                    : 'bg-transparent text--muted border border-transparent hover:border--default opacity-50 hover:opacity-70'
-                }`}
-              >
-                <span className="text-base">{category.icon}</span>
-                <span>{category.name}</span>
-              </button>
-            ))}
+            {categories
+              .filter((c) => c.id === currentCategory)
+              .map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => onCategoryChange(category.id)}
+                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 bg--primary-light text--vs-blue border border--default`}
+                >
+                  <span className="text-base">{category.icon}</span>
+                  <span>{category.name}</span>
+                </button>
+              ))}
           </div>
         </div>
 
@@ -381,17 +385,29 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
               Previous
             </Button>
 
-            <Button
-              onClick={handleNext}
-              variant="ghost"
-              className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
-              size="lg"
-            >
-              {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
-              <ChevronRight className="w-5 h-5" />
-            </Button>
+            <div className="flex items-center gap-3">
+              <Button
+                onClick={() => window.open(getLessonUrl(currentCard), '_blank')}
+                variant="ghost"
+                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
+                size="lg"
+                aria-label="Open lesson for current category"
+              >
+                LESSON
+              </Button>
+              <Button
+                onClick={handleNext}
+                variant="ghost"
+                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
+                size="lg"
+              >
+                {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </div>
           </div>
         </div>
+        {/* Lesson opens in new tab */}
       </div>
       
     </div>

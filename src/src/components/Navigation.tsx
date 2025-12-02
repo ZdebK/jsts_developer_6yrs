@@ -74,7 +74,7 @@ export function Navigation() {
             </button>
             
             {/* Language Toggle */}
-            <div className="ml-2 flex items-center gap-1 border-l border--default pl-2">
+            <div className="ml-2 flex items-center gap-1 pl-2">
               <Button
                 variant="ghost"
                 size="sm"
@@ -118,7 +118,7 @@ export function Navigation() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg--card-dark border-t border--default">
+        <div className="md:hidden bg--card-dark">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <button
@@ -140,7 +140,7 @@ export function Navigation() {
             </button>
             
             {/* Mobile Language Toggle */}
-            <div className="flex items-center gap-2 px-3 py-2 border-t border--default mt-2 pt-3">
+            <div className="flex items-center gap-2 px-3 py-2 mt-2 pt-3">
               <span className="text--vs-muted">Language:</span>
               <Button
                 variant="ghost"
