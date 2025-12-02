@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/button';
-import type { Flashcard } from '../../data/flashcards';
+import type { Flashcard, FlashcardCategory } from '../../data/flashcards';
+import { categories } from '../../data/flashcards';
 
 interface LearnModeProps {
   flashcards: Flashcard[];
   onClose: () => void;
+  currentCategory: FlashcardCategory;
+  onCategoryChange: (category: FlashcardCategory) => void;
 }
 
-export function LearnMode({ flashcards, onClose }: LearnModeProps) {
+export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChange }: LearnModeProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [dragX, setDragX] = useState(0);
@@ -65,6 +68,13 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
     if (currentIndex < flashcards.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
+    } else {
+      // At end of category, move to next category
+      const currentCategoryIndex = categories.findIndex(c => c.id === currentCategory);
+      const nextCategoryIndex = (currentCategoryIndex + 1) % categories.length;
+      onCategoryChange(categories[nextCategoryIndex].id);
+      setCurrentIndex(0);
+      setIsFlipped(false);
     }
   };
 
@@ -76,6 +86,7 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
   };
 
   const isLastCard = currentIndex === flashcards.length - 1;
+  const isLastCategory = categories.findIndex(c => c.id === currentCategory) === categories.length - 1;
 
   // Trackpad/mouse horizontal wheel swipe
   const wheelAccumXRef = useRef(0);
@@ -281,6 +292,26 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
           </div>
         </div>
 
+        {/* Category selector */}
+        <div className="max-w-4xl mx-auto mt-4 w-full">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => onCategoryChange(category.id)}
+                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 ${
+                  currentCategory === category.id
+                    ? 'bg--primary-light text--vs-blue border border--focus'
+                    : 'bg-transparent text--muted border border-transparent hover:border--default opacity-50 hover:opacity-70'
+                }`}
+              >
+                <span className="text-base">{category.icon}</span>
+                <span>{category.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         
       </div>
 
@@ -352,12 +383,11 @@ export function LearnMode({ flashcards, onClose }: LearnModeProps) {
 
             <Button
               onClick={handleNext}
-              disabled={isLastCard}
               variant="ghost"
               className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
               size="lg"
             >
-              Next
+              {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
               <ChevronRight className="w-5 h-5" />
             </Button>
           </div>

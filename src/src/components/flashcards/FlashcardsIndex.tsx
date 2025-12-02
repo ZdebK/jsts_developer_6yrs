@@ -13,7 +13,6 @@ export function FlashcardsIndex() {
 
   const handleCategorySelect = (category: FlashcardCategory) => {
     setSelectedCategory(category);
-    setIsLearnMode(false);
   };
 
   const handleLearnModeStart = () => {
@@ -22,6 +21,10 @@ export function FlashcardsIndex() {
 
   const handleLearnModeClose = () => {
     setIsLearnMode(false);
+  };
+
+  const handleCategoryChangeInLearnMode = (category: FlashcardCategory) => {
+    setSelectedCategory(category);
   };
 
   return (
@@ -52,6 +55,8 @@ export function FlashcardsIndex() {
         <LearnMode
           flashcards={flashcards}
           onClose={handleLearnModeClose}
+          currentCategory={selectedCategory}
+          onCategoryChange={handleCategoryChangeInLearnMode}
         />
       )}
     </section>
