@@ -110,14 +110,14 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
       wheelCooldownRef.current = true;
       const dirLeft = wheelAccumXRef.current > 0; // positive deltaX -> content moves left
       if (dirLeft && !isLastCard) {
+        setIsFlipped(false);
         triggerSwipeAnimation('left', () => {
           setCurrentIndex((i) => Math.min(i + 1, flashcards.length - 1));
-          setIsFlipped(false);
         });
       } else if (!dirLeft && currentIndex > 0) {
+        setIsFlipped(false);
         triggerSwipeAnimation('right', () => {
           setCurrentIndex((i) => Math.max(i - 1, 0));
-          setIsFlipped(false);
         });
       }
       // reset accumulators and cooldown after a short delay
@@ -175,14 +175,14 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
     if (horizontal && mostlyHorizontal) {
       suppressClickBriefly(); // prevent immediate synthetic click, allow quick follow-up
       if (dx < 0 && !isLastCard) {
+        setIsFlipped(false);
         triggerSwipeAnimation('left', () => {
           setCurrentIndex((i) => Math.min(i + 1, flashcards.length - 1));
-          setIsFlipped(false);
         });
       } else if (dx > 0 && currentIndex > 0) {
+        setIsFlipped(false);
         triggerSwipeAnimation('right', () => {
           setCurrentIndex((i) => Math.max(i - 1, 0));
-          setIsFlipped(false);
         });
       } else {
         // not allowed move: snap back
