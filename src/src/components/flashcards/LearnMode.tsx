@@ -363,9 +363,26 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
                   <span className="text--vs-blue text-xs uppercase tracking-wider text-center block">Answer</span>
                 </div>
                 <div className="flex-1 flex items-center justify-center w-full">
-                  <p className="text-center text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-2">
-                    {currentCard.answer}
-                  </p>
+                  {(() => {
+                    const raw = currentCard.answer || '';
+                    const lines = raw.split('\n').map(l => l.trim());
+                    const isList = lines.length > 1 && lines.every(l => l.startsWith('- '));
+                    if (isList) {
+                      const items = lines.map(l => l.replace(/^-\s+/, ''));
+                      return (
+                        <ul className="text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-6 list-disc text-left">
+                          {items.map((it, idx) => (
+                            <li key={idx} className="mb-1">{it}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+                    return (
+                      <div className="text-center text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-2 whitespace-pre-line">
+                        {raw}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
               </div>

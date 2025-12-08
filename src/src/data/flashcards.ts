@@ -6,7 +6,7 @@ export interface Flashcard {
   lessonUrl?: string;
 }
 
-export type FlashcardCategory = 'security' | 'javascriptInterview' | 'css' | 'dom' | 'react' | 'typescript' | 'systemDesign' | 'databases' | 'networking';
+export type FlashcardCategory = 'security' | 'javascriptInterview' | 'css' | 'dom' | 'react' | 'typescript' | 'systemDesign' | 'databases' | 'networking' | 'ux';
 
 export interface CategoryInfo {
   id: FlashcardCategory;
@@ -69,6 +69,12 @@ export const categories: CategoryInfo[] = [
     name: 'Networking',
     icon: '🌐',
     color: '#16a085',
+  },
+  {
+    id: 'ux',
+    name: 'UX & User Experience',
+    icon: '👥',
+    color: '#e74c3c',
   },
 ];
 
@@ -136,6 +142,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'User logs in → Server validates credentials → Server creates JWT with user data and signs it → Client stores JWT (localStorage/cookie) → Client sends JWT in Authorization header → Server verifies signature and extracts payload → Server grants access based on claims.',
       category: 'security',
       lessonUrl: 'https://auth0.com/learn/json-web-tokens'
+    },
+    {
+      id: 'sec-10',
+      question: 'TCP vs UDP',
+      answer: 'TCP (Transmission Control Protocol) is connection-oriented, guarantees delivery, maintains order, and includes error checking (reliable but slower). UDP (User Datagram Protocol) is connectionless, no delivery guarantee, no ordering, minimal overhead (faster but unreliable). Use TCP for web, email, file transfer. Use UDP for streaming, gaming, DNS.',
+      category: 'security',
+      lessonUrl: 'https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/'
     },
   ],
   javascriptInterview: [
@@ -677,6 +690,50 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'HTTP (Hypertext Transfer Protocol) transmits data in plain text. HTTPS adds SSL/TLS encryption for secure communication. HTTPS provides authentication (verify server identity), encryption (protect data), and integrity (detect tampering). Always use HTTPS for sensitive data.',
       category: 'networking',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/HTTPS'
+    },
+  ],
+  ux: [
+    {
+      id: 'ux-1',
+      question: 'Accessibility (a11y) - what should every developer know',
+      answer: '- WCAG guidelines (Web Content Accessibility Guidelines) ensure content is perceivable, operable, understandable, and robust\n- Semantic HTML (buttons, links, headings) improves screen reader compatibility\n- ARIA attributes (aria-label, aria-hidden, role) enhance accessibility when semantic HTML is insufficient\n- Color contrast ratios must meet WCAG standards (4.5:1 for normal text)\n- Keyboard navigation must be fully functional (Tab, Enter, Escape keys)\n- Test with screen readers (NVDA, JAWS) and accessibility tools (axe DevTools)',
+      category: 'ux',
+      lessonUrl: 'https://web.dev/accessibility'
+    },
+    {
+      id: 'ux-2',
+      question: 'Core Web Vitals and performance metrics',
+      answer: '- Largest Contentful Paint (LCP): time when largest visible content renders (target: <2.5s)\n- First Input Delay (FID): latency from user input to response (target: <100ms, replaced by INP)\n- Cumulative Layout Shift (CLS): visual stability during load (target: <0.1)\n- Interaction to Next Paint (INP): responsiveness of interactions (replaces FID)\n- These metrics affect SEO rankings and user experience significantly',
+      category: 'ux',
+      lessonUrl: 'https://web.dev/vitals'
+    },
+    {
+      id: 'ux-3',
+      question: 'Mobile-first design and responsive design principles',
+      answer: '- Mobile-first: design for mobile devices first, then progressively enhance for larger screens\n- Responsive design uses flexible layouts, flexible images, and media queries\n- Breakpoints: typical sizes are 320px, 768px (tablet), 1024px, 1440px\n- Touch targets should be at least 48x48 pixels for easy interaction\n- Use viewport meta tag: <meta name="viewport" content="width=device-width, initial-scale=1">\n- Test on real devices and use Chrome DevTools device emulation',
+      category: 'ux',
+      lessonUrl: 'https://web.dev/responsive-web-design-basics'
+    },
+    {
+      id: 'ux-4',
+      question: 'How would you optimize a slow website',
+      answer: '- Analyze: use Lighthouse, WebPageTest, Chrome DevTools Network tab\n- Code splitting: split JavaScript bundles, lazy load routes and components\n- Minification & compression: minify CSS/JS, enable gzip/brotli on server\n- Image optimization: use modern formats (WebP), responsive images with srcset, lazy load with loading="lazy"\n- Caching: browser cache headers, service workers for offline, CDN for static assets\n- Reduce main thread work: move heavy computation to Web Workers\n- Optimize fonts: use system fonts or variable fonts, reduce requests',
+      category: 'ux',
+      lessonUrl: 'https://web.dev/performance'
+    },
+    {
+      id: 'ux-5',
+      question: 'User testing methods and when to use them',
+      answer: '- Usability testing: observe real users completing tasks to identify pain points\n- A/B testing: compare two versions to measure which performs better\n- User interviews: qualitative feedback through structured conversations\n- Surveys: gather quantitative data from many users efficiently\n- Heatmaps & session recordings: understand how users interact with your site\n- Analytics: measure user behavior, conversion rates, drop-off points\n- Card sorting: organize information hierarchy and navigation structure',
+      category: 'ux',
+      lessonUrl: 'https://www.nngroup.com/articles/ux-research-methods/'
+    },
+    {
+      id: 'ux-6',
+      question: 'Dark mode implementation and why it matters',
+      answer: '- Dark mode reduces eye strain in low-light environments and saves battery on OLED screens\n- Implementation: use CSS media query @media (prefers-color-scheme: dark) or toggle with JavaScript\n- Ensure sufficient contrast in dark mode: light text on dark backgrounds\n- Use CSS custom properties (variables) for theme colors to switch easily\n- Respect user preference: read prefers-color-scheme and allow manual override\n- Test both light and dark modes thoroughly to ensure readability and usability',
+      category: 'ux',
+      lessonUrl: 'https://web.dev/prefers-color-scheme/'
     },
   ],
 };
