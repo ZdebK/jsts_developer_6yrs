@@ -3,10 +3,20 @@ import { CategoryHeader } from './CategoryHeader';
 import { FlashcardGrid } from './FlashcardGrid';
 import { LearnMode } from './LearnMode';
 import { SectionHeader } from '../SectionHeader';
-import { getFlashcardsByCategory, type FlashcardCategory } from '../../data/flashcards';
+import { categories, getFlashcardsByCategory, type FlashcardCategory } from '../../data/flashcards';
 
 export function FlashcardsIndex() {
-  const [selectedCategory, setSelectedCategory] = useState<FlashcardCategory>('security');
+  const getRandomCategory = (exclude?: FlashcardCategory): FlashcardCategory => {
+    const pool = exclude
+      ? categories.filter((cat) => cat.id !== exclude)
+      : categories;
+    const fallbackPool = pool.length > 0 ? pool : categories;
+    const pick = Math.floor(Math.random() * fallbackPool.length);
+    return fallbackPool[pick].id;
+  };
+
+  // Pick a random category when entering the learn route so the first view is varied.
+  const [selectedCategory, setSelectedCategory] = useState<FlashcardCategory>(() => getRandomCategory());
   const [isLearnMode, setIsLearnMode] = useState(false);
 
   const flashcards = getFlashcardsByCategory(selectedCategory);
@@ -16,6 +26,7 @@ export function FlashcardsIndex() {
   };
 
   const handleLearnModeStart = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsLearnMode(true);
   };
 

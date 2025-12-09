@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/button';
 import type { Flashcard, FlashcardCategory } from '../../data/flashcards';
 import { categories } from '../../data/flashcards';
+import { Footer } from '../Footer';
 
 function getLessonUrl(card: Flashcard): string {
   if (card.lessonUrl) return card.lessonUrl;
@@ -202,7 +203,6 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
   function animateBackToCenter() {
     if (animatingRef.current) return;
     setIsSwipeAnimating(true);
-    // animate to 0
     const start = performance.now();
     const duration = 200;
     const from = dragX;
@@ -222,7 +222,6 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
     setIsSwipeAnimating(true);
     const distance = getOffscreenDistance();
     const exitTo = direction === 'left' ? -distance : distance;
-    // Exit animation
     const exitStart = performance.now();
     const exitDuration = 220;
     const from = dragX;
@@ -232,12 +231,9 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
       setDragX(Math.round(from + (exitTo - from) * eased));
       if (t < 1) requestAnimationFrame(exitAnim);
       else {
-        // midpoint: change index
         onMidpoint();
-        // jump to opposite side without transition
         const enterFrom = direction === 'left' ? distance : -distance;
         setDragX(enterFrom);
-        // small delay then animate to center
         const enterStart = performance.now() + 20;
         const enterDuration = 220;
         const enterAnim = (now2: number) => {
@@ -261,177 +257,180 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
   }
 
   return (
-    <div className="learn-mode-overlay fixed inset-0 z-50 flex flex-col" style={{ width: '60%', margin: '0 auto' }}>
-      {/* Header */}
-      <div className="learn-mode-header relative px-4 py-2 mb-8 flex flex-col items-center">
-        <div className="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center w-full">
-          <div />
-          <div />
-          <div className="justify-self-end">
-            <Button
-              variant="ghost"
-              onClick={onClose}
-              className="text--vs-light hover:text--vs-blue border border--default hover:border--vs-blue transition-colors learn-mode-pill"
-              size="icon"
-              aria-label="Close learn mode"
-            >
-              <FontAwesomeIcon icon={faXmark} className="w-5 h-5" />
-            </Button>
+    <>
+      <div className="learn-mode-overlay fixed inset-0 z-50 flex flex-col w-full max-w-full" style={{ margin: 0 }}>
+        {/* Header */}
+        <div className="learn-mode-header relative px-4 py-4 mb-8 flex flex-col items-center">
+          <div className="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center w-full">
+            <div />
+            <div />
+            <div className="justify-self-end">
+              <Button
+                variant="ghost"
+                onClick={onClose}
+                className="text--vs-light hover:text--vs-blue border border--default hover:border--vs-blue transition-colors learn-mode-pill"
+                size="icon"
+                aria-label="Close learn mode"
+              >
+                <FontAwesomeIcon icon={faXmark} className="w-5 h-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="max-w-4xl mx-auto mt-4">
+            <div className="w-full h-2 bg--input rounded-full overflow-hidden">
+              <div
+                className="h-full bg--vs-blue transition-all duration-300 ease-out"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Counter moved below progress bar */}
+          <div className="max-w-4xl mx-auto mt-2 flex justify-center items-center w-full">
+            <div className="text--vs-light opacity-80">
+              <span className="font-bold text-xl" style={{ color: '#3399ff' }}>{currentIndex + 1}</span>
+              <span className="text--muted"> / {flashcards.length}</span>
+            </div>
+          </div>
+
+          {/* Category selector */}
+          <div className="max-w-4xl mx-auto mt-4 w-full">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories
+                .filter((c) => c.id === currentCategory)
+                .map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => onCategoryChange(category.id)}
+                    className="learn-mode-pill px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5"
+                  >
+                    <span className="text-base">{category.icon}</span>
+                    <span>{category.name}</span>
+                  </button>
+                ))}
+            </div>
           </div>
         </div>
 
-        {/* Progress Bar */}
-        <div className="max-w-4xl mx-auto mt-4">
-          <div className="w-full h-2 bg--input rounded-full overflow-hidden">
+        {/* Main Card Area */}
+        <div className="flex-1 flex items-center justify-center p-8 mb-20">
+          <div className="w-full max-w-4xl mx-auto">
             <div
-              className="h-full bg--vs-blue transition-all duration-300 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Counter moved below progress bar */}
-        <div className="max-w-4xl mx-auto mt-2 flex justify-center items-center w-full">
-          <div className="text--vs-light opacity-80">
-            <span className="font-bold text-xl" style={{color: '#3399ff'}}>{currentIndex + 1}</span>
-            <span className="text--muted"> / {flashcards.length}</span>
-          </div>
-        </div>
-
-        {/* Category selector */}
-        <div className="max-w-4xl mx-auto mt-4 w-full">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories
-              .filter((c) => c.id === currentCategory)
-              .map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => onCategoryChange(category.id)}
-                  className="learn-mode-pill px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5"
-                >
-                  <span className="text-base">{category.icon}</span>
-                  <span>{category.name}</span>
-                </button>
-              ))}
-          </div>
-        </div>
-
-        
-      </div>
-
-      {/* Main Card Area */}
-      <div className="flex-1 flex items-center justify-center p-8 mb-20">
-        <div className="w-full max-w-4xl mx-auto">
-          <div
-            className="flashcard-learn-container mb-8"
-            style={{ perspective: '2000px' }}
-            onWheel={onWheel}
-          >
-            <div
-              ref={trackRef}
-              style={{ transform: `translateX(${dragX}px)` }}
+              className="flashcard-learn-container mb-8"
+              style={{ perspective: '2000px' }}
+              onWheel={onWheel}
             >
               <div
-                className={`flashcard-learn ${isFlipped ? 'flipped' : ''}`}
-                onClick={handleFlip}
-                onPointerDown={onPointerDown}
-                onPointerMove={onPointerMove}
-                onPointerUp={onPointerUp}
-                style={{
-                  transform: isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
-                  touchAction: 'pan-y',
-                }}
+                ref={trackRef}
+                style={{ transform: `translateX(${dragX}px)` }}
               >
-              {/* Front */}
-              <div className="flashcard-face-learn">
-                <div className="absolute top-6 left-0 right-0">
-                  <span className="text--muted text-xs uppercase tracking-wider text-center block">Question</span>
-                </div>
-                <div className="flex-1 flex items-center justify-center w-full">
-                  <p className="text-center text--vs-light text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed px-2">
-                    {currentCard.question}
-                  </p>
-                </div>
-                <div className="absolute bottom-6 left-0 right-0">
-                  <p className="text--muted text-xs text-center opacity-70">Click or press Space to reveal answer</p>
-                </div>
-              </div>
+                <div
+                  className={`flashcard-learn ${isFlipped ? 'flipped' : ''}`}
+                  onClick={handleFlip}
+                  onPointerDown={onPointerDown}
+                  onPointerMove={onPointerMove}
+                  onPointerUp={onPointerUp}
+                  style={{
+                    transform: isFlipped ? 'rotateY(-180deg)' : 'rotateY(0deg)',
+                    touchAction: 'pan-y',
+                  }}
+                >
+                  {/* Front */}
+                  <div className="flashcard-face-learn">
+                    <div className="absolute top-6 left-0 right-0">
+                      <span className="text--muted text-xs uppercase tracking-wider text-center block">Question</span>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center w-full">
+                      <p className="text-center text--vs-light text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium leading-relaxed px-2">
+                        {currentCard.question}
+                      </p>
+                    </div>
+                    <div className="absolute bottom-6 left-0 right-0">
+                      <p className="text--muted text-xs text-center opacity-70">Click or press Space to reveal answer</p>
+                    </div>
+                  </div>
 
-              {/* Back */}
-              <div className="flashcard-face-learn back">
-                <div className="absolute top-6 left-0 right-0">
-                  <span className="text--vs-blue text-xs uppercase tracking-wider text-center block">Answer</span>
+                  {/* Back */}
+                  <div className="flashcard-face-learn back">
+                    <div className="absolute top-6 left-0 right-0">
+                      <span className="text--vs-blue text-xs uppercase tracking-wider text-center block">Answer</span>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center w-full">
+                      {(() => {
+                        const raw = currentCard.answer || '';
+                        const lines = raw.split('\n').map((l) => l.trim());
+                        const isList = lines.length > 1 && lines.every((l) => l.startsWith('- '));
+                        if (isList) {
+                          const items = lines.map((l) => l.replace(/^\-\s+/, ''));
+                          return (
+                            <ul className="text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-6 list-disc text-left">
+                              {items.map((it, idx) => (
+                                <li key={idx} className="mb-1">{it}</li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return (
+                          <div className="text-center text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-2 whitespace-pre-line">
+                            {raw}
+                          </div>
+                        );
+                      })()}
+                    </div>
+                  </div>
                 </div>
-                <div className="flex-1 flex items-center justify-center w-full">
-                  {(() => {
-                    const raw = currentCard.answer || '';
-                    const lines = raw.split('\n').map(l => l.trim());
-                    const isList = lines.length > 1 && lines.every(l => l.startsWith('- '));
-                    if (isList) {
-                      const items = lines.map(l => l.replace(/^-\s+/, ''));
-                      return (
-                        <ul className="text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-6 list-disc text-left">
-                          {items.map((it, idx) => (
-                            <li key={idx} className="mb-1">{it}</li>
-                          ))}
-                        </ul>
-                      );
-                    }
-                    return (
-                      <div className="text-center text--vs-light text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-2 whitespace-pre-line">
-                        {raw}
-                      </div>
-                    );
-                  })()}
-                </div>
-              </div>
               </div>
             </div>
-          </div>
 
-          {/* Navigation */}
-          <div className="flex justify-between items-center mt-16 mb-8">
-            <Button
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-              variant="ghost"
-              className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
-              size="lg"
-              aria-label="Go to previous flashcard"
-              title="Go to previous flashcard"
-            >
-              <ChevronLeft className="w-5 h-5" aria-hidden="true" />
-              Previous
-            </Button>
-
-            <div className="flex items-center gap-3">
+            {/* Navigation */}
+            <div className="flex justify-between items-center mt-16 mb-8">
               <Button
-                onClick={() => window.open(getLessonUrl(currentCard), '_blank')}
+                onClick={handlePrevious}
+                disabled={currentIndex === 0}
                 variant="ghost"
                 className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
                 size="lg"
-                aria-label={`Open lesson resource for ${currentCard.question}`}
-                title={`Open lesson resource for ${currentCard.question}`}
+                aria-label="Go to previous flashcard"
+                title="Go to previous flashcard"
               >
-                LESSON
+                <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+                Previous
               </Button>
-              <Button
-                onClick={handleNext}
-                variant="ghost"
-                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
-                size="lg"
-                aria-label={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
-                title={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
-              >
-                {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
-                <ChevronRight className="w-5 h-5" aria-hidden="true" />
-              </Button>
+
+              <div className="flex items-center gap-3">
+                <Button
+                  onClick={() => window.open(getLessonUrl(currentCard), '_blank')}
+                  variant="ghost"
+                  className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
+                  size="lg"
+                  aria-label={`Open lesson resource for ${currentCard.question}`}
+                  title={`Open lesson resource for ${currentCard.question}`}
+                >
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="w-4 h-4" aria-hidden="true" />
+                  LESSON
+                </Button>
+                <Button
+                  onClick={handleNext}
+                  variant="ghost"
+                  className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
+                  size="lg"
+                  aria-label={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
+                  title={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
+                >
+                  {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
+                  <ChevronRight className="w-5 h-5" aria-hidden="true" />
+                </Button>
+              </div>
             </div>
           </div>
+          {/* Lesson opens in new tab */}
         </div>
-        {/* Lesson opens in new tab */}
       </div>
-      
-    </div>
+
+      {/* Footer remains visible within learn mode */}
+      <Footer />
+    </>
   );
 }
