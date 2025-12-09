@@ -695,8 +695,8 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
   ux: [
     {
       id: 'ux-1',
-      question: 'Accessibility (a11y) - what should every developer know',
-      answer: '- WCAG guidelines (Web Content Accessibility Guidelines) ensure content is perceivable, operable, understandable, and robust\n- Semantic HTML (buttons, links, headings) improves screen reader compatibility\n- ARIA attributes (aria-label, aria-hidden, role) enhance accessibility when semantic HTML is insufficient\n- Color contrast ratios must meet WCAG standards (4.5:1 for normal text)\n- Keyboard navigation must be fully functional (Tab, Enter, Escape keys)\n- Test with screen readers (NVDA, JAWS) and accessibility tools (axe DevTools)',
+      question: 'Accessibility World Wide Web Consortium (W3C) standards and best practices',
+      answer: 'WCAG guidelines (Web Content Accessibility Guidelines) ensure content is perceivable, operable, understandable, and robust\n Semantic HTML (buttons, links, headings) improves screen reader compatibility\n ARIA attributes (aria-label, aria-hidden, role) enhance accessibility when semantic HTML is insufficient\n Color contrast ratios must meet WCAG standards (4.5:1 for normal text)\n Keyboard navigation must be fully functional (Tab, Enter, Escape keys)\n Test with screen readers (NVDA, JAWS) and accessibility tools (axe DevTools)',
       category: 'ux',
       lessonUrl: 'https://web.dev/accessibility'
     },

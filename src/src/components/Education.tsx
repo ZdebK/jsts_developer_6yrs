@@ -12,13 +12,13 @@ export function Education() {
       degree: t("education:master"),
       school: t("education:school"),
       period: t("education:period1"),
-      description: t("education:master.spec"),
+      description: t("education:master_spec"),
     },
     {
       degree: t("education:bachelor"),
       school: t("education:school"),
       period: t("education:period2"),
-      description: t("education:bachelor.spec"),
+      description: t("education:bachelor_spec"),
     },
   ];
 

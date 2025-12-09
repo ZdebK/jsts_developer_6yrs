@@ -212,7 +212,7 @@
 }
 
 .bg--dark {
-  background-color: $color-bg-dark;
+  background-color: var(--background, $color-bg-dark);
 }
 
 .bg--hover-alt {

@@ -26,8 +26,10 @@ export function FlashcardGrid({ flashcards, onLearnModeStart }: FlashcardGridPro
         <Button
           onClick={onLearnModeStart}
           className="btn--primary flex items-center gap-2"
+          aria-label="Start learning mode with flashcards"
+          title="Start learning mode with flashcards"
         >
-          <BookOpen className="w-5 h-5" />
+          <BookOpen className="w-5 h-5" aria-hidden="true" />
           Start Learning
         </Button>
       </div>

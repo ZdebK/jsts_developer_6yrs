@@ -1,12 +1,16 @@
 import { Code2, Menu, X, BookOpen } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Button } from "./ui/button";
+import { useTheme } from "../contexts/ThemeContext";
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -48,7 +52,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
             <Code2 className="w-6 h-6 text--primary" />
-            <span className="text--vs-cyan">portfolio.tsx</span>
+            <span className="text--vs-cyan font-semibold">portfolio.tsx</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -100,6 +104,18 @@ export function Navigation() {
                 🇬🇧
               </Button>
             </div>
+
+            {/* Theme Toggle placed after language switcher */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="ml-1 px-3 py-2 button--icon-hover"
+              aria-label="Toggle theme"
+              title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              <FontAwesomeIcon icon={theme === "dark" ? faSun : faMoon} className="h-4 w-4" />
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -165,6 +181,16 @@ export function Navigation() {
                 }`}
               >
                 🇬🇧 EN
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleTheme}
+                className="px-3 py-1 button--icon-hover"
+                aria-label="Toggle theme"
+                title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                <FontAwesomeIcon icon={theme === "dark" ? faMoon : faSun} className="h-4 w-4" />
               </Button>
             </div>
           </div>

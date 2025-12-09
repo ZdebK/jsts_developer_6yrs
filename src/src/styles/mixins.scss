@@ -10,8 +10,8 @@
 
 %card-base {
   padding: $spacing-md * 1.5;
-  background-color: $color-bg-card;
-  border: 1px solid $color-border;
+  background-color: var(--card, $color-bg-card);
+  border: 1px solid var(--border, $color-border);
   border-radius: 0.375rem;
 }
 
@@ -38,26 +38,26 @@
 // ============================================================================
 
 %text-primary {
-  color: $color-light;
+  color: var(--foreground, $color-light);
   font-size: $font-size-base;
   line-height: 1.5;
 }
 
 %text-muted {
-  color: $color-muted;
+  color: var(--muted-foreground, $color-muted);
   font-size: $font-size-sm;
 }
 
 %text-accent {
-  color: $color-accent;
+  color: var(--accent, $color-accent);
 }
 
 %text-secondary {
-  color: $color-secondary;
+  color: var(--secondary, $color-secondary);
 }
 
 %text-tertiary {
-  color: $color-tertiary;
+  color: var(--quaternary, $color-tertiary);
 }
 
 %section-title {
@@ -85,7 +85,7 @@
 
 %section-with-background {
   @extend %section-base;
-  background-color: $color-bg-section;
+  background-color: var(--background, $color-bg-section);
 }
 
 %container {
@@ -234,8 +234,8 @@
   transition: $transition-default;
   
   &:hover {
-    background-color: $color-bg-card-hover;
-    color: $color-primary;
+    background-color: color-mix(in srgb, var(--card, $color-bg-card) 88%, var(--primary, $color-primary) 12%);
+    color: var(--primary, $color-primary);
   }
 }
 
@@ -244,31 +244,31 @@
 // ============================================================================
 
 %text-vs-blue {
-  color: $color-secondary;
+  color: var(--secondary, $color-secondary);
 }
 
 %text-vs-cyan {
-  color: $color-accent;
+  color: var(--accent, $color-accent);
 }
 
 %text-vs-orange {
-  color: $color-quaternary;
+  color: var(--quaternary, $color-quaternary);
 }
 
 %text-vs-light {
-  color: $color-light;
+  color: var(--foreground, $color-light);
 }
 
 %text-vs-muted {
-  color: $color-muted;
+  color: var(--muted-foreground, $color-muted);
 }
 
 %text-primary-color {
-  color: $color-primary;
+  color: var(--primary, $color-primary);
 }
 
 %text-light-color {
-  color: $color-text-light;
+  color: var(--foreground, $color-text-light);
 }
 
 // ============================================================================
@@ -276,27 +276,27 @@
 // ============================================================================
 
 %bg-input {
-  background-color: $color-bg-input;
+  background-color: var(--input-background, $color-bg-input);
 }
 
 %bg-card-dark {
-  background-color: $color-bg-card;
+  background-color: var(--card, $color-bg-card);
 }
 
 %bg-dark-alt {
-  background-color: $color-bg-dark-alt;
+  background-color: var(--muted, $color-bg-dark-alt);
 }
 
 %bg-primary {
-  background-color: $color-primary;
+  background-color: var(--primary, $color-primary);
 }
 
 %bg-hover-alt {
-  background-color: $color-bg-hover-alt;
+  background-color: var(--muted, $color-bg-hover-alt);
 }
 
 %bg-primary-dark {
-  background-color: $color-primary-dark;
+  background-color: color-mix(in srgb, var(--primary, $color-primary) 80%, black);
 }
 
 %border-primary {
@@ -308,35 +308,35 @@
 // ============================================================================
 
 %border-default {
-  border: 1px solid $color-border;
+  border: 1px solid var(--border, $color-border);
 }
 
 %border-focus {
-  border: 1px solid $color-primary;
+  border: 1px solid var(--primary, $color-primary);
 }
 
 %border-hover {
-  border: 1px solid $color-primary;
+  border: 1px solid var(--primary, $color-primary);
 }
 
 %border-primary-color {
-  border-color: $color-primary;
+  border-color: var(--primary, $color-primary);
 }
 
 %bg-primary-light {
-  background-color: rgba($color-primary, 0.1);
+  background-color: color-mix(in srgb, var(--primary, $color-primary) 10%, transparent);
 }
 
 %border-primary-light {
-  border-color: rgba($color-primary, 0.2);
+  border-color: color-mix(in srgb, var(--primary, $color-primary) 20%, transparent);
 }
 
 %border-primary-medium {
-  border-color: rgba($color-primary, 0.3);
+  border-color: color-mix(in srgb, var(--primary, $color-primary) 30%, transparent);
 }
 
 %text-error {
-  color: $color-error;
+  color: var(--destructive, $color-error);
 }
 
 %bg-error {

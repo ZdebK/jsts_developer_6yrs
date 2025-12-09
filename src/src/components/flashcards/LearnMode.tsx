@@ -261,7 +261,7 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
   }
 
   return (
-    <div className="learn-mode-overlay fixed inset-0 z-50 bg-black bg-opacity-95 flex flex-col" style={{ width: '60%', margin: '0 auto' }}>
+    <div className="learn-mode-overlay fixed inset-0 z-50 flex flex-col" style={{ width: '60%', margin: '0 auto' }}>
       {/* Header */}
       <div className="learn-mode-header relative px-4 py-2 mb-8 flex flex-col items-center">
         <div className="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center w-full">
@@ -271,7 +271,7 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
             <Button
               variant="ghost"
               onClick={onClose}
-              className="text--vs-light hover:text--vs-blue border border--default hover:border--vs-blue transition-colors"
+              className="text--vs-light hover:text--vs-blue border border--default hover:border--vs-blue transition-colors learn-mode-pill"
               size="icon"
               aria-label="Close learn mode"
             >
@@ -307,7 +307,7 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
                 <button
                   key={category.id}
                   onClick={() => onCategoryChange(category.id)}
-                  className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5 bg--primary-light text--vs-blue border border--default`}
+                  className="learn-mode-pill px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1.5"
                 >
                   <span className="text-base">{category.icon}</span>
                   <span>{category.name}</span>
@@ -395,10 +395,12 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
               onClick={handlePrevious}
               disabled={currentIndex === 0}
               variant="ghost"
-              className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
+              className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
               size="lg"
+              aria-label="Go to previous flashcard"
+              title="Go to previous flashcard"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5" aria-hidden="true" />
               Previous
             </Button>
 
@@ -406,20 +408,23 @@ export function LearnMode({ flashcards, onClose, currentCategory, onCategoryChan
               <Button
                 onClick={() => window.open(getLessonUrl(currentCard), '_blank')}
                 variant="ghost"
-                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
+                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
                 size="lg"
-                aria-label="Open lesson for current category"
+                aria-label={`Open lesson resource for ${currentCard.question}`}
+                title={`Open lesson resource for ${currentCard.question}`}
               >
                 LESSON
               </Button>
               <Button
                 onClick={handleNext}
                 variant="ghost"
-                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors"
+                className="text--vs-light hover:text--vs-blue flex items-center gap-2 border border--default hover:border--vs-blue transition-colors learn-mode-pill"
                 size="lg"
+                aria-label={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
+                title={isLastCard && !isLastCategory ? 'Go to next category' : 'Go to next flashcard'}
               >
                 {isLastCard && !isLastCategory ? 'Next Category' : 'Next'}
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-5 h-5" aria-hidden="true" />
               </Button>
             </div>
           </div>

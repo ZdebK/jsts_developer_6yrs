@@ -41,8 +41,8 @@ export function Hero() {
           </Button>
           <Button 
             asChild
-            variant="outline" 
-            className="btn--outline"
+            variant="ghost" 
+            className="learn-mode-pill px-5 py-3"
           >
             <a href="https://github.com/ZdebK" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4 mr-2" />
@@ -51,8 +51,8 @@ export function Hero() {
           </Button>
           <Button 
             asChild
-            variant="outline" 
-            className="btn--outline"
+            variant="ghost" 
+            className="learn-mode-pill px-5 py-3"
           >
             <a href="https://www.linkedin.com/in/kas-elzbieciak/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4 mr-2" />

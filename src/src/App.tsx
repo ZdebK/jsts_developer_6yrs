@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ChatBot } from "./components/ChatBot";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { FlashcardsIndex } from "./components/flashcards/FlashcardsIndex";
@@ -31,7 +32,7 @@ export default function App() {
     const location = useLocation();
     const isLearn = location.pathname.includes('/learn');
     return (
-      <div className="min-h-screen bg--dark text--light">
+      <div className="min-h-screen bg--dark text--light transition-colors">
         <Navigation />
         <main>
           <Routes>
@@ -49,9 +50,11 @@ export default function App() {
     <ErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <LanguageProvider>
-          <Layout />
-      </LanguageProvider>
-    </BrowserRouter>
+          <ThemeProvider>
+            <Layout />
+          </ThemeProvider>
+        </LanguageProvider>
+      </BrowserRouter>
     </ErrorBoundary>
   );
 }
