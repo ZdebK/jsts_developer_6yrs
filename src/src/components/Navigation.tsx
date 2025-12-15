@@ -16,10 +16,23 @@ export function Navigation() {
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
+    if (!element) return;
+
+    // Measure the actual top bar ('.h-16' inside nav) to avoid counting the mobile dropdown
+    const topBar = document.querySelector('nav .h-16') as HTMLElement | null;
+    const navHeight = topBar?.offsetHeight ?? 64;
+    const extraMargin = 8; // small breathing space under the navbar
+
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - navHeight - extraMargin;
+
+    window.scrollTo({
+      top: Math.max(offsetPosition, 0),
+      behavior: "smooth",
+    });
+
+    // Close mobile menu after initiating scroll
+    setMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -34,6 +47,10 @@ export function Navigation() {
   const handleNavigate = (id: string) => {
     if (id === "learn") {
       navigate("/learn");
+      // Ensure the learn page starts at the top and header is visible
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
       setMobileMenuOpen(false);
       return;
     }

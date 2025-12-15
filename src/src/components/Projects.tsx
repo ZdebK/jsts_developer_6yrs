@@ -24,20 +24,26 @@ function ProjectCard({ title, description, technologies, github, demo }: Project
         <div className="flex gap-2">
           {github && (
             <Button
+              asChild
               variant="ghost"
               size="icon"
               className="button--icon-hover"
             >
-              <Github className="w-5 h-5" />
+              <a href={github} target="_blank" rel="noopener noreferrer" aria-label="View GitHub repository">
+                <Github className="w-5 h-5" />
+              </a>
             </Button>
           )}
           {demo && (
             <Button
+              asChild
               variant="ghost"
               size="icon"
               className="button--icon-hover"
             >
-              <ExternalLink className="w-5 h-5" />
+              <a href={demo} target="_blank" rel="noopener noreferrer" aria-label="View demo">
+                <ExternalLink className="w-5 h-5" />
+              </a>
             </Button>
           )}
         </div>
