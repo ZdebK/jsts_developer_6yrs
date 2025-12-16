@@ -696,14 +696,14 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     {
       id: 'ux-1',
       question: 'Accessibility World Wide Web Consortium (W3C) standards and best practices',
-      answer: 'WCAG guidelines (Web Content Accessibility Guidelines) ensure content is perceivable, operable, understandable, and robust\n Semantic HTML (buttons, links, headings) improves screen reader compatibility\n ARIA attributes (aria-label, aria-hidden, role) enhance accessibility when semantic HTML is insufficient\n Color contrast ratios must meet WCAG standards (4.5:1 for normal text)\n Keyboard navigation must be fully functional (Tab, Enter, Escape keys)\n Test with screen readers (NVDA, JAWS) and accessibility tools (axe DevTools)',
+      answer: 'WCAG guidelines (Web Content Accessibility Guidelines) ensure content is perceivable, operable, understandable, and robust\n Semantic HTML (buttons, links, headings)\n ARIA attributes (aria-label, aria-hidden, role)\n Color contrast ratios must meet WCAG standards (4.5:1 for normal text)\n Keyboard navigation',
       category: 'ux',
       lessonUrl: 'https://web.dev/accessibility'
     },
     {
       id: 'ux-2',
       question: 'Core Web Vitals and performance metrics',
-      answer: '• Largest Contentful Paint (LCP): time when largest visible content renders (target: <2.5s)\n• First Input Delay (FID): latency from user input to response (target: <100ms, replaced by INP)\n• Cumulative Layout Shift (CLS): visual stability during load (target: <0.1)\n• Interaction to Next Paint (INP): responsiveness of interactions (replaces FID)\n• These metrics affect SEO rankings and user experience significantly',
+      answer: '• Largest Contentful Paint (LCP): time when largest visible content renders (target: <2.5s)\n• First Input Delay (FID): latency from user input to response (target: <100ms, replaced by INP)\n• Cumulative Layout Shift (CLS): visual stability during load (target: <0.1)\n• Interaction to Next Paint (INP): responsiveness of interactions (replaces FID)',
       category: 'ux',
       lessonUrl: 'https://web.dev/vitals'
     },
@@ -724,7 +724,7 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     {
       id: 'ux-4',
       question: 'Optimize a slow website',
-      answer: '• analyze: use Lighthouse, WebPageTest, Chrome DevTools Network tab\n • code splitting: split JavaScript bundles, lazy load routes and components\n• minification & compression: minify CSS/JS, enable gzip/brotli on server\n • image optimization: use modern formats (WebP), responsive images with srcset, lazy load with loading="lazy"\n • caching: browser cache headers, service workers for offline, CDN for static assets\n • reduce main thread work: move heavy computation to Web Workers\n • optimize fonts: use system fonts or variable fonts, reduce requests',
+      answer: '• analyze: WebPageTest, Chrome DevTools Network\n • code splitting: split JavaScript bundles, lazy load routes and components\n• minification & compression: minify CSS/JS\n • image optimization: use modern formats (WebP), responsive images with srcset, lazy load with loading="lazy"\n • caching: browser cache headers, service workers for offline, CDN for static assets\n • reduce main thread work: move heavy computation to Web Workers\n • optimize fonts: system or variable fonts ',
       category: 'ux',
       lessonUrl: 'https://web.dev/performance'
     },
@@ -738,7 +738,7 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     {
       id: 'ux-6',
       question: 'Dark mode implementation and why it matters',
-      answer: ' • reduces eye strain in low-light environments and saves battery on OLED screens\n  • use CSS media query @media (prefers-color-scheme: dark) or toggle with icon to switch\n • ensure sufficient contrast: light text on dark backgrounds\n • use CSS custom properties (variables) for theme colors to switch easily\n • respect user preference: read prefers-color-scheme and allow manual override\n • test both light and dark modes thoroughly to ensure readability and usability',
+      answer: ' • reduces eye strain in low-light environments and saves battery on OLED screens\n  • use CSS \n • ensure sufficient contrast: light text on dark backgrounds\n • use CSS custom properties (variables) for theme colors to switch easily\n • respect user preference\n • test both light and dark modes thoroughly to ensure readability and usability',
       category: 'ux',
       lessonUrl: 'https://web.dev/prefers-color-scheme/'
     },
