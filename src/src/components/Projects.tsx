@@ -116,7 +116,7 @@ export function Projects() {
     {
       title: t("projects:where2watch.title"),
       description: t("projects:where2watch.desc"),
-      technologies: ["React 17", "PostgreSQL", "NestJS", "Node.js", "TypeORM"],
+      technologies: ["React 17", "Tailwind CSS", "PostgreSQL", "NestJS", "Node.js", "TypeORM"],
       github: "https://github.com/ZdebK/where2watch"
     }
   ];
