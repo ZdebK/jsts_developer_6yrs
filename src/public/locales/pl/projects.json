@@ -8,7 +8,8 @@
     "title": "🤖 Framework do automatycznych testów",
     "desc": "Rozwój frameworka do automatycznych testów aplikacji Node.js przy użyciu Puppeteer oraz Cucumber. Projekt umożliwia automatyczne testowanie UI, generowanie raportów i integrację z pipeline'ami CI/CD."
   },
-  "aws": {
+  "where2watch": {
+    "title": "🎥 Where2Watch",
     "title": "☁️ AWS SiteScan Plugin",
     "desc": "Projekt hackathonowy — plugin analizujący i weryfikujący poprawność konfiguracji stron internetowych hostowanych w środowisku AWS. Narzędzie automatycznie sprawdza status usług, dostępność oraz bezpieczeństwo."
   },
@@ -31,6 +32,6 @@
   ,
   "where2watch": {
     "title": "🎥 Where2Watch",
-    "desc": "Prosta aplikacja webowa z funkcją logowania, umożliwiająca zarządzanie listą filmów i powiązanych serwisów streamingowych. Aplikacja pozwala na dodawanie i edycję rekordów przechowywanych w relacyjnej bazie danych SQL."
+    "desc": "Prosta aplikacja webowa z funkcją logowania, umożliwiająca zarządzanie listą filmów i powiązanych serwisów streamingowych. Aplikacja pozwala na dodawanie i edycję rekordów przechowywanych w relacyjnej bazie danych SQL."  
   }
 }
