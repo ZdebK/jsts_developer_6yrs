@@ -28,4 +28,9 @@
     "title": "🌤️ Aplikacja pogodowa",
     "desc": "Aplikacja pogodowa oparta na GraphQL i PostgreSQL, wykorzystująca Weatherstack API do pobierania aktualnych danych meteorologicznych. Backend zbudowany w Node.js z GraphQL API, frontend w React, z cachowaniem zapytań i przechowywaniem historycznych danych pogodowych w bazie PostgreSQL."
   }
+  ,
+  "where2watch": {
+    "title": "🎥 Where2Watch",
+    "desc": "Prosta aplikacja webowa z funkcją logowania, umożliwiająca zarządzanie listą filmów i powiązanych serwisów streamingowych. Aplikacja pozwala na dodawanie i edycję rekordów przechowywanych w relacyjnej bazie danych SQL."
+  }
 }

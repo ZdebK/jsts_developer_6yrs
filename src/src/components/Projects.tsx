@@ -113,6 +113,11 @@ export function Projects() {
       technologies: ["Node.js", "GraphQL", "PostgreSQL", "React", "Weatherstack API"],
       github: "https://github.com/ZdebK/wheather_app"
     },
+    {
+      title: t("projects:where2watch.title"),
+      description: t("projects:where2watch.desc"),
+      technologies: ["React 17", "PostgreSQL", "NestJS", "Node.js", "TypeORM"],
+    }
   ];
 
   return (
