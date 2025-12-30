@@ -27,5 +27,9 @@
   "weather": {
     "title": "🌤️ Weather App",
     "desc": "Weather application based on GraphQL and PostgreSQL, using Weatherstack API to fetch current meteorological data. Backend built with Node.js and GraphQL API, frontend in React, with query caching and storage of historical weather data in PostgreSQL database."
+  },
+  "where2watch": {
+    "title": "🎥 Where2Watch",
+    "desc": "Simple web application with login functionality that allows managing a list of movies and associated streaming services. The application enable adding and editing rows stored in a relational SQL database."
   }
 }
