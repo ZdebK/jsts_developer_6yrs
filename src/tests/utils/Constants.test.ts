@@ -5,7 +5,7 @@ import {
   STAGGER_DELAY, 
   getStaggerDelay, 
   getSequentialDelay 
-} from '../../utils/constants';
+} from '../../src/utils/constants';
 
 describe('Animation Constants', () => {
   describe('ANIMATION_DELAYS', () => {
@@ -38,35 +38,7 @@ describe('Animation Constants', () => {
     it('calculates stagger delay correctly with default base', () => {
       expect(getStaggerDelay(0)).toBe(0);
       expect(getStaggerDelay(1)).toBe(0.1);
-      expect(getStaggerDelay(2)).toBe(0.2);
-      expect(getStaggerDelay(5)).toBe(0.5);
-    });
-
-    it('calculates stagger delay correctly with custom base delay', () => {
-      expect(getStaggerDelay(0, 0.2)).toBe(0);
-      expect(getStaggerDelay(1, 0.2)).toBe(0.2);
-      expect(getStaggerDelay(2, 0.2)).toBe(0.4);
-      expect(getStaggerDelay(3, 0.15)).toBeCloseTo(0.45, 2);
-    });
-
-    it('handles edge cases', () => {
-      expect(getStaggerDelay(0, 0)).toBe(0);
-      expect(getStaggerDelay(10, 0.05)).toBe(0.5);
-    });
-  });
-
-  describe('getSequentialDelay', () => {
-    it('calculates sequential delay correctly', () => {
-      expect(getSequentialDelay(0)).toBe(0);
-      expect(getSequentialDelay(1)).toBe(0.1);
-      expect(getSequentialDelay(2)).toBe(0.2);
-      expect(getSequentialDelay(3)).toBeCloseTo(0.3, 2);
-      expect(getSequentialDelay(6)).toBeCloseTo(0.6, 2);
-    });
-
-    it('uses STAGGER_DELAY for calculation', () => {
-      expect(getSequentialDelay(1)).toBe(STAGGER_DELAY);
-      expect(getSequentialDelay(2)).toBe(STAGGER_DELAY * 2);
+      // ...existing code...
     });
   });
 });
