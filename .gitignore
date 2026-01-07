@@ -1,3 +1,9 @@
+# Ignore Playwright last run result file
+src/test-results/.last-run.json
+# Ignore Playwright HTML report
+src/tests/playwright-report/index.html
+# Ignore Playwright last run result file
+src/test-results/.last-run.json
 # Ignore local TypeScript config
 tsconfig.json
 # Ignoruj pliki PDF z CV w scraperze
