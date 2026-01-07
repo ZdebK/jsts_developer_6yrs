@@ -1,7 +1,8 @@
 /*! tailwindcss v4.1.3 | MIT License | https://tailwindcss.com */
-
 /* Flashcards Styles */
-@import './client/styles/flashcards.css';
+@import './client/styles/flashcards.scss';
+@import './client/styles/globals.scss';
+/* @tailwind directives removed: these should only be used in Tailwind input files processed by Tailwind CLI or PostCSS */
 
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
@@ -184,7 +185,6 @@
   }
 
   img, svg, video, canvas, audio, iframe, embed, object {
-    vertical-align: middle;
     display: block;
   }
 

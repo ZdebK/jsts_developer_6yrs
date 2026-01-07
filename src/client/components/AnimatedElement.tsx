@@ -1,11 +1,13 @@
+
 import { motion, HTMLMotionProps } from "motion/react";
-import { ReactNode } from "react";
+import { ReactNode, ElementType } from "react";
+
 
 interface AnimatedElementProps extends Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transition"> {
   children?: ReactNode;
   delay?: number;
   duration?: number;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType
 }
 
 export function AnimatedElement({ 
@@ -15,16 +17,16 @@ export function AnimatedElement({
   as = "div",
   ...props 
 }: AnimatedElementProps) {
-  const Component = motion[as] as typeof motion.div;
-  
+  // Use motion's dynamic component rendering
+  const MotionComponent = motion(as as ElementType);
   return (
-    <Component
+    <MotionComponent
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration, delay }}
       {...props}
     >
       {children}
-    </Component>
+    </MotionComponent>
   );
 }
