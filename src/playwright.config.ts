@@ -12,6 +12,7 @@ export default defineConfig({
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
     actionTimeout: 10000,
+    headless: false, // Always show browser window
   },
 
   projects: [
