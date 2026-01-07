@@ -1,18 +1,18 @@
-import { Navigation } from "./components/Navigation";
-import { Hero } from "./components/Hero";
-import { Experience } from "./components/Experience";
-import { Education } from "./components/Education";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-import { ChatBot } from "./components/ChatBot";
-import { LanguageProvider } from "./contexts/LanguageContext";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import { ErrorBoundary } from "./components/ErrorBoundary";
+import { Navigation } from "./client/components/Navigation";
+import { Hero } from "./client/components/Hero";
+import { Experience } from "./client/components/Experience";
+import { Education } from "./client/components/Education";
+import { Skills } from "./client/components/Skills";
+import { Projects } from "./client/components/Projects";
+import { Contact } from "./client/components/Contact";
+import { Footer } from "./client/components/Footer";
+import { ChatBot } from "./client/components/ChatBot";
+import { LanguageProvider } from "./client/contexts/LanguageContext";
+import { ThemeProvider } from "./client/contexts/ThemeContext";
+import { ErrorBoundary } from "./client/components/ErrorBoundary";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { FlashcardsIndex } from "./components/flashcards/FlashcardsIndex";
-import { FlashcardDetails } from "./components/flashcards/FlashcardDetails";
+import { FlashcardsIndex } from "./client/components/flashcards/FlashcardsIndex";
+import { FlashcardDetails } from "./client/components/flashcards/FlashcardDetails";
 
 function HomePage() {
   return (

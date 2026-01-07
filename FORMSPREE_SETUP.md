@@ -40,7 +40,7 @@ Skopiuj **YOUR_FORM_ID** (np. `xpznkqvw`)
 
 ## 4️⃣ Dodaj Form ID do kodu
 
-Otwórz plik: `src/src/components/Contact.tsx`
+Otwórz plik: `src/client/components/Contact.tsx`
 
 Znajdź linię:
 ```typescript
