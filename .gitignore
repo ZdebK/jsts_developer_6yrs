@@ -1,3 +1,9 @@
+# Ignore local TypeScript config
+tsconfig.json
+# Ignoruj pliki PDF z CV w scraperze
+scraper/*.pdf
+# Ignoruj plik z danymi użytkownika do scraperów
+scraper/config.json
 # Dependencies
 node_modules/
 
