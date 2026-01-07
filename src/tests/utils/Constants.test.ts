@@ -5,7 +5,7 @@ import {
   STAGGER_DELAY, 
   getStaggerDelay, 
   getSequentialDelay 
-} from '../../src/utils/constants';
+} from '../../client/utils/Constants';
 
 describe('Animation Constants', () => {
   describe('ANIMATION_DELAYS', () => {

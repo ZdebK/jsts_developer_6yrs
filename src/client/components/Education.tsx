@@ -2,7 +2,7 @@ import { GraduationCap } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
-import { getStaggerDelay } from "../utils/constants";
+import { getStaggerDelay } from "../utils/Constants";
 
 export function Education() {
   const { t } = useLanguage();

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card } from '../ui/card';
-import type { Flashcard } from '../../data/flashcards';
+import type { Flashcard } from '../../data/Flashcards';
 
 interface FlashcardCardProps {
   flashcard: Flashcard;

@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedElement } from "./AnimatedElement";
-import { getSequentialDelay } from "../utils/constants";
+import { getSequentialDelay } from "../utils/Constants";
 
 export function Hero() {
   const { t } = useLanguage();

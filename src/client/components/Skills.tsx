@@ -4,7 +4,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
 
-import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
+import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/Constants";
 
 interface SkillCategory {
   title: string;

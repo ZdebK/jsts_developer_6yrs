@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
 import { AnimatedSection } from "./AnimatedSection";
 import { SectionHeader } from "./SectionHeader";
-import { getStaggerDelay } from "../utils/constants";
+import { getStaggerDelay } from "../utils/Constants";
 
 interface ProjectProps {
   title: string;

@@ -3,7 +3,7 @@ import { CategoryHeader } from './CategoryHeader';
 import { FlashcardGrid } from './FlashcardGrid';
 import { LearnMode } from './LearnMode';
 import { SectionHeader } from '../SectionHeader';
-import { categories, getFlashcardsByCategory, type FlashcardCategory } from '../../data/flashcards';
+import { categories, getFlashcardsByCategory, type FlashcardCategory } from '../../data/Flashcards';
 
 export function FlashcardsIndex() {
   const getRandomCategory = (exclude?: FlashcardCategory): FlashcardCategory => {

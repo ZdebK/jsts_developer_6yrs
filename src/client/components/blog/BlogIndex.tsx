@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { meta as meta1 } from "../../content/blog/start-rekrutacji-nowe-projekty.mdx";
 import { SectionHeader } from "../SectionHeader";
 import { AnimatedCard } from "../AnimatedCard";
-import { getStaggerDelay } from "../../utils/constants";
+import { getStaggerDelay } from "../../utils/Constants";
 
 export function BlogIndex() {
   const { t } = useLanguage();

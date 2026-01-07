@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../ui/button';
-import type { Flashcard, FlashcardCategory } from '../../data/flashcards';
-import { categories } from '../../data/flashcards';
+import type { Flashcard, FlashcardCategory } from '../../data/Flashcards';
+import { categories } from '../../data/Flashcards';
 import { Footer } from '../Footer';
 
 function getLessonUrl(card: Flashcard): string {

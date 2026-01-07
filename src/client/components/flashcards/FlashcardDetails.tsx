@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { getAllFlashcards } from '../../data/flashcards';
+import { getAllFlashcards } from '../../data/Flashcards';
 import { SectionHeader } from '../SectionHeader';
 
 export function FlashcardDetails() {

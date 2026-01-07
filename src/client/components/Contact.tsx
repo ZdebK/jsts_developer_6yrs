@@ -7,10 +7,10 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { SectionHeader } from "./SectionHeader";
 import { AnimatedCard } from "./AnimatedCard";
-import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/constants";
+import { getStaggerDelay, ANIMATION_DELAYS } from "../utils/Constants";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, type ContactFormData } from "../schemas/contactSchema";
+import { contactSchema, type ContactFormData } from "../schemas/ContactSchema";
 
 export function Contact() {
   const { t } = useLanguage();

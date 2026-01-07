@@ -1,5 +1,5 @@
 import { FlashcardCard } from './FlashcardCard';
-import type { Flashcard } from '../../data/flashcards';
+import type { Flashcard } from '../../data/Flashcards';
 import { Button } from '../ui/button';
 import { BookOpen } from 'lucide-react';
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { contactSchema } from '../../client/schemas/contactSchema';
+import { contactSchema } from '../../client/schemas/ContactSchema';
 
 describe('Contact Schema Validation', () => {
 	describe('name field', () => {

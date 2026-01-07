@@ -5,7 +5,7 @@ import { AnimatedSection } from "../AnimatedSection";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { Link, useParams } from "react-router-dom";
 import Post1, { meta as meta1 } from "../../content/blog/start-rekrutacji-nowe-projekty.mdx";
-import { ANIMATION_DELAYS } from "../../utils/constants";
+import { ANIMATION_DELAYS } from "../../utils/Constants";
 
 export function BlogPost() {
   const { slug } = useParams();
