@@ -154,14 +154,14 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
   javascriptInterview: [
     {
       id: 'js-1',
-      question: 'Closure in JavaScript',
-      answer: 'A closure is a function that has access to variables in its outer (enclosing) lexical scope, even after the outer function has returned. Closures are created every time a function is created.',
+      question: 'Closure',
+      answer: 'function defined in another function, the inner function has access to the variables and scope of the outer function. Allow for **private** variables and state maintenance.',
       category: 'javascriptInterview',
       lessonUrl: 'https://javascript.info/closure'
     },
     {
       id: 'js-2',
-      question: 'Explain event delegation in JavaScript',
+      question: 'Event delegation',
       answer: 'Event delegation is a technique where you add a single event listener to a parent element instead of adding listeners to multiple child elements. It leverages event bubbling to handle events at a higher level in the DOM.',
       category: 'javascriptInterview',
       lessonUrl: 'https://javascript.info/event-delegation'
@@ -182,14 +182,14 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     },
     {
       id: 'js-5',
-      question: 'Hoisting in JavaScript',
-      answer: 'Hoisting is JavaScript\'s behavior of moving declarations to the top of their scope before code execution. Function declarations are fully hoisted, while var declarations are hoisted but not initialized (undefined). let/const are hoisted but not initialized (temporal dead zone).',
+      question: 'Hoisting',
+      answer: 'behavior of moving declarations to the top of their scope before code execution. Function declarations are fully hoisted, while var declarations are hoisted but not initialized (undefined). let/const are hoisted but not initialized (temporal dead zone).',
       category: 'javascriptInterview',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/Hoisting'
     },
     {
       id: 'js-6',
-      question: 'Explain Promise.all() vs Promise.race()',
+      question: 'Promise.all() vs Promise.race()',
       answer: 'Promise.all() waits for all promises to resolve (or any to reject) and returns an array of results. Promise.race() returns as soon as the first promise settles (resolves or rejects), with that promise\'s value.',
       category: 'javascriptInterview',
       lessonUrl: 'https://javascript.info/promise-api'
