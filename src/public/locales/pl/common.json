@@ -16,9 +16,9 @@
     "designed": "Zaprojektowane w stylu VS Code"
   },
   "chat": {
-    "greeting": "Drogi Rekruterze! 👋",
-    "message": "To prawdopodobnie najlepszy kandydat, jakiego możesz znaleźć. Nie przegap tej okazji i zaproś na rozmowę!",
-    "question": "Gdzie chcesz się przenieść?",
+    "greeting": "Dzień dobry! 👋",
+    "message": "Jeśli tu jesteś to prawdopodobnie szukasz kogoś odpowiedniego do swojego zespołu, dobrze trafiłeś! W formularzu kontaktowym możesz zaprosić mnie na rozmowę!",
+    "question": "Czego chcesz się o mnie dowiedzieć?",
     "close": "Zamknij"
   }
 }
