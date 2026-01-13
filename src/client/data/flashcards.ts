@@ -6,7 +6,7 @@ export interface Flashcard {
   lessonUrl?: string;
 }
 
-export type FlashcardCategory = 'security' | 'javascriptInterview' | 'css' | 'dom' | 'react' | 'typescript' | 'systemDesign' | 'databases' | 'networking' | 'ux';
+export type FlashcardCategory = 'security' | 'javascriptInterview' | 'css' | 'dom' | 'react' | 'typescript' | 'systemDesign' | 'databases' | 'networking' | 'ux' | 'docker' | 'nodejs'| 'testing';
 
 export interface CategoryInfo {
   id: FlashcardCategory;
@@ -24,7 +24,7 @@ export const categories: CategoryInfo[] = [
   },
   {
     id: 'javascriptInterview',
-    name: 'JavaScript Interview',
+    name: 'JavaScript',
     icon: '💼',
     color: '#f7df1e',
   },
@@ -67,7 +67,7 @@ export const categories: CategoryInfo[] = [
   {
     id: 'networking',
     name: 'Networking',
-    icon: '🌐',
+    icon: '🔗',
     color: '#16a085',
   },
   {
@@ -76,9 +76,124 @@ export const categories: CategoryInfo[] = [
     icon: '👥',
     color: '#e74c3c',
   },
+  {
+    id: 'docker',
+    name: 'Docker',
+    icon: '🐳',
+    color: '#2496ed',
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    icon: '🟩',
+    color: '#339933',
+  },
+  {
+    id: 'testing',
+    name: 'Testing',
+    icon: '🧪',
+    color: '#8e44ad',
+  },
 ];
 
 export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
+    testing: [
+      {
+        id: 'testing-external-services',
+        question: 'How do you test interactions with external services (e.g., databases, APIs)?',
+        answer: 'You can use test doubles like mocks or stubs to simulate external services, ensuring tests are fast and reliable. For integration tests, use test databases or sandbox APIs. Tools like nock (for HTTP), testcontainers, or in-memory databases help isolate and control external dependencies.',
+        category: 'testing',
+        lessonUrl: 'https://martinfowler.com/articles/mocksArentStubs.html'
+      },
+      {
+        id: 'testing-first',
+        question: 'What are the FIRST principles of unit testing?',
+        answer: 'FIRST stands for Fast (tests should run quickly), Independent (tests should not depend on each other), Repeatable (tests should produce the same result every time), Self-validating (tests should have a clear pass/fail result), and Timely (tests should be written early, ideally before the code).',
+        category: 'testing',
+        lessonUrl: 'https://martinfowler.com/bliki/UnitTest.html'
+      },
+    ],
+    nodejs: [
+      // Basic
+      {
+        id: 'nodejs-1',
+        question: 'What is Node.js and what are its main features (event loop, non-blocking I/O)?',
+        answer: 'Node.js is a runtime for executing JavaScript on the server. Its main features are the event loop (handles asynchronous operations efficiently), non-blocking I/O (allows many operations to run in parallel), and single-threaded architecture. Great for scalable network apps.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/'
+      },
+      {
+        id: 'nodejs-2',
+        question: 'Explain how the event loop works in Node.js.',
+        answer: 'The event loop is the mechanism that allows Node.js to handle many concurrent operations in a single thread. It processes events and callbacks from the queue, executing asynchronous code when the stack is empty. Enables non-blocking I/O.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/the-nodejs-event-loop/'
+      },
+      {
+        id: 'nodejs-3',
+        question: 'Difference between CommonJS (require()) and ES Modules (import). What is ESM?',
+        answer: 'CommonJS uses require() and module.exports, loads modules synchronously, and is traditional in Node.js. ES Modules use import/export, support static analysis, and are natively supported in modern Node.js (ESM). ESM is the new standard for modular JavaScript.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.org/api/esm.html'
+      },
+      {
+        id: 'nodejs-4',
+        question: 'How does Node.js handle multithreading and when should you use Worker Threads?',
+        answer: 'Node.js is single-threaded by default, but you can use Worker Threads for CPU-intensive tasks. Worker Threads run JavaScript in parallel, useful for heavy computations. For I/O, Node relies on async non-blocking operations.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.org/api/worker_threads.html'
+      },
+      {
+        id: 'nodejs-5',
+        question: 'What are Streams in Node.js and when should you use them?',
+        answer: 'Streams are objects for reading or writing data piece by piece (chunks) instead of all at once. Use them for large files, network communication, or when you want to process data efficiently and with low memory usage.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/nodejs-streams/'
+      },
+      // Intermediate
+      {
+        id: 'nodejs-6',
+        question: 'How do you handle errors in asynchronous code (callbacks vs Promises vs async/await)?',
+        answer: 'With callbacks, errors are passed as the first argument (err). Promises use .catch() for errors. async/await uses try/catch blocks. Promises and async/await make error handling cleaner and easier to read than callbacks.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/error-handling-in-nodejs/'
+      },
+      {
+        id: 'nodejs-7',
+        question: 'Difference between process.nextTick(), setImmediate(), and setTimeout().',
+        answer: 'process.nextTick() schedules a callback to run after the current operation, before any I/O. setImmediate() runs after I/O events. setTimeout() runs after a minimum delay. They control timing and order of execution in the event loop.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/the-nodejs-event-loop/'
+      },
+      {
+        id: 'nodejs-8',
+        question: 'How do you secure a Node.js app against common attacks (SQL injection, XSS, CSRF)?',
+        answer: 'Use parameterized queries to prevent SQL injection, sanitize user input and use Content Security Policy for XSS, and implement CSRF tokens for forms. Always validate and escape input, use HTTPS, and keep dependencies up to date.',
+        category: 'nodejs',
+        lessonUrl: 'https://owasp.org/www-project-nodejs/'
+      },
+      {
+        id: 'nodejs-9',
+        question: 'What are strategies for scaling Node.js apps? (cluster, load balancer)',
+        answer: 'Use the cluster module to run multiple Node.js processes on different CPU cores. Use a load balancer (e.g., Nginx, HAProxy) to distribute traffic. Consider microservices, containerization, and horizontal scaling for large apps.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/scaling-nodejs-apps/'
+      },
+      {
+        id: 'nodejs-10',
+        question: 'How does stream.pipe() work and what is it used for?',
+        answer: 'stream.pipe() connects a readable stream to a writable stream, automatically handling data flow and backpressure. It is used for efficient data transfer, like copying files or sending HTTP responses.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/nodejs-streams/'
+      },
+      {
+        id: 'nodejs-11',
+        question: 'Difference between writeFileSync, writeFile, and createWriteStream in Node.js.',
+        answer: 'writeFileSync writes a file synchronously (blocking). writeFile writes asynchronously (non-blocking). createWriteStream writes data in chunks, ideal for large files or streaming data. Prefer async methods for performance.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.dev/en/learn/writing-files-with-nodejs/'
+      },
+    ],
   security: [
     {
       id: 'sec-1',
@@ -151,7 +266,51 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       lessonUrl: 'https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/'
     },
   ],
+  docker: [
+        {
+          id: 'docker-5',
+          question: 'What is Docker Compose?',
+          answer: 'Docker Compose is a tool for defining and running multi-container Docker applications. You use a YAML file (docker-compose.yml) to configure services, networks, and volumes, then start everything with a single command. It simplifies managing complex setups for development and testing.',
+          category: 'docker',
+          lessonUrl: 'https://docs.docker.com/compose/'
+        },
+    {
+      id: 'docker-1',
+      question: 'What is the difference between a Docker container and an image?',
+      answer: 'An image is a read-only template with instructions for creating a container (includes app code, libraries, dependencies). A container is a running instance of an image—an isolated environment where the application runs. You can have many containers from the same image.',
+      category: 'docker',
+      lessonUrl: 'https://docs.docker.com/get-started/overview/'
+    },
+    {
+      id: 'docker-2',
+      question: 'What is Docker and why is it useful?',
+      answer: 'Docker is a platform for developing, shipping, and running applications in lightweight, portable containers. It simplifies deployment, ensures consistency across environments, and isolates apps for security and scalability.',
+      category: 'docker',
+      lessonUrl: 'https://www.docker.com/resources/what-container/'
+    },
+    {
+      id: 'docker-3',
+      question: 'What is a Dockerfile?',
+      answer: 'A Dockerfile is a text file with instructions for building a Docker image. It defines the base image, environment variables, files to copy, commands to run, and more. Docker reads the Dockerfile to create a custom image.',
+      category: 'docker',
+      lessonUrl: 'https://docs.docker.com/engine/reference/builder/'
+    },
+    {
+      id: 'docker-4',
+      question: 'How do you share data between a Docker container and the host?',
+      answer: 'You can use volumes or bind mounts to share data. Volumes are managed by Docker and persist data outside the container lifecycle. Bind mounts map a host directory or file directly into the container. Both allow data to be shared and persisted.',
+      category: 'docker',
+      lessonUrl: 'https://docs.docker.com/storage/volumes/'
+    },
+  ],
   javascriptInterview: [
+    {
+      id: 'js-0',
+      question: 'var vs let vs const',
+      answer: 'var is function-scoped { works within the brackets }, hoisted with undefined initialization, and can be redeclared.\n let and const are block-scoped, exist in the temporal dead zone until declaration, and cannot be redeclared. const cannot be reassigned after initialization.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var'
+    },
     {
       id: 'js-1',
       question: 'Closure',
@@ -235,6 +394,20 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'Event loop has: Call Stack (executes functions), Task Queue (macro tasks), Microtask Queue (promises). Process: 1) Execute all synchronous code, 2) Execute all microtasks, 3) Execute one macro task, 4) Execute all microtasks again, 5) Repeat. This enables asynchronous JavaScript.',
       category: 'javascriptInterview',
       lessonUrl: 'https://www.jsv9000.app/'
+    },
+    {
+      id: 'js-13',
+      question: 'Promise.all([fetch, fetch, fetch]) vs await fetch; await fetch; await fetch;',
+      answer: 'Promise.all([fetch1, fetch2, fetch3]) runs all fetch requests in parallel and waits for all to finish, making it much faster for independent requests. Using await fetch1; await fetch2; await fetch3; runs them sequentially—each starts after the previous finishes, which is slower but can be useful if requests depend on each other.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all'
+    },
+    {
+      id: 'js-14',
+      question: 'What will be logged by this code?\n for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 0);\n}\nconsole.log(\'done\');',
+      answer: 'Output:\n1. done\n2. 3\n3. 3\n4. 3\n\nExplanation: The console.log(\'done\') runs first because setTimeout is asynchronous. All setTimeout callbacks log 3 because var is function-scoped, so after the loop, i === 3. Each callback refers to the same i.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var'
     },
   ],
   css: [
@@ -323,6 +496,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'requestAnimationFrame tells the browser to perform an animation and requests that the browser call a specified function before the next repaint. It optimizes animations to run at ~60fps and pauses when tab is inactive.',
       category: 'dom',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame'
+    },
+     {
+      id: 'dom-7',
+      question: 'Mutation Observer',
+      answer: 'A Mutation Observer is a JavaScript API that lets you watch for changes (mutations) in the DOM tree, such as when elements are added, removed, or attributes/text change. It is more efficient than polling and is used for tasks like reacting to dynamic content, building custom components, or tracking changes in web apps.',
+      category: 'dom',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver'
     },
   ],
   react: [
@@ -498,6 +678,55 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     },
   ],
   systemDesign: [
+        {
+          id: 'sd-transactional-outbox',
+          question: 'What is the Transactional Outbox pattern?',
+          answer: 'The Transactional Outbox pattern is a technique for reliably publishing events/messages from a service that uses a database. Instead of sending messages directly, the service writes them to an outbox table in the same database as part of the main transaction. A separate process then reads the outbox and publishes the messages. This ensures consistency between the database state and published events, avoiding lost or duplicated messages.',
+          category: 'systemDesign',
+          lessonUrl: 'https://microservices.io/patterns/data/transactional-outbox.html'
+        },
+        {
+          id: 'sd-adr',
+          question: 'What are Architecture Decision Records (ADR)?',
+          answer: 'Architecture Decision Records (ADR) are short documents that capture important architectural decisions made during a project. They describe the context, decision, and consequences, helping teams track and communicate why certain choices were made. ADRs improve transparency and knowledge sharing in software projects.',
+          category: 'systemDesign',
+          lessonUrl: 'https://adr.github.io/'
+        },
+    {
+      id: 'sd-hexagonal',
+      question: 'What is Hexagonal Architecture (Clean Architecture)?',
+      answer: 'Hexagonal Architecture, also known as Clean Architecture or Ports and Adapters, is a software design pattern that separates the core business logic from external concerns (like databases, UI, APIs). The core domain is at the center, surrounded by interfaces (ports) and adapters for communication. This improves testability, flexibility, and maintainability.',
+      category: 'systemDesign',
+      lessonUrl: 'https://martinfowler.com/bliki/HexagonalArchitecture.html'
+    },
+    {
+      id: 'sd-ddd-1',
+      question: 'What is Domain-Driven Design (DDD) and why is it important?',
+      answer: 'Domain-Driven Design (DDD) is an approach to software development that emphasizes modeling software based on the real-world domain and business logic. It helps teams create a shared understanding, improves code maintainability, and aligns technical solutions with business needs.',
+      category: 'systemDesign',
+      lessonUrl: 'https://martinfowler.com/bliki/DomainDrivenDesign.html'
+    },
+    {
+      id: 'sd-ddd-2',
+      question: 'What are the main building blocks of DDD?',
+      answer: 'The main building blocks of DDD are: Entity (has identity), Value Object (no identity, immutable), Aggregate (cluster of domain objects), Repository (access to aggregates), Service (domain logic not naturally part of an entity or value object), and Factory (creates complex objects).',
+      category: 'systemDesign',
+      lessonUrl: 'https://dddcommunity.org/learning-ddd/what_is_ddd/'
+    },
+    {
+      id: 'sd-ddd-3',
+      question: 'What is a bounded context in DDD?',
+      answer: 'A bounded context is a logical boundary within which a particular domain model is defined and applicable. It helps avoid ambiguity and ensures that terms and concepts are consistent within that context. Bounded contexts are key for scaling and integrating large systems.',
+      category: 'systemDesign',
+      lessonUrl: 'https://martinfowler.com/bliki/BoundedContext.html'
+    },
+    {
+      id: 'sd-ddd-4',
+      question: 'How do you integrate multiple bounded contexts in DDD?',
+      answer: 'Bounded contexts can be integrated using patterns like shared kernel, customer-supplier, conformist, or anti-corruption layer. The goal is to manage dependencies and translations between models, ensuring each context remains independent and consistent.',
+      category: 'systemDesign',
+      lessonUrl: 'https://martinfowler.com/bliki/BoundedContext.html'
+    },
     {
       id: 'sd-1',
       question: 'Vertical vs horizontal scaling',
@@ -556,12 +785,12 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     },
   ],
   databases: [
-    {
-      id: 'db-1',
-      question: 'Difference between SQL and NoSQL databases',
-      answer: 'SQL databases are relational, use structured schemas, and support ACID transactions (MySQL, PostgreSQL). NoSQL databases are non-relational, schema-flexible, and optimized for specific use cases (MongoDB, Redis, Cassandra). Choice depends on data structure and scalability needs.',
+  {
+      id: 'db-index-basics',
+      question: 'What exactly does index do?',
+      answer: 'When you create an index, the database builds a structure (like a B-tree or hash) that stores selected column values and pointers to rows. When you run a query with a condition (e.g., WHERE name = "Anna"), the engine checks for an index. If it exists, the database searches the index instead of the whole table and quickly finds pointers to matching rows. This makes SELECT much faster because it avoids scanning every row.',
       category: 'databases',
-      lessonUrl: 'https://www.mongodb.com/resources/compare/relational-vs-non-relational-databases'
+      lessonUrl: 'https://use-the-index-luke.com/'
     },
     {
       id: 'db-2',
@@ -691,6 +920,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       category: 'networking',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/HTTPS'
     },
+    {
+      id: 'net-4',
+      question: 'Lifecycle of an HTTP request',
+      answer: '1. Client (browser/app) creates and sends an HTTP request to a server (URL, method, headers, body).\n 2. Request travels through the network (DNS resolution, TCP handshake, optional TLS handshake for HTTPS).\n 3. Server receives and processes the request (routing, authentication, business logic, database access).\n 4.Server generates and sends an HTTP response (status code, headers, body). \n5. Client receives and processes the response (renders page, updates UI, handles errors).',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview'
+    },
   ],
   ux: [
     {
@@ -705,7 +941,14 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       question: 'Core Web Vitals and performance metrics',
       answer: '• Largest Contentful Paint (LCP): time when largest visible content renders (target: <2.5s)\n• First Input Delay (FID): latency from user input to response (target: <100ms, replaced by INP)\n• Cumulative Layout Shift (CLS): visual stability during load (target: <0.1)\n• Interaction to Next Paint (INP): responsiveness of interactions (replaces FID)',
       category: 'ux',
-      lessonUrl: 'https://web.dev/vitals'
+      lessonUrl: 'https://web.dev/vitals'    
+    },
+    {
+      id: 'js-throttle-debounce',
+      question: 'Throttling vs Debouncing (network requests)',
+      answer: 'Throttling limits the number of times a function (e.g., network request) can be called over time—calls are spaced out at regular intervals. Debouncing delays the function call until a certain time has passed since the last attempt—only the final call is executed after the pause. Throttling is useful for rate-limiting (e.g., scroll, resize events), debouncing for actions like search input or auto-save.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://css-tricks.com/debouncing-throttling-explained-examples/'
     },
     {
       id: 'ux-3',
