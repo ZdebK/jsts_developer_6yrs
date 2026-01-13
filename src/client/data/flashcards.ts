@@ -96,6 +96,13 @@ export const categories: CategoryInfo[] = [
   },
 ];
 
+// GitHub Copilot/AI contributors: 
+// 1. Always add new flashcards in English (unless explicitly requested otherwise).
+// 2. Use sequential, numbered IDs for each category (e.g., sec-13, net-5, js-15).
+// 3. Assign the most relevant category (e.g., security, networking, javascriptInterview).
+// 4. Keep questions and answers short and clear for interview prep.
+// 5. If in doubt, ask the user for clarification before adding.
+
 export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
     testing: [
       {
@@ -265,15 +272,27 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       category: 'security',
       lessonUrl: 'https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/'
     },
+    {
+      id: 'sec-11',
+      question: 'What is authentication?',
+      answer: 'Authentication is the process of verifying who you are, typically using credentials like a username and password.',
+      category: 'security'
+    },
+    {
+      id: 'sec-12',
+      question: 'What is authorization?',
+      answer: 'Authorization is the process of determining what actions you are allowed to perform after authentication.',
+      category: 'security'
+    },
+    {
+      id: 'sec-13',
+      question: 'How does OAuth work?',
+      answer: 'OAuth is an open standard for access delegation. It allows a user to grant a third-party application limited access to their resources without sharing credentials. The user authenticates with the service provider, authorizes the app, and the app receives an access token to access resources on the user’s behalf.',
+      category: 'networking',
+      lessonUrl: 'https://oauth.net/2/'
+    },
   ],
   docker: [
-        {
-          id: 'docker-5',
-          question: 'What is Docker Compose?',
-          answer: 'Docker Compose is a tool for defining and running multi-container Docker applications. You use a YAML file (docker-compose.yml) to configure services, networks, and volumes, then start everything with a single command. It simplifies managing complex setups for development and testing.',
-          category: 'docker',
-          lessonUrl: 'https://docs.docker.com/compose/'
-        },
     {
       id: 'docker-1',
       question: 'What is the difference between a Docker container and an image?',
@@ -301,6 +320,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'You can use volumes or bind mounts to share data. Volumes are managed by Docker and persist data outside the container lifecycle. Bind mounts map a host directory or file directly into the container. Both allow data to be shared and persisted.',
       category: 'docker',
       lessonUrl: 'https://docs.docker.com/storage/volumes/'
+    },
+    {
+      id: 'docker-5',
+      question: 'What is Docker Compose?',
+      answer: 'Docker Compose is a tool for defining and running multi-container Docker applications. You use a YAML file (docker-compose.yml) to configure services, networks, and volumes, then start everything with a single command. It simplifies managing complex setups for development and testing.',
+      category: 'docker',
+      lessonUrl: 'https://docs.docker.com/compose/'
     },
   ],
   javascriptInterview: [
