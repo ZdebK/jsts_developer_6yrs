@@ -200,6 +200,20 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
         category: 'nodejs',
         lessonUrl: 'https://nodejs.dev/en/learn/writing-files-with-nodejs/'
       },
+      {
+        id: 'nodejs-12',
+        question: 'What are iterators and Readable streams in Node.js and what are they used for?',
+        answer: 'Iterators provide a way to access data one item at a time using next(). Readable streams are used to read data in chunks (e.g., from files, network). You can use for-await-of to iterate over async data from a Readable stream, making it easy to process large or streaming data efficiently.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.org/api/stream.html#readable-streams'
+      },
+      {
+        id: 'nodejs-13',
+        question: 'What is backpressure in Node.js streams and how is it handled?',
+        answer: 'Backpressure occurs when a writable stream cannot process data as fast as a readable stream provides it. Node.js handles backpressure by pausing the readable stream until the writable stream drains, using methods like stream.pause(), stream.resume(), and the drain event. This prevents memory overload and ensures efficient data flow.',
+        category: 'nodejs',
+        lessonUrl: 'https://nodejs.org/api/stream.html#what-is-backpressure'
+      },
     ],
   security: [
     {
@@ -328,6 +342,27 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       category: 'docker',
       lessonUrl: 'https://docs.docker.com/compose/'
     },
+    {
+      id: 'docker-6',
+      question: 'What is Helm in the context of containers and Kubernetes?',
+      answer: 'Helm is a package manager for Kubernetes. It helps you define, install, and upgrade complex Kubernetes applications using reusable templates called charts. Helm simplifies deployment and management of containerized applications.',
+      category: 'docker',
+      lessonUrl: 'https://helm.sh/docs/intro/using_helm/'
+    },
+    {
+      id: 'docker-7',
+      question: 'What is HPA (Horizontal Pod Autoscaler) in Kubernetes?',
+      answer: 'HPA automatically scales the number of pods in a Kubernetes deployment based on observed CPU utilization or other metrics. It helps applications handle variable loads efficiently by adding or removing pods as needed.',
+      category: 'docker',
+      lessonUrl: 'https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/'
+    },
+    {
+      id: 'docker-8',
+      question: 'What are Secrets and ConfigMaps used for in Kubernetes?',
+      answer: 'Secrets are used to store sensitive data (like passwords, API keys) securely in Kubernetes. ConfigMaps store non-sensitive configuration data (like environment variables, config files). Both allow you to decouple configuration and secrets from container images.',
+      category: 'docker',
+      lessonUrl: 'https://kubernetes.io/docs/concepts/configuration/secret/'
+    },
   ],
   javascriptInterview: [
     {
@@ -434,6 +469,20 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'Output:\n1. done\n2. 3\n3. 3\n4. 3\n\nExplanation: The console.log(\'done\') runs first because setTimeout is asynchronous. All setTimeout callbacks log 3 because var is function-scoped, so after the loop, i === 3. Each callback refers to the same i.',
       category: 'javascriptInterview',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var'
+    },
+    {
+      id: 'js-15',
+      question: 'What does Promise.any() do in JavaScript?',
+      answer: 'Promise.any() returns a promise that fulfills as soon as any of the input promises fulfills, with the value of that promise. If all input promises are rejected, it rejects with an AggregateError. Useful when you want the first successful result, not just the first settled one.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any'
+    },
+    {
+      id: 'js-16',
+      question: 'What are asynchronous iterators in JavaScript?',
+      answer: 'Asynchronous iterators allow you to iterate over data sources that deliver data asynchronously (e.g., streams, network). They use the Symbol.asyncIterator protocol and for-await-of loops. Each iteration returns a promise that resolves to the next value.',
+      category: 'javascriptInterview',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of'
     },
   ],
   css: [
@@ -616,6 +665,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       category: 'react',
       lessonUrl: 'https://react.dev/learn/responding-to-events'
     },
+    {
+      id: 'react-13',
+      question: 'How do you configure server-side rendering (SSR) in a React app?',
+      answer: 'To configure SSR, use a framework like Next.js or set up a Node.js server (e.g., with Express) that renders React components to HTML using ReactDOMServer. Send the HTML to the client, then hydrate with React on the client side. Configure routing and data fetching to work on both server and client.',
+      category: 'react',
+      lessonUrl: 'https://nextjs.org/docs/getting-started'
+    },
   ],
   typescript: [
     {
@@ -701,6 +757,20 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: 'Use interface for object shapes, public APIs, and when you need declaration merging (extending across multiple declarations). Use type for unions, intersections, tuples, mapped types, and utility types. Interface has better error messages for object shapes.',
       category: 'typescript',
       lessonUrl: 'https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces'
+    },
+    {
+      id: 'ts-13',
+      question: 'What do Pick, Extract, and Record do in TypeScript?',
+      answer: 'Pick<Type, Keys> creates a type with only the selected properties from Type. Extract<Type, Union> creates a type with members of Type that are assignable to Union. Record<Keys, Type> creates an object type with Keys as properties and Type as values. All are utility types for advanced type manipulation.',
+      category: 'typescript',
+      lessonUrl: 'https://www.typescriptlang.org/docs/handbook/utility-types.html'
+    },
+    {
+      id: 'ts-14',
+      question: 'Give an example of a conditional type in TypeScript and how to use it.',
+      answer: 'A conditional type uses the syntax: T extends U ? X : Y. Example: type IsString<T> = T extends string ? true : false;\nUsage: IsString<string> // true, IsString<number> // false. Conditional types let you create types based on logic.',
+      category: 'typescript',
+      lessonUrl: 'https://www.typescriptlang.org/docs/handbook/2/conditional-types.html'
     },
   ],
   systemDesign: [
@@ -923,6 +993,34 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       category: 'databases',
       lessonUrl: 'https://www.mongodb.com/nosql-explained/nosql-vs-sql'
     },
+    {
+      id: 'db-17',
+      question: 'What is the difference between a sequential scan (seq scan) and an index scan in SQL databases?',
+      answer: 'A sequential scan (seq scan) reads every row in the table to find matching records. An index scan uses an index to quickly locate matching rows, reading only relevant parts of the table. Index scans are faster for selective queries, while seq scans are used when most rows are needed or no suitable index exists.',
+      category: 'databases',
+      lessonUrl: 'https://www.postgresql.org/docs/current/indexes-index-only-scans.html'
+    },
+    {
+      id: 'db-18',
+      question: 'What are tablespaces in SQL databases?',
+      answer: 'Tablespaces are storage locations on disk where database objects (tables, indexes) are stored. They allow database administrators to control the physical placement of data, optimize performance, and manage storage across multiple disks.',
+      category: 'databases',
+      lessonUrl: 'https://www.postgresql.org/docs/current/manage-ag-tablespaces.html'
+    },
+    {
+      id: 'db-19',
+      question: 'What is a window function and what are grouping sets in SQL?',
+      answer: 'A window function performs calculations across a set of table rows related to the current row (e.g., running totals, rankings) without collapsing rows. GROUPING SETS allow you to group by multiple combinations in a single query, producing subtotals and grand totals. Both are advanced SQL features for analytics.',
+      category: 'databases',
+      lessonUrl: 'https://www.postgresql.org/docs/current/tutorial-window.html'
+    },
+    {
+      id: 'db-20',
+      question: 'What are transaction isolation levels in SQL and what are they used for?',
+      answer: 'Transaction isolation levels define how and when changes made by one transaction become visible to others. They control concurrency issues like dirty reads, non-repeatable reads, and phantom reads. Common levels: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE.',
+      category: 'databases',
+      lessonUrl: 'https://www.postgresql.org/docs/current/transaction-iso.html'
+    },
   ],
   networking: [
     {
@@ -952,6 +1050,63 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: '1. Client (browser/app) creates and sends an HTTP request to a server (URL, method, headers, body).\n 2. Request travels through the network (DNS resolution, TCP handshake, optional TLS handshake for HTTPS).\n 3. Server receives and processes the request (routing, authentication, business logic, database access).\n 4.Server generates and sends an HTTP response (status code, headers, body). \n5. Client receives and processes the response (renders page, updates UI, handles errors).',
       category: 'networking',
       lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview'
+    },
+    // HTTP Cache Headers flashcards
+    {
+      id: 'net-5',
+      question: 'What are HTTP cache headers and why are they important?',
+      answer: 'HTTP cache headers (like Cache-Control, Expires, ETag, Last-Modified) control how browsers and proxies cache responses. They improve performance, reduce server load, and enable offline access by reusing cached resources.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching'
+    },
+    {
+      id: 'net-6',
+      question: 'How does the Cache-Control header work?',
+      answer: 'Cache-Control is the main HTTP header for controlling caching. It can specify directives like public, private, no-cache, no-store, max-age, must-revalidate. For example, max-age=3600 means the response can be cached for 1 hour.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control'
+    },
+    {
+      id: 'net-7',
+      question: 'What is the difference between ETag and Last-Modified headers?',
+      answer: 'ETag is a unique identifier for a specific version of a resource. Last-Modified is a timestamp of the last change. Both are used for validation: the browser sends them in conditional requests to check if the resource has changed.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag'
+    },
+    {
+      id: 'net-8',
+      question: 'How does browser cache validation work with ETag or Last-Modified?',
+      answer: 'When a cached resource expires, the browser sends a conditional request with If-None-Match (ETag) or If-Modified-Since (Last-Modified). If the resource is unchanged, the server responds with 304 Not Modified, saving bandwidth.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#validation'
+    },
+    {
+      id: 'net-9',
+      question: 'What is the difference between strong and weak validation in HTTP caching?',
+      answer: 'Strong validation (ETag, Last-Modified) ensures the cached resource is byte-for-byte identical. Weak validation (weak ETag, heuristics) allows for minor changes. Strong validation is more reliable for cache consistency.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#validation'
+    },
+    {
+      id: 'net-10',
+      question: 'What does the Expires header do?',
+      answer: 'The Expires header specifies a fixed date/time after which the response is considered stale. It is an older way to control caching and is less flexible than Cache-Control, but still supported for backward compatibility.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires'
+    },
+    {
+      id: 'net-11',
+      question: 'What is the difference between FIFO and LRU cache eviction policies?',
+      answer: 'FIFO (First-In, First-Out) removes the oldest cached item (the one added first) when the cache is full, regardless of how often it is used. LRU (Least Recently Used) removes the item that has not been used for the longest time, tracking recent usage. LRU usually matches real-world access patterns better than FIFO.',
+      category: 'networking',
+      lessonUrl: 'https://en.wikipedia.org/wiki/Cache_replacement_policies'
+    },
+    {
+      id: 'net-12',
+      question: 'How is a CDN (Content Delivery Network) used in web applications?',
+      answer: 'A CDN is a network of distributed servers that cache and deliver static content (like images, CSS, JS) closer to users. It reduces latency, speeds up load times, and offloads traffic from the origin server. CDNs are used by setting up DNS or URLs to point to CDN endpoints, which then fetch and cache content from the origin.',
+      category: 'networking',
+      lessonUrl: 'https://developer.mozilla.org/en-US/docs/Glossary/CDN'
     },
   ],
   ux: [
@@ -1010,6 +1165,13 @@ export const flashcardsData: Record<FlashcardCategory, Flashcard[]> = {
       answer: ' • reduces eye strain in low-light environments and saves battery on OLED screens\n  • use CSS \n • ensure sufficient contrast: light text on dark backgrounds\n • use CSS custom properties (variables) for theme colors to switch easily\n • respect user preference\n • test both light and dark modes thoroughly to ensure readability and usability',
       category: 'ux',
       lessonUrl: 'https://web.dev/prefers-color-scheme/'
+    },
+    {
+      id: 'ux-7',
+      question: 'What are 5 key steps to optimize a website for SEO?',
+      answer: '1. Use semantic HTML tags (title, headings, alt attributes for images). 2. Optimize page speed (minify CSS/JS, compress images, use caching). 3. Ensure mobile-friendliness and responsive design. 4. Create high-quality, keyword-rich content and meta descriptions. 5. Build internal/external links and submit sitemaps to search engines.',
+      category: 'ux',
+      lessonUrl: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide'
     },
   ],
 };
