@@ -1,5 +1,6 @@
-import type { FlashcardCategory } from '../../data/Flashcards';
-import { categories } from '../../data/Flashcards';
+
+import { categories } from '../../data/flashcards';
+import { FlashcardCategory } from '../../utils/FlashcardTypes';
 
 interface CategoryHeaderProps {
   selectedCategory: FlashcardCategory | null;

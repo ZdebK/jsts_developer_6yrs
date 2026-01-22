@@ -24,3 +24,6 @@ export const getStaggerDelay = (index: number, baseDelay: number = STAGGER_DELAY
 // Helper to get sequential delays
 export const getSequentialDelay = (step: number): number => 
   step * ANIMATION_DELAYS.FAST;
+
+
+export const IS_DEV = process.env.NODE_ENV !== 'production';

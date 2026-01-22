@@ -1,19 +1,4 @@
-export interface Flashcard {
-  id: string;
-  question: string;
-  answer: string;
-  category: FlashcardCategory;
-  lessonUrl?: string;
-}
-
-export type FlashcardCategory = 'security' | 'javascriptInterview' | 'css' | 'dom' | 'react' | 'typescript' | 'systemDesign' | 'databases' | 'networking' | 'ux' | 'docker' | 'nodejs'| 'testing';
-
-export interface CategoryInfo {
-  id: FlashcardCategory;
-  name: string;
-  icon: string;
-  color: string;
-}
+import { CategoryInfo, Flashcard, FlashcardCategory } from "../utils/FlashcardTypes";
 
 export const categories: CategoryInfo[] = [
   {

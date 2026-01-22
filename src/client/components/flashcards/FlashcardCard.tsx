@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Card } from '../ui/card';
-import type { Flashcard } from '../../data/Flashcards';
 import ReactMarkdown from 'react-markdown';
+import { Flashcard } from '../../utils/FlashcardTypes';
 
 interface FlashcardCardProps {
   flashcard: Flashcard;

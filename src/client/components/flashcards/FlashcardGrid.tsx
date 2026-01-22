@@ -1,7 +1,7 @@
 import { FlashcardCard } from './FlashcardCard';
-import type { Flashcard } from '../../data/Flashcards';
 import { Button } from '../ui/button';
 import { BookOpen } from 'lucide-react';
+import { Flashcard } from '../../utils/FlashcardTypes';
 
 interface FlashcardGridProps {
   flashcards: Flashcard[];
